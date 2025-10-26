@@ -1,6 +1,6 @@
 import portfolio, { portfolioItem } from "@/data/data";
 import ReactMarkdown from "react-markdown";
-import { backArrow as BackArrow } from "@/components/icons/ckArrowIcon";
+import { BackArrow as BackArrow } from "@/components/icons/ckArrowIcon";
 import {
   ArticleA,
   ArticleH1,
@@ -13,7 +13,6 @@ import {
   ArticleViewer,
 } from "@/components/article-components/articleComponents";
 import { Metadata } from "next";
-import { PortfolioItemProps } from "@/components/PortfolioItem";
 
 interface PortfolioPageProps {
   params: { slug: any };
@@ -45,10 +44,9 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 export default async function PortfolioPage({ params }: PortfolioPageProps) {
-  let portfolioItem: portfolioItem | undefined;
   const slug = params.slug;
   // find the portfolio item that has a separate page and matches the slug
-  portfolioItem = portfolio.find(
+  const portfolioItem = portfolio.find(
     (p) => p.seperatePage && slugify(p.name) === slugify(slug)
   );
 

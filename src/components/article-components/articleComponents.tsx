@@ -1,8 +1,6 @@
 "use client";
-import colors from "@/design-system/colors";
 import { unitSpace } from "@/design-system/spaces";
 import React, { useEffect, useState } from "react";
-import Head from "next/head";
 
 interface ArticleH1Props extends React.HTMLAttributes<HTMLHeadElement> {}
 
@@ -18,10 +16,6 @@ interface ArticlePProps extends React.HTMLAttributes<HTMLParagraphElement> {
 interface ArticleAProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
-
-interface ArticleHRProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-interface ArticleLiProps extends React.LiHTMLAttributes<HTMLElement> {}
 
 // #
 export const ArticleH1: React.FC<ArticleH1Props> = ({ children }) => {
@@ -155,7 +149,9 @@ export const ArticleA: React.FC<ArticleAProps> = ({ children, href }) => {
   );
 };
 
-export const ArticleHR: React.FC<ArticleHRProps> = ({ children }) => {
+export const ArticleHR: React.FC<
+  React.HTMLAttributes<HTMLDivElement>
+> = ({}) => {
   return (
     <div
       style={{
@@ -163,8 +159,8 @@ export const ArticleHR: React.FC<ArticleHRProps> = ({ children }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: '3rem',
-        marginBottom: '3rem',
+        marginTop: "3rem",
+        marginBottom: "3rem",
         gap: "1rem",
       }}
     >
@@ -196,7 +192,10 @@ export const ArticleHR: React.FC<ArticleHRProps> = ({ children }) => {
   );
 };
 
-export const ArticleLi: React.FC<ArticleLiProps> = ({ children, style }) => {
+export const ArticleLi: React.FC<React.LiHTMLAttributes<HTMLElement>> = ({
+  children,
+  style,
+}) => {
   return (
     <li>
       <ArticleP style={style}>{children}</ArticleP>

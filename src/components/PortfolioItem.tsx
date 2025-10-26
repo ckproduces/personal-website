@@ -2,7 +2,7 @@
 import { portfolioItem } from "@/data/data";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ckArrowIcon as CkArrowIcon } from "./icons/ckArrowIcon";
+import { CkArrowIcon as CkArrowIcon } from "./icons/ckArrowIcon";
 
 export interface PortfolioItemProps extends portfolioItem {
   children?: React.ReactNode;
@@ -11,7 +11,6 @@ export interface PortfolioItemProps extends portfolioItem {
 }
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({
-  id,
   name,
   date,
   dateEnd,
@@ -22,7 +21,6 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
   imageBorderRadius,
   seperatePage,
   windowSize,
-  program,
   href,
 }) => {
   const [hovered, setHovered] = useState(false);

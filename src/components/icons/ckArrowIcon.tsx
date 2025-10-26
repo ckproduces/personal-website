@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 interface ckArrowIconProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   size?: number | string;
-  color?: any;
+  color?: string;
   component?: React.ElementType;
   to?: string;
 }
 
-export const ckArrowIcon: React.FC<ckArrowIconProps> = ({
+export const CkArrowIcon: React.FC<ckArrowIconProps> = ({
   size,
   color,
   style,
@@ -37,7 +37,7 @@ export const ckArrowIcon: React.FC<ckArrowIconProps> = ({
   );
 };
 
-export const backArrow: React.FC<ckArrowIconProps> = ({
+export const BackArrow: React.FC<ckArrowIconProps> = ({
   size,
   color,
   style,
@@ -45,14 +45,14 @@ export const backArrow: React.FC<ckArrowIconProps> = ({
   component: Component = "div",
   to,
 }) => {
-  const router = useRouter();
+  const Router = useRouter();
   return (
     <Component
       className={className}
       style={style}
       onClick={() => {
         if (to) {
-          router.push(to);
+          Router.push(to);
         }
       }}
     >
@@ -80,7 +80,7 @@ export const crokan: React.FC<ckArrowIconProps> = ({
   component: Component = "div",
   to,
 }) => {
-  const router = useRouter();
+  const Router = useRouter();
   return (
     <Component
       className={className}
@@ -90,7 +90,7 @@ export const crokan: React.FC<ckArrowIconProps> = ({
       }}
       onClick={() => {
         if (to) {
-          router.push(to);
+          Router.push(to);
         }
       }}
     >

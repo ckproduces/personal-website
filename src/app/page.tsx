@@ -5,10 +5,7 @@ import PortfolioItem from "@/components/PortfolioItem";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [category, setCategory] = useState<string>("");
   const [windowSize, setWindowSize] = useState(2000);
-
-  const router = useRouter();
 
   useEffect(() => {
     // Initialize width on mount
@@ -124,20 +121,15 @@ export default function Home() {
               gap: "2.5rem",
             }}
           >
-            {experiences
-              .filter((item) => {
-                if (category == "") return true;
-                return item.type.includes(category);
-              })
-              .map((item) => {
-                return (
-                  <PortfolioItem
-                    windowSize={windowSize}
-                    key={item.id}
-                    {...item}
-                  />
-                );
-              })}
+            {experiences.map((item) => {
+              return (
+                <PortfolioItem
+                  windowSize={windowSize}
+                  key={item.id}
+                  {...item}
+                />
+              );
+            })}
           </div>
         </div>
 
@@ -170,20 +162,15 @@ export default function Home() {
               gap: "2.5rem",
             }}
           >
-            {portfolio
-              .filter((item) => {
-                if (category == "") return true;
-                return item.type.includes(category);
-              })
-              .map((item) => {
-                return (
-                  <PortfolioItem
-                    windowSize={windowSize}
-                    key={item.id}
-                    {...item}
-                  />
-                );
-              })}
+            {portfolio.map((item) => {
+              return (
+                <PortfolioItem
+                  windowSize={windowSize}
+                  key={item.id}
+                  {...item}
+                />
+              );
+            })}
           </div>
         </div>
 
@@ -216,20 +203,15 @@ export default function Home() {
               gap: "2.5rem",
             }}
           >
-            {education
-              .filter((item) => {
-                if (category == "") return true;
-                return item.type.includes(category);
-              })
-              .map((item) => {
-                return (
-                  <PortfolioItem
-                    windowSize={windowSize}
-                    key={item.id}
-                    {...item}
-                  />
-                );
-              })}
+            {education.map((item) => {
+              return (
+                <PortfolioItem
+                  windowSize={windowSize}
+                  key={item.id}
+                  {...item}
+                />
+              );
+            })}
           </div>
         </div>
 
@@ -332,20 +314,15 @@ export default function Home() {
               gap: "1.5rem",
             }}
           >
-            {socials
-              .filter((item) => {
-                if (category == "") return true;
-                return item.type.includes(category);
-              })
-              .map((item) => {
-                return (
-                  <PortfolioItem
-                    windowSize={windowSize}
-                    key={item.id}
-                    {...item}
-                  />
-                );
-              })}
+            {socials.map((item) => {
+              return (
+                <PortfolioItem
+                  windowSize={windowSize}
+                  key={item.id}
+                  {...item}
+                />
+              );
+            })}
           </div>
         </div>
 
