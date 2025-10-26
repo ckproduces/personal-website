@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ckArrowIcon as CkArrowIcon } from "./icons/ckArrowIcon";
 
-interface PortfolioItemProps extends portfolioItem {
+export interface PortfolioItemProps extends portfolioItem {
   children?: React.ReactNode;
   className?: string;
   windowSize: number;

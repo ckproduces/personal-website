@@ -42,7 +42,7 @@ let educationlist: portfolioItem[] = [
   },
 ];
 
-export let experiences: portfolioItem[] = [
+let experienceslist: portfolioItem[] = [
   {
     id: 1,
     name: "monitoring specialist @ artı ve artı it consulting",
@@ -74,7 +74,7 @@ export let experiences: portfolioItem[] = [
   },
 ];
 
-export let socials: portfolioItem[] = [
+export const socials: portfolioItem[] = [
   {
     id: 1,
     name: "github",
@@ -181,7 +181,7 @@ The website is not live anymore, but traces from Senato can be easily noticed in
 
 portfolio = portfolio
   .sort((a, b) => {
-    return a?.date?.getTime() - b?.date?.getTime();
+    return (a.date?.getTime() ?? 0) - (b.date?.getTime() ?? 0);
   })
   .reverse();
 
@@ -194,13 +194,17 @@ portfolio.map((i) => {
 
 educationlist = educationlist
   .sort((a, b) => {
-    return a.date.getTime() - b.date.getTime();
+    const aTime = a.date?.getTime() ?? 0;
+    const bTime = b.date?.getTime() ?? 0;
+    return aTime - bTime;
   })
   .reverse();
 
-experiences = experiences
+experienceslist = experienceslist
   .sort((a, b) => {
-    return a.date.getTime() - b.date.getTime();
+    const aTime = a.date?.getTime() ?? 0;
+    const bTime = b.date?.getTime() ?? 0;
+    return aTime - bTime;
   })
   .reverse();
 
@@ -211,5 +215,6 @@ educationlist.map((i) => {
   }
 });
 
+export const experiences = experienceslist;
 export const education = educationlist;
 export default portfolio;
