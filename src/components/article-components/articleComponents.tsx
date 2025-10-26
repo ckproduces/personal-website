@@ -2,15 +2,13 @@
 import { unitSpace } from "@/design-system/spaces";
 import React, { useEffect, useState } from "react";
 
-interface ArticleH1Props extends React.HTMLAttributes<HTMLHeadElement> {}
-
 interface ArticleImageProps extends React.HTMLAttributes<HTMLImageElement> {
   src?: string;
   alt?: string;
 }
 
 interface ArticlePProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  style: any;
+  style: React.CSSProperties;
 }
 
 interface ArticleAProps extends React.HTMLAttributes<HTMLAnchorElement> {
@@ -18,7 +16,9 @@ interface ArticleAProps extends React.HTMLAttributes<HTMLAnchorElement> {
 }
 
 // #
-export const ArticleH1: React.FC<ArticleH1Props> = ({ children }) => {
+export const ArticleH1: React.FC<React.HTMLAttributes<HTMLHeadElement>> = ({
+  children,
+}) => {
   return (
     <>
       <h1
@@ -36,7 +36,9 @@ export const ArticleH1: React.FC<ArticleH1Props> = ({ children }) => {
 };
 
 // ##
-export const ArticleH2: React.FC<ArticleH1Props> = ({ children }) => {
+export const ArticleH2: React.FC<React.HTMLAttributes<HTMLHeadElement>> = ({
+  children,
+}) => {
   return (
     <>
       <h2
@@ -55,7 +57,9 @@ export const ArticleH2: React.FC<ArticleH1Props> = ({ children }) => {
 };
 
 // ###
-export const ArticleH3: React.FC<ArticleH1Props> = ({ children }) => {
+export const ArticleH3: React.FC<React.HTMLAttributes<HTMLHeadElement>> = ({
+  children,
+}) => {
   return (
     <h3
       style={{
@@ -198,7 +202,7 @@ export const ArticleLi: React.FC<React.LiHTMLAttributes<HTMLElement>> = ({
 }) => {
   return (
     <li>
-      <ArticleP style={style}>{children}</ArticleP>
+      <ArticleP style={style || {}}>{children}</ArticleP>
     </li>
   );
 };

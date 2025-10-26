@@ -72,7 +72,7 @@ export const BackArrow: React.FC<ckArrowIconProps> = ({
   );
 };
 
-export const crokan: React.FC<ckArrowIconProps> = ({
+export const Crokan: React.FC<ckArrowIconProps> = ({
   size,
   color,
   style,

@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import portfolio, { education, experiences, socials } from "@/data/data";
 import PortfolioItem from "@/components/PortfolioItem";
-import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [windowSize, setWindowSize] = useState(2000);

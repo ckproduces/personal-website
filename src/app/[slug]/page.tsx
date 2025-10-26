@@ -1,4 +1,4 @@
-import portfolio, { portfolioItem } from "@/data/data";
+import portfolio from "@/data/data";
 import ReactMarkdown from "react-markdown";
 import { BackArrow as BackArrow } from "@/components/icons/ckArrowIcon";
 import {
@@ -15,7 +15,7 @@ import {
 import { Metadata } from "next";
 
 interface PortfolioPageProps {
-  params: { slug: any };
+  params: { slug: string };
 }
 
 function slugify(title: string) {
@@ -25,7 +25,9 @@ function slugify(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PortfolioPageProps): Promise<Metadata> {
   let portfolioItem = null;
   const slug = params.slug;
   portfolioItem = portfolio.find((p) => slugify(p.name) == slugify(slug));
@@ -88,10 +90,10 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
               h2: ({ node, ...props }) => <ArticleH2 {...props} />,
               h3: ({ node, ...props }) => <ArticleH3 {...props} />,
               p: ({ node, ...props }) => (
-                <ArticleP {...props} style={props.style ?? undefined} />
+                <ArticleP {...props} style={props.style ?? {}} />
               ),
               li: ({ node, ...props }) => (
-                <ArticleLi {...props} style={props.style ?? undefined} />
+                <ArticleLi {...props} style={props.style ?? {}} />
               ),
               img: ({ node, ...props }) => (
                 <ArticleImage
