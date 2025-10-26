@@ -1,26 +1,214 @@
-@import "tailwindcss";
+@font-face {
+  font-family: "Inter";
+  src: url("/Inter/inter.ttf") format("truetype"),
+    url("/Inter/inter-italic.ttf") format("truetype");
+  font-style: normal;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ------------------------
+     Darker Shades
+  ------------------------ */
+  --color-primary-dark-1: 220, 98%, 4%;
+  --color-primary-dark-2: 220, 93%, 10%;
+  --color-primary-dark-3: 220, 86%, 16%;
+  --color-primary-dark-4: 220, 77%, 23%;
+  --color-primary-dark-5: 220, 66%, 31%;
+  --color-primary-dark-6: 220, 56%, 40%;
+  --color-primary-dark-7: 220, 45%, 49%;
+  --color-primary-dark-8: 220, 51%, 59%;
+  --color-primary-dark-9: 220, 58%, 68%;
+  --color-primary-dark-10: 220, 65%, 78%;
+  --color-primary-dark-11: 220, 74%, 87%;
+  --color-primary-dark-12: 220, 84%, 94%;
+
+  /* ------------------------
+     Base Palette
+  ------------------------ */
+  --color-primary-1: 220, 97%, 2%;
+  --color-primary-2: 220, 91%, 6%;
+  --color-primary-3: 220, 82%, 11%;
+  --color-primary-4: 220, 71%, 18%;
+  --color-primary-5: 220, 60%, 27%;
+  --color-primary-6: 220, 48%, 36%;
+  --color-primary-7: 220, 37%, 47%;
+  --color-primary-8: 220, 39%, 58%;
+  --color-primary-9: 220, 45%, 70%;
+  --color-primary-10: 220, 51%, 80%;
+  --color-primary-11: 220, 57%, 89%;
+  --color-primary-12: 220, 67%, 96%;
+
+  /* ------------------------
+     Lighter Shades
+  ------------------------ */
+  --color-primary-light-1: 220, 97%, 0%;
+  --color-primary-light-2: 220, 88%, 2%;
+  --color-primary-light-3: 220, 76%, 6%;
+  --color-primary-light-4: 220, 63%, 12%;
+  --color-primary-light-5: 220, 49%, 20%;
+  --color-primary-light-6: 220, 37%, 30%;
+  --color-primary-light-7: 220, 26%, 43%;
+  --color-primary-light-8: 220, 23%, 56%;
+  --color-primary-light-9: 220, 25%, 69%;
+  --color-primary-light-10: 220, 27%, 81%;
+  --color-primary-light-11: 220, 28%, 91%;
+  --color-primary-light-12: 220, 28%, 97%;
+
+  /* ------------------------
+     Typography
+  ------------------------ */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-lg: 1.25rem; /* 20px */
+  --font-size-xl: 1.5rem; /* 24px */
+  --font-size-2xl: 2rem; /* 32px */
+  --font-size-3xl: 2.5rem; /* 40px */
+  --font-size-4xl: 3rem; /* 48px */
+
+  --line-height-xs: 1rem;
+  --line-height-sm: 1.25rem;
+  --line-height-md: 1.5rem;
+  --line-height-lg: 1.75rem;
+  --line-height-xl: 2rem;
+
+  /* ------------------------
+     Spacing (rem-based)
+  ------------------------ */
+  --space-xxs: 0.25rem; /* 4px */
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 0.75rem; /* 12px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+
+  /* ------------------------
+     Border radius
+  ------------------------ */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 1rem; /* 16px */
+
+  /* ------------------------
+     Transitions
+  ------------------------ */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-medium: 0.4s ease-in-out;
+  --transition-slow: 0.6s ease-in-out;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  font-family: "Inter", sans-serif;
+  font-display: swap;
+  text-transform: lowercase;
+  transition: all 0.1s cubic-bezier(0.07, 0.91, 1, 1);
+  letter-spacing: -0.015em;
+  box-sizing: border-box;
+  line-height: 1.2em;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*::selection {
+  background-color: hsla(220, 94%, 72%, 0.5);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.cont-anim {
+  background: linear-gradient(
+    90deg,
+    hsl(220, 94%, 32%) 0%,
+    hsl(220, 94%, 73%) 50%,
+    hsl(220, 94%, 32%) 100%
+  );
+
+  /* Clip background to text */
+  background-clip: text !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  padding: 0 1rem;
+
+  /* Animate the gradient */
+  background-size: 300% 300% !important; /* make gradient bigger for movement */
+  animation: gradientMove 6s infinite linear !important;
+  animation-direction: alternate !important;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+  80% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+.links:hover {
+  color: hsla(220, 94%, 10%, 1) !important;
+}
+
+li div {
+  margin-bottom: 0.8rem !important;
+}
+
+.chip-container {
+  width: 100%;
+  max-width: calc(36rem * 2 + 0.6rem) !important;
+}
+
+.portfolio-stats {
+  width: 100%;
+  max-width: calc(36rem * 2 + 0.6rem) !important;
+}
+
+@media (min-width: 730px) and (max-width: 1230px) {
+  .portfolio-item-grid {
+    grid-template-columns: repeat(1, 36rem) !important;
+  }
+
+  .chip-container {
+    max-width: calc(36rem * 1 + 0.6rem) !important;
+  }
+
+  .portfolio-stats {
+    max-width: calc(36rem * 1 + 0.6rem) !important;
+  }
+}
+
+
+@media (max-width: 656px) {
+  .chip-container {
+    max-width: calc(30rem) !important;
+  }
+
+  .cool {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .portfolio-item-grid {
+    padding: 0;
+    grid-template-columns: repeat(1, 100%) !important;
+  }
+
+  .cont-anim {
+    font-size: 4rem !important;
+  }
+
+  .cont-anim * {
+    font-size: 4rem !important;
+  }
+
+  .subtitle {
+    font-size: 1.2rem !important;
+  }
 }
