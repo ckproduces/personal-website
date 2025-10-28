@@ -22,9 +22,13 @@ function slugify(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
 // Generate metadata
-export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const slug = params.slug as string;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const slug = (await params).slug as string;
   const portfolioItem = portfolio.find(
     (p) => slugify(p.name) === slugify(slug)
   );
@@ -34,8 +38,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   }
 
   return {
-    title: portfolioItem.name,
-    description: portfolioItem.preview,
+    title: portfolioItem.name.toLowerCase(),
+    description: portfolioItem.preview.toLowerCase(),
   };
 }
 
