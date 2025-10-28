@@ -87,26 +87,26 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
 
           <ReactMarkdown
             components={{
-              h1: ({ node, ...props }) => <ArticleH1 {...props} />,
-              h2: ({ node, ...props }) => <ArticleH2 {...props} />,
-              h3: ({ node, ...props }) => <ArticleH3 {...props} />,
-              p: ({ node, ...props }) => (
+              h1: ({ ...props }) => <ArticleH1 {...props} />,
+              h2: ({ ...props }) => <ArticleH2 {...props} />,
+              h3: ({ ...props }) => <ArticleH3 {...props} />,
+              p: ({ ...props }) => (
                 <ArticleP {...props} style={props.style ?? {}} />
               ),
-              li: ({ node, ...props }) => (
+              li: ({ ...props }) => (
                 <ArticleLi {...props} style={props.style ?? {}} />
               ),
-              img: ({ node, ...props }) => (
+              img: ({ ...props }) => (
                 <ArticleImage
                   {...props}
                   src={typeof props.src === "string" ? props.src : undefined}
                 />
               ),
-              a: ({ node, ...props }) => {
+              a: ({ ...props }) => {
                 const href = typeof props.href === "string" ? props.href : "#";
                 return <ArticleA {...props} href={href} />;
               },
-              hr: ({ node, ...props }) => <ArticleHR {...props} />,
+              hr: ({ ...props }) => <ArticleHR {...props} />,
             }}
           >
             {portfolioItem?.pageContent}

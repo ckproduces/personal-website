@@ -1,6 +1,6 @@
 "use client";
 import { unitSpace } from "@/design-system/spaces";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 interface ArticleImageProps extends React.HTMLAttributes<HTMLImageElement> {
   src?: string;
