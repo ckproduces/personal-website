@@ -53,6 +53,10 @@ export default function RootLayout({
         <meta property="og:url" content="https://cagriokan.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="çağrı okan — personal website" />
+        <meta
+          name="google-site-verification"
+          content="jGgRF7XCgSB404Y4ZHcePs7Rl_ra584JQajzEYLCjb0"
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="canonical" href="https://cagriokan.com/" />
       </head>
