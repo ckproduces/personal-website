@@ -7,7 +7,6 @@ import { CkArrowIcon as CkArrowIcon } from "./icons/ckArrowIcon";
 export interface PortfolioItemProps extends portfolioItem {
   children?: React.ReactNode;
   className?: string;
-  windowSize: number;
 }
 
 const PortfolioItem: React.FC<PortfolioItemProps> = ({
@@ -20,7 +19,6 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
   preview,
   imageBorderRadius,
   seperatePage,
-  windowSize,
   href,
 }) => {
   const [hovered, setHovered] = useState(false);
@@ -67,7 +65,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
           justifyContent: "center",
           height: "100%",
           width: "100%",
-          gap: "0.15rem",
+          gap: "0.25rem",
         }}
       >
         {date && (
@@ -133,7 +131,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
                         marginLeft: "0.35rem",
                         transform: hovered
                           ? "translate(-0.01rem, 0.01rem)"
-                          : "translate(-0.1rem, 0.1rem)",
+                          : "translate(-0.11rem, 0.11rem)",
                         display: "inline-block",
                       }}
                       size="1rem"
@@ -160,16 +158,9 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         <p
           className={image ? "preview-with-image" : "preview"}
           style={{
-            width:
-              windowSize < 656
-                ? image
-                  ? `calc(100% - 3rem)`
-                  : `100%`
-                : image
-                ? "calc(100% - 3rem)"
-                : "100%",
+            width: image ? "calc(100% - 3rem)" : "100%",
             display: "-webkit-box",
-            WebkitLineClamp: 10,
+            WebkitLineClamp: 1000,
             WebkitBoxOrient: "vertical",
             overflow: "hidden",
             lineHeight: "1.4em",
@@ -188,14 +179,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
               flexWrap: "wrap",
               columnGap: "0.3rem",
               maxHeight: "calc(0.8rem * 1.2 + 0.6rem)",
-              maxWidth:
-                windowSize < 656
-                  ? image
-                    ? `${windowSize - 100}px`
-                    : `${windowSize}px`
-                  : image
-                  ? "calc(100% - 3rem)"
-                  : "100%",
+              width: image ? "calc(100% - 3rem)" : "100%",
               overflow: "hidden",
             }}
           >

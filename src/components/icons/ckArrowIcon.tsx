@@ -52,7 +52,11 @@ export const BackArrow: React.FC<ckArrowIconProps> = ({
       style={style}
       onClick={() => {
         if (to) {
-          Router.push(to);
+          if (to == "back") {
+            Router.back();
+          } else {
+            Router.push(to);
+          }
         }
       }}
     >

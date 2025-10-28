@@ -1,0 +1,9 @@
+{
+  "name": "çağrı okan personal website",
+  "short_name": "çağrıokan",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3C5C99",
+  "description": "my personal website showcasing projects, portfolio, and experience."
+}

@@ -55,6 +55,7 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
   return (
     <>
       <article
+        className="articlesel"
         style={{
           width: "100%",
           display: "flex",
@@ -78,7 +79,7 @@ export default async function PortfolioPage({ params }: PortfolioPageProps) {
               border: 0,
               background: "none",
             }}
-            to="/"
+            to="back"
             className="icon"
             size="1.3rem"
             color={"hsl(var(--color-primary-dark-1))"}

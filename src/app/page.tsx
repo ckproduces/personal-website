@@ -1,23 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
 import portfolio, { education, experiences, socials } from "@/data/data";
 import PortfolioItem from "@/components/PortfolioItem";
 
 export default function Home() {
-  const [windowSize, setWindowSize] = useState(2000);
-
-  useEffect(() => {
-    // Initialize width on mount
-    setWindowSize(window.innerWidth);
-
-    const handleResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <div
       className="everything"
@@ -26,16 +11,17 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        padding: windowSize > 656 ? "2rem" : "2rem",
+        padding: "2rem",
       }}
     >
       <div
+        className="everythingsel"
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          width: windowSize > 656 ? "35rem" : `calc(${windowSize}px - 4rem)`,
+          width: "35rem",
         }}
       >
         <div
@@ -56,30 +42,43 @@ export default function Home() {
               textAlign: "center",
             }}
           >
-            last update: 26 october 2025
+            last updated: 28 october 2025
           </p>
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
               justifyContent: "left",
-              alignItems: "left",
+              alignItems: "center",
               width: "100%",
-              gap: "0.2rem",
+              gap: "0.6rem",
             }}
           >
-            <p style={{ fontSize: "1.2rem", width: "100%", textAlign: "left" }}>
-              Çağrı Okan
-            </p>
-            <p
-              style={{
-                color: "hsla(var(--color-primary-dark-1), 0.5)",
-                width: "100%",
-                textAlign: "left",
-              }}
-            >
-              everything i have done so far
-            </p>
+            <img
+              className="ck-image"
+              src={"/images/crokan.jpeg"}
+              alt="çağrı okan"
+            />
+            <div>
+              <p
+                style={{
+                  fontSize: "1.3rem",
+                  width: "100%",
+                  textAlign: "left",
+                  marginBottom: "0.1rem",
+                }}
+              >
+                Çağrı Okan
+              </p>
+              <p
+                style={{
+                  color: "hsla(var(--color-primary-dark-1), 0.5)",
+                  width: "100%",
+                  textAlign: "left",
+                }}
+              >
+                everything i have done so far
+              </p>
+            </div>
           </div>
         </div>
         <div
@@ -121,13 +120,7 @@ export default function Home() {
             }}
           >
             {experiences.map((item) => {
-              return (
-                <PortfolioItem
-                  windowSize={windowSize}
-                  key={item.id}
-                  {...item}
-                />
-              );
+              return <PortfolioItem key={item.id} {...item} />;
             })}
           </div>
         </div>
@@ -162,13 +155,7 @@ export default function Home() {
             }}
           >
             {portfolio.map((item) => {
-              return (
-                <PortfolioItem
-                  windowSize={windowSize}
-                  key={item.id}
-                  {...item}
-                />
-              );
+              return <PortfolioItem key={item.id} {...item} />;
             })}
           </div>
         </div>
@@ -203,13 +190,7 @@ export default function Home() {
             }}
           >
             {education.map((item) => {
-              return (
-                <PortfolioItem
-                  windowSize={windowSize}
-                  key={item.id}
-                  {...item}
-                />
-              );
+              return <PortfolioItem key={item.id} {...item} />;
             })}
           </div>
         </div>
@@ -244,16 +225,13 @@ export default function Home() {
             }}
           >
             <p
-              className={"preview"}
+              className="preview"
               style={{
                 width: "100%",
-                display: "-webkit-box",
-                WebkitLineClamp: 10,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
                 lineHeight: "1.7em",
                 color: "hsla(var(--color-primary-dark-2), 0.7)",
                 fontSize: "0.9rem",
+                textAlign: "left",
               }}
             >
               I am Çağrı Okan, born in 2006 in Istanbul. I am a graduate of TEV
@@ -263,20 +241,15 @@ export default function Home() {
               full-stack web development, data science and artificial
               intelligence. Additionally, I continuously develop my knowledge
               and skills in the fields of mathematics, statistics,
-              sustainability, psychology, and entrepreneurship. feel free to
-              reach out to me at{" "}
+              sustainability, psychology, and entrepreneurship. Feel free to
+              reach out to{" "}
               <a
-                style={{
-                  width: "100%",
-                  display: "inline",
-                  WebkitLineClamp: 10,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                  lineHeight: "1.7em",
-                  color: "hsla(var(--color-primary-dark-7), 1)",
-                  fontSize: "0.9rem",
-                }}
                 href="mailto:cagrokan@gmail.com"
+                style={{
+                  color: "hsl(var(--color-primary-dark-7))",
+                  fontWeight: 500,
+                  textDecoration: "underline",
+                }}
               >
                 cagrokan@gmail.com
               </a>{" "}
@@ -314,13 +287,7 @@ export default function Home() {
             }}
           >
             {socials.map((item) => {
-              return (
-                <PortfolioItem
-                  windowSize={windowSize}
-                  key={item.id}
-                  {...item}
-                />
-              );
+              return <PortfolioItem key={item.id} {...item} />;
             })}
           </div>
         </div>

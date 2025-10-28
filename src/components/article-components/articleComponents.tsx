@@ -115,7 +115,6 @@ export const ArticleImage: React.FC<ArticleImageProps> = ({ src, alt }) => {
           objectFit: "contain",
           display: "block",
           borderRadius: "0.7rem",
-          // boxShadow: "0 0 1rem 0 " + colors.black(0.15),
           outline: "0.1rem solid " + "hsl(var(--color-primary-9))",
         }}
         src={src}
@@ -211,30 +210,12 @@ export const ArticleViewer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   children,
   style,
 }) => {
-  const [windowSize, setWindowSize] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // Initialize width on mount
-    setWindowSize(window.innerWidth);
-
-    const handleResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    setMounted(true);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <>
       <div
+        className="article-viewer"
         style={{
-          width: windowSize < 835 ? `calc(${windowSize}px - 3rem)` : "35rem",
+          width: "35rem",
           ...style,
         }}
       >
