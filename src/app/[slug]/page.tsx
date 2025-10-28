@@ -27,22 +27,25 @@ function slugify(title: string) {
 
 export async function generateMetadata({
   params,
-}: PortfolioPageProps): Promise<Metadata> {
-  let portfolioItem = null;
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const slug = params.slug;
-  portfolioItem = portfolio.find((p) => slugify(p.name) == slugify(slug));
+  const portfolioItem = portfolio.find(
+    (p) => slugify(p.name) === slugify(slug)
+  );
 
   if (portfolioItem) {
     return {
       title: slugify(portfolioItem.name),
       description: portfolioItem.preview,
     };
-  } else {
-    return {
-      title: "not found",
-      description: "not found",
-    };
   }
+
+  return {
+    title: "not found",
+    description: "not found",
+  };
 }
 
 export default async function PortfolioPage({ params }: PortfolioPageProps) {
