@@ -1,6 +1,6 @@
 import portfolio from "@/data/data";
 import ReactMarkdown from "react-markdown";
-import { BackArrow as BackArrow } from "@/components/icons/ckArrowIcon";
+import { BackArrow } from "@/components/icons/ckArrowIcon";
 import {
   ArticleA,
   ArticleH1,
@@ -14,6 +14,7 @@ import {
 } from "@/components/article-components/articleComponents";
 import { Metadata } from "next";
 
+// Utility to create slugs
 function slugify(title: string) {
   return title
     .toLowerCase()
@@ -21,6 +22,7 @@ function slugify(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+// Generate metadata for dynamic route
 export async function generateMetadata({
   params,
 }: {
@@ -31,20 +33,18 @@ export async function generateMetadata({
     (p) => slugify(p.name) === slugify(slug)
   );
 
-  if (portfolioItem) {
-    return {
-      title: slugify(portfolioItem.name),
-      description: portfolioItem.preview,
-    };
+  if (!portfolioItem) {
+    return { title: "Not found", description: "Not found" };
   }
 
   return {
-    title: "not found",
-    description: "not found",
+    title: portfolioItem.name,
+    description: portfolioItem.preview,
   };
 }
 
-export default async function PortfolioPage({
+// Page component
+export default function PortfolioPage({
   params,
 }: {
   params: Record<string, string>;
@@ -53,6 +53,10 @@ export default async function PortfolioPage({
   const portfolioItem = portfolio.find(
     (p) => p.seperatePage && slugify(p.name) === slugify(slug)
   );
+
+  if (!portfolioItem) {
+    return <p>Portfolio item not found</p>;
+  }
 
   return (
     <article
@@ -83,34 +87,32 @@ export default async function PortfolioPage({
           to="back"
           className="icon"
           size="1.3rem"
-          color={"hsl(var(--color-primary-dark-1))"}
+          color="hsl(var(--color-primary-dark-1))"
         />
 
         <ReactMarkdown
           components={{
-            h1: ({ ...props }) => <ArticleH1 {...props} />,
-            h2: ({ ...props }) => <ArticleH2 {...props} />,
-            h3: ({ ...props }) => <ArticleH3 {...props} />,
-            p: ({ ...props }) => (
-              <ArticleP {...props} style={props.style ?? {}} />
-            ),
-            li: ({ ...props }) => (
-              <ArticleLi {...props} style={props.style ?? {}} />
-            ),
-            img: ({ ...props }) => (
+            h1: (props) => <ArticleH1 {...props} />,
+            h2: (props) => <ArticleH2 {...props} />,
+            h3: (props) => <ArticleH3 {...props} />,
+            p: (props) => <ArticleP {...props} style={props.style ?? {}} />,
+            li: (props) => <ArticleLi {...props} style={props.style ?? {}} />,
+            img: (props) => (
               <ArticleImage
                 {...props}
                 src={typeof props.src === "string" ? props.src : undefined}
               />
             ),
-            a: ({ ...props }) => {
-              const href = typeof props.href === "string" ? props.href : "#";
-              return <ArticleA {...props} href={href} />;
-            },
-            hr: ({ ...props }) => <ArticleHR {...props} />,
+            a: (props) => (
+              <ArticleA
+                {...props}
+                href={typeof props.href === "string" ? props.href : "#"}
+              />
+            ),
+            hr: (props) => <ArticleHR {...props} />,
           }}
         >
-          {portfolioItem?.pageContent}
+          {portfolioItem.pageContent}
         </ReactMarkdown>
       </ArticleViewer>
     </article>
