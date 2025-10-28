@@ -22,13 +22,9 @@ function slugify(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-// Generate metadata for dynamic route
-export async function generateMetadata({
-  params,
-}: {
-  params: Record<string, string>;
-}): Promise<Metadata> {
-  const slug = params.slug;
+// Generate metadata
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const slug = params.slug as string;
   const portfolioItem = portfolio.find(
     (p) => slugify(p.name) === slugify(slug)
   );
@@ -44,12 +40,8 @@ export async function generateMetadata({
 }
 
 // Page component
-export default function PortfolioPage({
-  params,
-}: {
-  params: Record<string, string>;
-}) {
-  const slug = params.slug;
+export default function PortfolioPage({ params }: any) {
+  const slug = params.slug as string;
   const portfolioItem = portfolio.find(
     (p) => p.seperatePage && slugify(p.name) === slugify(slug)
   );
