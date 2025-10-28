@@ -44,8 +44,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Page component
-export default function PortfolioPage({ params }: any) {
-  const slug = params.slug as string;
+export default async function PortfolioPage({ params }: Props) {
+  const slug = (await params).slug as string;
   const portfolioItem = portfolio.find(
     (p) => p.seperatePage && slugify(p.name) === slugify(slug)
   );
