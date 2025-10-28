@@ -14,10 +14,6 @@ import {
 } from "@/components/article-components/articleComponents";
 import { Metadata } from "next";
 
-interface PortfolioPageProps {
-  params: { slug: string };
-}
-
 function slugify(title: string) {
   return title
     .toLowerCase()
@@ -25,9 +21,11 @@ function slugify(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } }
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Record<string, string>;
+}): Promise<Metadata> {
   const slug = params.slug;
   const portfolioItem = portfolio.find(
     (p) => slugify(p.name) === slugify(slug)
@@ -46,74 +44,75 @@ export async function generateMetadata(
   };
 }
 
-export default async function PortfolioPage({ params }: PortfolioPageProps) {
+export default async function PortfolioPage({
+  params,
+}: {
+  params: Record<string, string>;
+}) {
   const slug = params.slug;
-  // find the portfolio item that has a separate page and matches the slug
   const portfolioItem = portfolio.find(
     (p) => p.seperatePage && slugify(p.name) === slugify(slug)
   );
 
   return (
-    <>
-      <article
-        className="articlesel"
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "start",
-          padding: "5rem 5rem 10rem 5rem",
-          backgroundColor: "white",
-        }}
-      >
-        <ArticleViewer>
-          <BackArrow
-            component="button"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: "100%",
-              cursor: "pointer",
-              marginBottom: "2rem",
-              border: 0,
-              background: "none",
-            }}
-            to="back"
-            className="icon"
-            size="1.3rem"
-            color={"hsl(var(--color-primary-dark-1))"}
-          />
+    <article
+      className="articlesel"
+      style={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "start",
+        padding: "5rem 5rem 10rem 5rem",
+        backgroundColor: "white",
+      }}
+    >
+      <ArticleViewer>
+        <BackArrow
+          component="button"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "100%",
+            cursor: "pointer",
+            marginBottom: "2rem",
+            border: 0,
+            background: "none",
+          }}
+          to="back"
+          className="icon"
+          size="1.3rem"
+          color={"hsl(var(--color-primary-dark-1))"}
+        />
 
-          <ReactMarkdown
-            components={{
-              h1: ({ ...props }) => <ArticleH1 {...props} />,
-              h2: ({ ...props }) => <ArticleH2 {...props} />,
-              h3: ({ ...props }) => <ArticleH3 {...props} />,
-              p: ({ ...props }) => (
-                <ArticleP {...props} style={props.style ?? {}} />
-              ),
-              li: ({ ...props }) => (
-                <ArticleLi {...props} style={props.style ?? {}} />
-              ),
-              img: ({ ...props }) => (
-                <ArticleImage
-                  {...props}
-                  src={typeof props.src === "string" ? props.src : undefined}
-                />
-              ),
-              a: ({ ...props }) => {
-                const href = typeof props.href === "string" ? props.href : "#";
-                return <ArticleA {...props} href={href} />;
-              },
-              hr: ({ ...props }) => <ArticleHR {...props} />,
-            }}
-          >
-            {portfolioItem?.pageContent}
-          </ReactMarkdown>
-        </ArticleViewer>
-      </article>
-    </>
+        <ReactMarkdown
+          components={{
+            h1: ({ ...props }) => <ArticleH1 {...props} />,
+            h2: ({ ...props }) => <ArticleH2 {...props} />,
+            h3: ({ ...props }) => <ArticleH3 {...props} />,
+            p: ({ ...props }) => (
+              <ArticleP {...props} style={props.style ?? {}} />
+            ),
+            li: ({ ...props }) => (
+              <ArticleLi {...props} style={props.style ?? {}} />
+            ),
+            img: ({ ...props }) => (
+              <ArticleImage
+                {...props}
+                src={typeof props.src === "string" ? props.src : undefined}
+              />
+            ),
+            a: ({ ...props }) => {
+              const href = typeof props.href === "string" ? props.href : "#";
+              return <ArticleA {...props} href={href} />;
+            },
+            hr: ({ ...props }) => <ArticleHR {...props} />,
+          }}
+        >
+          {portfolioItem?.pageContent}
+        </ReactMarkdown>
+      </ArticleViewer>
+    </article>
   );
 }
