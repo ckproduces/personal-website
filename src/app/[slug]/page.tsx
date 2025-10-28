@@ -25,11 +25,9 @@ function slugify(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { slug: string } }
+): Promise<Metadata> {
   const slug = params.slug;
   const portfolioItem = portfolio.find(
     (p) => slugify(p.name) === slugify(slug)
