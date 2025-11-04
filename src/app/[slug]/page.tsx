@@ -1,4 +1,3 @@
-import portfolio from "@/data/data";
 import ReactMarkdown from "react-markdown";
 import { BackArrow } from "@/components/icons/ckArrowIcon";
 import {
@@ -10,9 +9,12 @@ import {
   ArticleImage,
   ArticleLi,
   ArticleP,
+  ArticleUl,
   ArticleViewer,
 } from "@/components/article-components/articleComponents";
 import { Metadata } from "next";
+import Link from "next/link";
+import { allData } from "@/data/data";
 
 // Utility to create slugs
 function slugify(title: string) {
@@ -29,7 +31,7 @@ type Props = {
 // Generate metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = (await params).slug as string;
-  const portfolioItem = portfolio.find(
+  const portfolioItem = allData.find(
     (p) => slugify(p.name) === slugify(slug)
   );
 
@@ -46,12 +48,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 // Page component
 export default async function PortfolioPage({ params }: Props) {
   const slug = (await params).slug as string;
-  const portfolioItem = portfolio.find(
+  const portfolioItem = allData.find(
     (p) => p.seperatePage && slugify(p.name) === slugify(slug)
   );
 
   if (!portfolioItem) {
-    return <p>Portfolio item not found</p>;
+    let pages = ["ecoistanbul", "senato"];
+    const random = pages[Math.floor(Math.random() * pages.length)];
+    return (
+      <div
+        style={{
+          padding: "10rem",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          gap: "0.2rem",
+        }}
+      >
+        <h1 style={{ fontSize: "5rem" }}>404</h1>
+        <p>Page not found</p>
+        <p>
+          How about{" "}
+          <Link
+            style={{
+              textDecoration: "none",
+            }}
+            href={random}
+          >
+            <span
+              style={{
+                fontWeight: 500,
+                fontSize: "1.2rem",
+                color: "hsla(var(--color-primary-dark-6), 1)",
+                backgroundColor: "hsla(var(--color-primary-light-11), 0.5)",
+                textDecoration: "none",
+              }}
+            >
+              /{random}
+            </span>
+          </Link>
+          ?
+        </p>
+      </div>
+    );
   }
 
   return (
@@ -92,7 +132,19 @@ export default async function PortfolioPage({ params }: Props) {
             h2: (props) => <ArticleH2 {...props} />,
             h3: (props) => <ArticleH3 {...props} />,
             p: (props) => <ArticleP {...props} style={props.style ?? {}} />,
-            li: (props) => <ArticleLi {...props} style={props.style ?? {}} />,
+            li: (props) => (
+              <ArticleLi
+                {...props}
+                style={{
+                  listStyleType: "none",
+                  paddingLeft: 0,
+                  ...props.style,
+                }}
+              >
+                {props.children}
+              </ArticleLi>
+            ),
+            ul: (props) => <ArticleUl {...props} style={props.style ?? {}} />,
             img: (props) => (
               <ArticleImage
                 {...props}

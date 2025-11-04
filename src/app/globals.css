@@ -73,6 +73,52 @@
   --line-height-xl: 2rem;
 
   /* ------------------------
+     Secondary Darker Shades
+  ------------------------ */
+  --color-secondary-dark-1: 340, 98%, 4%;
+  --color-secondary-dark-2: 340, 93%, 10%;
+  --color-secondary-dark-3: 340, 86%, 16%;
+  --color-secondary-dark-4: 340, 77%, 23%;
+  --color-secondary-dark-5: 340, 66%, 31%;
+  --color-secondary-dark-6: 340, 56%, 40%;
+  --color-secondary-dark-7: 340, 45%, 49%;
+  --color-secondary-dark-8: 340, 51%, 59%;
+  --color-secondary-dark-9: 340, 58%, 68%;
+  --color-secondary-dark-10: 340, 65%, 78%;
+  --color-secondary-dark-11: 340, 74%, 87%;
+  --color-secondary-dark-12: 340, 84%, 94%;
+  /* ------------------------
+     Secondary Base Palette
+  ------------------------ */
+  --color-secondary-1: 340, 97%, 2%;
+  --color-secondary-2: 340, 91%, 6%;
+  --color-secondary-3: 340, 82%, 11%;
+  --color-secondary-4: 340, 71%, 18%;
+  --color-secondary-5: 340, 60%, 27%;
+  --color-secondary-6: 340, 48%, 36%;
+  --color-secondary-7: 340, 37%, 47%;
+  --color-secondary-8: 340, 39%, 58%;
+  --color-secondary-9: 340, 45%, 70%;
+  --color-secondary-10: 340, 51%, 80%;
+  --color-secondary-11: 340, 57%, 89%;
+  --color-secondary-12: 340, 67%, 96%;
+  /* ------------------------
+     Secondary Light Shades
+  ------------------------ */
+  --color-secondary-light-1: 340, 97%, 0%;
+  --color-secondary-light-2: 340, 88%, 2%;
+  --color-secondary-light-3: 340, 76%, 6%;
+  --color-secondary-light-4: 340, 63%, 12%;
+  --color-secondary-light-5: 340, 49%, 20%;
+  --color-secondary-light-6: 340, 37%, 30%;
+  --color-secondary-light-7: 340, 26%, 43%;
+  --color-secondary-light-8: 340, 23%, 56%;
+  --color-secondary-light-9: 340, 25%, 69%;
+  --color-secondary-light-10: 340, 27%, 81%;
+  --color-secondary-light-11: 340, 28%, 91%;
+  --color-secondary-light-12: 340, 28%, 97%;
+
+  /* ------------------------
      Spacing (rem-based)
   ------------------------ */
   --space-xxs: 0.25rem; /* 4px */
@@ -103,12 +149,17 @@
   font-family: "Inter", sans-serif;
   font-display: swap;
   text-transform: lowercase;
-  transition: all 0.1s cubic-bezier(0.07, 0.91, 1, 1);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.01em;
   box-sizing: border-box;
   line-height: 1.2em;
   margin: 0;
   padding: 0;
+  transition: all 0.1s ease !important;
+}
+
+.article-image:hover {
+  transform: scale(1.05) !important;
+  border-radius: 0 !important;
 }
 
 html {
@@ -145,18 +196,6 @@ body {
   animation-direction: alternate !important;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0%;
-  }
-  80% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: 100%;
-  }
-}
-
 .links:hover {
   color: hsla(220, 94%, 10%, 1) !important;
 }
@@ -165,72 +204,84 @@ li div {
   margin-bottom: 0.8rem !important;
 }
 
-.chip-container {
-  width: 100%;
-  max-width: calc(36rem * 2 + 0.6rem) !important;
-}
-
-.portfolio-stats {
-  width: 100%;
-  max-width: calc(36rem * 2 + 0.6rem) !important;
-}
-
-@media (min-width: 730px) and (max-width: 1230px) {
-  .portfolio-item-grid {
-    grid-template-columns: repeat(1, 36rem) !important;
-  }
-
-  .chip-container {
-    max-width: calc(36rem * 1 + 0.6rem) !important;
-  }
-
-  .portfolio-stats {
-    max-width: calc(36rem * 1 + 0.6rem) !important;
-  }
-}
-
 @media (max-width: 656px) {
+  .portfolio-image {
+    height: 2.6rem !important;
+  }
+
   .everythingsel {
-    width: calc(100%) !important;
+    width: 100% !important;
+  }
+
+  .everything {
+    padding: 4rem 1.5rem !important;
   }
 
   .article-viewer {
-    width: calc(100%) !important;
+    width: 100% !important;
   }
 
   .articlesel {
     padding: 2rem 2rem 6rem 2rem !important;
   }
 
-  .chip-container {
-    max-width: calc(30rem) !important;
-  }
-
-  .cool {
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-  }
-
-  .portfolio-item-grid {
-    padding: 0;
-    grid-template-columns: repeat(1, 100%) !important;
-  }
-
   .cont-anim {
     font-size: 4rem !important;
   }
+}
 
-  .cont-anim * {
-    font-size: 4rem !important;
+li::marker {
+  display: none !important;
+  content: "";
+}
+
+.article-ul {
+  background-color: black !important;
+}
+
+.link-a:hover {
+  text-decoration: underline !important;
+}
+
+.scroll-track {
+  animation: scroll 2s linear infinite;
+  transform: translateX(0);
+  gap: 20rem !important;
+}
+
+.running-img {
+  animation: shake-rotate 0.3s linear infinite !important;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-37rem);
   }
-
-  .subtitle {
-    font-size: 1.2rem !important;
+  100% {
+    transform: translateX(65rem); /* adjust depending on total width */
   }
 }
 
-.ck-image {
-  width: 2.9rem !important;
-  height: 2.9rem !important;
-  border-radius: 0.6rem;
+@keyframes shake-rotate {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes shake-translate {
+  0% {
+    scale: 1.1;
+  }
+  50% {
+    scale: 0.9;
+  }
+  100% {
+    scale: 1.1;
+  }
 }

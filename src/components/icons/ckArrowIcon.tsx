@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-interface ckArrowIconProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ckArrowIconProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   size?: number | string;
   color?: string;

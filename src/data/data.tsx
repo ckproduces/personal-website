@@ -22,7 +22,7 @@ let educationlist: portfolioItem[] = [
     date: new Date(2020, 7, 16),
     dateEnd: new Date(2024, 5, 30),
     preview:
-      "Turkish Education Foundation İnanç Türkeş Private High School is an independent co-educational boarding high school located in Gebze, Kocaeli, Turkey. It operates under the umbrella of the Turkish Education Foundation and accepts gifted and talented students through a tailored student selection process.",
+      "TEV İnanç Türkeş Private High School is a co-educational boarding school in Gebze, Kocaeli, operated by the Turkish Education Foundation and admitting gifted students through a selective process.",
     type: ["", "education"],
     image: "/images/tevitol.png",
     alt: "Image of TEV İnanç Türkeş Private High School logo",
@@ -33,7 +33,7 @@ let educationlist: portfolioItem[] = [
     name: `yıldız technical university - basc statistics`,
     date: new Date(2024, 9, 1),
     preview:
-      "Yıldız Technical University (Turkish: Yıldız Teknik Üniversitesi, often simply referred to as YTU or Yıldız) is a prominent public technical university dedicated to engineering and natural sciences, as well as social sciences recently, and is one of the oldest educational institutions in Istanbul, Turkey.",
+      "Yıldız Technical University (YTU) is one of Istanbul’s oldest public institutions, focused on engineering, natural sciences, and more recently, social sciences.",
     type: ["", "education"],
 
     image: "/images/ytu.png",
@@ -127,6 +127,7 @@ let portfolio: portfolioItem[] = [
     ],
     image: "/images/ecoistanbul.png",
     alt: "EcoIstanbul project image",
+    href: "https://www.instagram.com/ecoistanbulapp",
     pageContent: `
 # ecoistanbul
 EcoIstanbul is a green artificial intelligence project that was made to ensure locals and tourists in Istanbul use the most ecological ways of living. It was created for the international competition [World Affairs Challenge (WAC)](https://worlddenver.org/world-affairs-challenge/) and got us 6th place worldwide.
@@ -159,7 +160,7 @@ needless to say, the app was never published. we eventually stopped working on i
     date: new Date(2022, 11, 22),
     dateEnd: new Date(2023, 4, 20),
     preview:
-      "Senato is a philosophy journal that turned into a website over time",
+      "Senato is a philosophy journal that turned into a website over time.",
     type: ["", "projects", "website"],
     tags: ["senato", "philosophy", "journal", "website", "ui", "design"],
     seperatePage: true,
@@ -215,6 +216,31 @@ educationlist.map((i) => {
   }
 });
 
+const changeLog = [
+  {
+    id: 1,
+    name: "change log",
+    preview: "change log of the website",
+    type: [""],
+    tags: ["changes", "change log"],
+    seperatePage: true,
+    pageContent: `
+# change log
+---
+## november 4, 2025
+- added "/change-log" page
+- ui changes on the home page
+---
+## october 28, 2025
+- initial commit
+    `,
+  },
+];
+
+export const allData = experienceslist
+  .concat(educationlist)
+  .concat(portfolio)
+  .concat(changeLog);
 export const experiences = experienceslist;
 export const education = educationlist;
 export default portfolio;

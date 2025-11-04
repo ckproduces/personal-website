@@ -5,8 +5,8 @@ const config = {
   sitemapSize: 5000,
   additionalPaths: async () => [
     { loc: "/", priority: 1.0, changefreq: "weekly" },
-    { loc: "/ecoistanbul", priority: 0.8, changefreq: "monthly" },
-    { loc: "/senato", priority: 0.8, changefreq: "monthly" },
+    { loc: "/ecoistanbul", priority: 0.8, changefreq: "weekly" },
+    { loc: "/senato", priority: 0.8, changefreq: "weekly" },
   ],
 };
 

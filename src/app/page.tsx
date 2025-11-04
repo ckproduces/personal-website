@@ -1,6 +1,9 @@
 "use client";
 import portfolio, { education, experiences, socials } from "@/data/data";
 import PortfolioItem from "@/components/PortfolioItem";
+import Image from "next/image";
+import Link from "next/link";
+import { Logo } from "@/components/icons/Logo";
 
 export default function Home() {
   return (
@@ -11,7 +14,7 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        padding: "2rem",
+        padding: "5rem",
       }}
     >
       <div
@@ -27,291 +30,255 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "left",
-            gap: "0.1rem",
+            marginBottom: "2rem",
             width: "100%",
           }}
         >
-          <p
-            style={{
-              color: "hsla(var(--color-primary-dark-1), 0.5)",
-              fontSize: "0.8rem",
-              marginBottom: "4rem",
-              width: "100%",
-              textAlign: "center",
-            }}
-          >
-            last updated: 28 october 2025
-          </p>
           <div
+            className="scroll-container"
             style={{
-              display: "flex",
-              justifyContent: "left",
-              alignItems: "center",
               width: "100%",
-              gap: "0.6rem",
+              overflow: "hidden",
             }}
           >
-            <img
-              className="ck-image"
-              src={"/images/crokan.jpeg"}
-              alt="çağrı okan"
-            />
-            <div>
-              <p
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "left",
+                gap: 0,
+                width: "100%",
+              }}
+              className="scroll-track"
+            >
+              <Logo
+                className="logo"
+                size="5rem"
+                color="hsl(var(--color-primary-dark-8))"
+              />
+              <img
+                className="running-img"
+                src="/images/crokan.jpeg"
+                alt="a photo of çağrı"
                 style={{
-                  fontSize: "1.3rem",
-                  width: "100%",
-                  textAlign: "left",
-                  marginBottom: "0.1rem",
+                  objectFit: "cover",
+                  cursor: "pointer",
+                  borderRadius: "1.4rem",
+                  width: "5rem",
+                  aspectRatio: "1/1",
                 }}
-              >
-                Çağrı Okan
-              </p>
-              <p
-                style={{
-                  color: "hsla(var(--color-primary-dark-1), 0.5)",
-                  width: "100%",
-                  textAlign: "left",
-                }}
-              >
-                everything i have done so far
-              </p>
+              />
             </div>
           </div>
         </div>
-        <div
+        <p
+          className="preview"
           style={{
-            height: "0.1rem",
             width: "100%",
-            backgroundColor: "hsl(var(--color-primary-light-11))",
-            margin: "2.5rem 0",
-          }}
-        />
-
-        <div
-          className="portfolio-item-container"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "start",
-            width: "100%",
+            lineHeight: "1.9em",
+            color: "hsla(var(--color-primary-dark-2), 0.9)",
+            fontSize: "1rem",
+            textAlign: "left",
             marginBottom: "5rem",
           }}
         >
-          <h1
+          <span
             style={{
-              fontWeight: 400,
               fontSize: "1.3rem",
-              marginBottom: "1.5rem",
             }}
           >
-            experience
-          </h1>
-          <div
-            className="portfolio-item-grid"
+            hello there! 👋
+          </span>
+          <br />
+          <br />I am{" "}
+          <span
+            className="attention-span"
             style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "2.5rem",
+              color: "hsla(var(--color-primary-dark-6), 1)",
+              backgroundColor: "hsla(var(--color-primary-light-11), 0.5)",
+              fontWeight: 500,
+              fontSize: "1.2rem",
             }}
           >
-            {experiences.map((item) => {
-              return <PortfolioItem key={item.id} {...item} />;
-            })}
-          </div>
-        </div>
+            Çağrı Okan
+          </span>
+          , born in 2006 in Istanbul. I am a graduate of TEV İnanç Türkeş
+          Private High School and currently an undergraduate student in
+          Statistics at{" "}
+          <span
+            className="attention-span"
+            style={{
+              color: "hsla(var(--color-primary-dark-6), 1)",
+              backgroundColor: "hsla(var(--color-primary-light-11), 0.5)",
+              fontWeight: 500,
+              fontSize: "1.2rem",
+            }}
+          >
+            Yıldız Technical University
+          </span>
+          .<br />
+          <br />I have experience in{" "}
+          <span
+            className="attention-span-secondary"
+            style={{
+              color: "hsla(var(--color-secondary-dark-7), 1)",
+              backgroundColor: "hsla(var(--color-secondary-light-11), 0.5)",
+              fontWeight: 500,
+              fontSize: "1.2rem",
+            }}
+          >
+            music production, graphic design, UI/UX design, full-stack web
+            development, data science and artificial intelligence.
+          </span>{" "}
+          <br />
+          <br />
+          Additionally, I continuously develop my knowledge and skills in the
+          fields of{" "}
+          <span
+            style={{
+              color: "hsla(var(--color-secondary-dark-7), 1)",
+              backgroundColor: "hsla(var(--color-secondary-light-11), 0.5)",
+              fontWeight: 500,
+              fontSize: "1.2rem",
+            }}
+          >
+            mathematics, statistics, sustainability, psychology, and
+            entrepreneurship.
+          </span>{" "}
+          <br />
+          <br />
+          Here, you’ll find everything I’ve done so far—detailed, polished, and
+          styled with a great UI.
+          <br />
+          <br />
+          Feel free to reach out to{" "}
+          <a
+            href="mailto:cagrokan@gmail.com"
+            style={{
+              color: "hsl(var(--color-primary-dark-7))",
+              backgroundColor: "hsla(var(--color-primary-light-11), 0.5)",
+              fontWeight: 500,
+              textDecoration: "underline",
+              fontSize: "1.2rem",
+            }}
+          >
+            cagrokan@gmail.com
+          </a>
+          {", "}
+          or from the connections at the end of the page.
+        </p>
 
         <div
-          className="portfolio-item-container"
           style={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "start",
-            width: "100%",
-            marginBottom: "5rem",
+            gap: "3.8rem",
           }}
         >
-          <h1
-            style={{
-              fontWeight: 400,
-              fontSize: "1.3rem",
-              marginBottom: "1.5rem",
-            }}
-          >
-            projects
-          </h1>
-          <div
-            className="portfolio-item-grid"
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "2.5rem",
-            }}
-          >
-            {portfolio.map((item) => {
-              return <PortfolioItem key={item.id} {...item} />;
-            })}
-          </div>
-        </div>
-
-        <div
-          className="portfolio-item-container"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "start",
-            width: "100%",
-            marginBottom: "5rem",
-          }}
-        >
-          <h1
-            style={{
-              fontWeight: 400,
-              fontSize: "1.3rem",
-              marginBottom: "1.5rem",
-            }}
-          >
-            education
-          </h1>
-          <div
-            className="portfolio-item-grid"
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "2.5rem",
-            }}
-          >
-            {education.map((item) => {
-              return <PortfolioItem key={item.id} {...item} />;
-            })}
-          </div>
-        </div>
-
-        <div
-          className="portfolio-item-container"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "start",
-            width: "100%",
-            marginBottom: "5rem",
-          }}
-        >
-          <h1
-            style={{
-              fontWeight: 400,
-              fontSize: "1.3rem",
-              marginBottom: "1.5rem",
-            }}
-          >
-            about çağrı
-          </h1>
-          <div
-            className="portfolio-item-grid"
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "2.5rem",
-            }}
-          >
-            <p
-              className="preview"
-              style={{
-                width: "100%",
-                lineHeight: "1.7em",
-                color: "hsla(var(--color-primary-dark-2), 0.7)",
-                fontSize: "0.9rem",
-                textAlign: "left",
-              }}
-            >
-              I am Çağrı Okan, born in 2006 in Istanbul. I am a graduate of TEV
-              İnanç Türkeş Private High School and currently an undergraduate
-              student in Statistics at Yıldız Technical University. I have
-              experience in music production, graphic design, UI/UX design,
-              full-stack web development, data science and artificial
-              intelligence. Additionally, I continuously develop my knowledge
-              and skills in the fields of mathematics, statistics,
-              sustainability, psychology, and entrepreneurship. Feel free to
-              reach out to{" "}
-              <a
-                href="mailto:cagrokan@gmail.com"
-                style={{
-                  color: "hsl(var(--color-primary-dark-7))",
-                  fontWeight: 500,
-                  textDecoration: "underline",
-                }}
-              >
-                cagrokan@gmail.com
-              </a>{" "}
-              or from the connections below.
-            </p>
-          </div>
-        </div>
-
-        <div
-          className="portfolio-item-container"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "start",
-            width: "100%",
-          }}
-        >
-          <h1
-            style={{
-              fontWeight: 400,
-              fontSize: "1.3rem",
-              marginBottom: "1.5rem",
-            }}
-          >
-            connections
-          </h1>
-          <div
-            className="portfolio-item-grid"
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: "1.5rem",
-            }}
-          >
-            {socials.map((item) => {
-              return <PortfolioItem key={item.id} {...item} />;
-            })}
-          </div>
+          {[
+            [experiences, portfolio, education, socials].map(
+              (section, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="portfolio-item-container"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "start",
+                      width: "100%",
+                    }}
+                  >
+                    <div
+                      style={{
+                        marginBottom: "1.4rem",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "0.2rem",
+                      }}
+                    >
+                      <h1
+                        style={{
+                          fontWeight: 500,
+                          fontSize: "1.6rem",
+                          color: "hsla(var(--color-primary-light-1), 0.85)",
+                        }}
+                      >
+                        {index === 0
+                          ? "experience"
+                          : index === 1
+                          ? "projects"
+                          : index === 2
+                          ? "education"
+                          : "connections"}
+                      </h1>
+                      <div
+                        style={{
+                          height: "0.1rem",
+                          width: "100%",
+                          backgroundColor:
+                            "hsla(var(--color-primary-dark-6), 0.1)",
+                        }}
+                      />
+                    </div>
+                    <div
+                      className="portfolio-item-grid"
+                      style={{
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "0.7rem",
+                      }}
+                    >
+                      {section.map((item) => {
+                        return <PortfolioItem key={item.id} {...item} />;
+                      })}
+                    </div>
+                  </div>
+                );
+              }
+            ),
+          ]}
         </div>
 
         <div
           style={{
             height: "0.1rem",
             width: "100%",
-            backgroundColor: "hsl(var(--color-primary-light-11))",
+            backgroundColor: "hsla(var(--color-primary-dark-6), 0.1)",
             margin: "2.5rem 0",
           }}
         />
 
         <p
           style={{
-            color: "hsla(var(--color-primary-dark-1), 0.8)",
+            color: "hsla(var(--color-primary-dark-1), 0.5)",
             fontSize: "0.8rem",
-            marginBottom: "3rem",
+            marginBottom: "0.6rem",
             width: "100%",
-            textAlign: "left",
+            textAlign: "center",
           }}
         >
           built with 🌪️🧠
         </p>
+        <Link
+          style={{
+            textDecoration: "none",
+          }}
+          href="/change-log"
+        >
+          <p
+            style={{
+              color: "hsl(var(--color-primary-dark-7))",
+              marginTop: "0rem",
+              fontWeight: 500,
+              fontSize: "0.8rem",
+            }}
+          >
+            see change log
+          </p>
+        </Link>
       </div>
     </div>
   );

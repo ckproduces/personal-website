@@ -54,8 +54,12 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         display: "flex",
         justifyItems: "center",
         alignItems: "center",
-        borderRadius: "0.6rem",
+        borderRadius: "0.8rem",
         justifyContent: "space-between",
+        padding: "1.5rem",
+        backgroundColor: "hsla(var(--color-primary-dark-6), 0.03)",
+        boxShadow:
+          "inset 0 0 0 0.05rem hsla(var(--color-primary-dark-6), 0.08)",
       }}
     >
       <section
@@ -65,7 +69,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
           justifyContent: "center",
           height: "100%",
           width: "100%",
-          gap: "0.25rem",
+          gap: "0rem",
         }}
       >
         {date && (
@@ -104,52 +108,37 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
           </div>
         )}
         {/* if there is a href, render <Link>. if not, render only h1 */}
-        {href || seperatePage ? (
+        {seperatePage ? (
           <Link
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
-            style={{ textDecoration: "none", width: "fit-content" }}
-            href={href ? href : `/${slugify(name)}`}
-            target={href ? "_blank" : "_self"}
-            rel={href ? "noopener noreferrer" : ""}
+            style={{
+              textDecoration: "none",
+              margin: "0.2rem 0 0.3rem 0",
+            }}
+            href={`/${slugify(name)}`}
           >
             <h1
               style={{
-                fontSize: "1.1rem",
+                fontSize: "1.2rem",
                 fontWeight: 500,
                 color: "hsl(var(--color-primary-dark-7))",
                 lineHeight: "1.4rem",
                 textDecoration: hovered ? "underline" : "none",
               }}
             >
-              <span>
-                {name}
-                {href && (
-                  <span style={{ display: "inline" }}>
-                    <CkArrowIcon
-                      style={{
-                        marginLeft: "0.35rem",
-                        transform: hovered
-                          ? "translate(-0.01rem, 0.01rem)"
-                          : "translate(-0.11rem, 0.11rem)",
-                        display: "inline-block",
-                      }}
-                      size="1rem"
-                      color={"hsl(var(--color-primary-dark-7))"}
-                    />
-                  </span>
-                )}
-              </span>
+              <span>{name}</span>
             </h1>
           </Link>
         ) : (
           <h1
             style={{
-              fontSize: "1.1rem",
+              fontSize: "1.2rem",
               fontWeight: 500,
-              color: "hsl(var(--color-primary-dark-3))",
+              color: "hsl(var(--color-primary-dark-2))",
               lineHeight: "1.4rem",
               display: "inline-flex",
+              margin: "0.2rem 0 0.3rem 0",
             }}
           >
             {name}
@@ -158,28 +147,61 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         <p
           className={image ? "preview-with-image" : "preview"}
           style={{
-            width: image ? "calc(100% - 3rem)" : "100%",
+            width: image ? "calc(100% - 1.5rem)" : "100%",
             display: "-webkit-box",
-            WebkitLineClamp: 1000,
-            WebkitBoxOrient: "vertical",
-            overflow: "hidden",
             lineHeight: "1.4em",
-            color: "hsla(var(--color-primary-dark-2), 0.7)",
+            color: "hsla(var(--color-primary-dark-2), 0.8)",
             fontSize: "0.9rem",
           }}
         >
           {preview}
         </p>
+        {href && (
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            className="link-a"
+            style={{
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "start",
+              marginTop: "0.2rem",
+              width: image ? "calc(100% - 1.5rem)" : "100%",
+            }}
+            href={href}
+          >
+            <CkArrowIcon
+              style={{
+                marginRight: "0.3rem",
+                transform: "translate(0px, 0.17rem)",
+              }}
+              size="0.8rem"
+              color={"hsl(var(--color-primary-dark-7))"}
+            />
+            <p
+              className="link-a"
+              style={{
+                fontSize: "0.9rem",
+                fontWeight: 500,
+                color: "hsl(var(--color-primary-dark-7))",
+                lineHeight: "1.4rem",
+                wordBreak: "break-all",
+              }}
+            >
+              {href}
+            </p>
+          </Link>
+        )}
         {tags && (
           <div
             className={image ? "tags-with-image" : "tags"}
             style={{
-              marginTop: "0.5rem",
+              marginTop: "0.6rem",
               display: "flex",
               flexWrap: "wrap",
               columnGap: "0.3rem",
               maxHeight: "calc(0.8rem * 1.2 + 0.6rem)",
-              width: image ? "calc(100% - 3rem)" : "100%",
+              width: image ? "calc(100% - 1.5rem)" : "100%",
               overflow: "hidden",
             }}
           >
@@ -188,10 +210,12 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
                 <span
                   key={i}
                   style={{
-                    padding: "0.3rem 0.5rem",
+                    padding: "0.3rem 0.6rem",
                     borderRadius: "0.39rem",
-                    backgroundColor: "hsl(var(--color-primary-dark-12))",
-                    color: "hsl(var(--color-primary-4))",
+                    backgroundColor: "hsla(var(--color-primary-dark-12), 1)",
+                    boxShadow:
+                      "inset 0 0 0 0.05rem hsl(var(--color-primary-11))",
+                    color: "hsla(var(--color-primary-dark-3), 1)",
                     fontSize: "0.8rem",
                     alignItems: "center",
                     justifyContent: "center",
@@ -207,6 +231,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
       </section>
       {image && (
         <img
+          className="portfolio-image"
           style={{
             objectFit: "contain",
             borderRadius: imageBorderRadius ? `${imageBorderRadius}%` : "11%",

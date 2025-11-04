@@ -23,9 +23,9 @@ export const ArticleH1: React.FC<React.HTMLAttributes<HTMLHeadElement>> = ({
     <>
       <h1
         style={{
-          fontSize: "1.4rem",
+          fontSize: "2rem",
           fontWeight: 500,
-          color: "hsl(var(--color-primary-2))",
+          color: "hsla(var(--color-primary-2), 0.8)",
           marginBottom: "0.5rem",
         }}
       >
@@ -43,10 +43,10 @@ export const ArticleH2: React.FC<React.HTMLAttributes<HTMLHeadElement>> = ({
     <>
       <h2
         style={{
-          fontSize: "1.2rem",
+          fontSize: "calc(2rem/1.3)",
           fontWeight: 500,
-          color: "hsl(var(--color-primary-dark-4))",
-          marginTop: "1.5rem",
+          color: "hsla(var(--color-primary-2), 0.8)",
+          paddingTop: "1.5rem",
           marginBottom: "0.4rem",
         }}
       >
@@ -63,10 +63,10 @@ export const ArticleH3: React.FC<React.HTMLAttributes<HTMLHeadElement>> = ({
   return (
     <h3
       style={{
-        fontSize: "1.1rem",
+        fontSize: "calc(2rem/1.3/1.3)",
         fontWeight: 500,
-        color: "hsl(var(--color-primary-dark-4))",
-        marginTop: "0.5rem",
+        color: "hsla(var(--color-primary-2), 0.8)",
+        paddingTop: "0.9rem",
         marginBottom: "0.5rem",
       }}
     >
@@ -80,11 +80,10 @@ export const ArticleP: React.FC<ArticlePProps> = ({ children, style }) => {
   return (
     <div
       style={{
-        marginBottom: "1rem",
-        fontSize: "1rem",
-        lineHeight: "1.6em",
-        letterSpacing: "0",
-        color: "hsla(var(--color-primary-dark-2), 0.9)",
+        marginBottom: "1.4rem",
+        fontSize: "1.1rem",
+        lineHeight: "1.7em",
+        color: "hsla(var(--color-primary-dark-2), 0.8)",
         ...style,
       }}
     >
@@ -110,12 +109,13 @@ export const ArticleImage: React.FC<ArticleImageProps> = ({ src, alt }) => {
       }}
     >
       <img
+        className="article-image"
         style={{
           maxWidth: "100%",
           objectFit: "contain",
           display: "block",
-          borderRadius: "0.7rem",
-          outline: "0.1rem solid " + "hsl(var(--color-primary-9))",
+          borderRadius: "2rem",
+          outline: "0.1rem solid " + "hsla(var(--color-primary-2), 0.4)",
         }}
         src={src}
         alt={alt}
@@ -123,7 +123,7 @@ export const ArticleImage: React.FC<ArticleImageProps> = ({ src, alt }) => {
       <ArticleP
         style={{
           fontSize: "0.9rem",
-          color: "hsl(var(--color-primary-6))",
+          color: "hsla(var(--color-primary-4), 0.6)",
           margin: 0,
         }}
       >
@@ -201,8 +201,30 @@ export const ArticleLi: React.FC<React.LiHTMLAttributes<HTMLElement>> = ({
 }) => {
   return (
     <li>
-      <ArticleP style={style || {}}>{children}</ArticleP>
+      <ArticleP
+        style={{ lineHeight: "1em", marginBottom: "0", ...(style || {}) }}
+      >
+        - {children}
+      </ArticleP>
     </li>
+  );
+};
+
+export const ArticleUl: React.FC<React.LiHTMLAttributes<HTMLElement>> = ({
+  children,
+  style,
+}) => {
+  return (
+    <ul
+      style={{
+        margin: "1.1rem 0",
+        display: "flex",
+        flexDirection: "column",
+        gap: "0rem",
+      }}
+    >
+      {children}
+    </ul>
   );
 };
 
