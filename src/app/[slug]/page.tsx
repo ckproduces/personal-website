@@ -53,7 +53,7 @@ export default async function PortfolioPage({ params }: Props) {
   );
 
   if (!portfolioItem) {
-    let pages = ["ecoistanbul", "senato"];
+    const pages = ["ecoistanbul", "senato"];
     const random = pages[Math.floor(Math.random() * pages.length)];
     return (
       <div

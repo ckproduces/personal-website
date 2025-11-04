@@ -1,7 +1,6 @@
 "use client";
 import portfolio, { education, experiences, socials } from "@/data/data";
 import PortfolioItem from "@/components/PortfolioItem";
-import Image from "next/image";
 import Link from "next/link";
 import { Logo } from "@/components/icons/Logo";
 
