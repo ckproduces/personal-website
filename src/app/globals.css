@@ -157,11 +157,6 @@
   transition: all 0.1s ease !important;
 }
 
-.article-image:hover {
-  transform: scale(1.05) !important;
-  border-radius: 0 !important;
-}
-
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
@@ -204,6 +199,12 @@ li div {
   margin-bottom: 0.8rem !important;
 }
 
+.scroll-track {
+  animation: scroll 2s linear infinite;
+  transform: translateX(0);
+  gap: 20rem !important;
+}
+
 @media (max-width: 656px) {
   .portfolio-image {
     height: 2.6rem !important;
@@ -228,6 +229,7 @@ li div {
   .cont-anim {
     font-size: 4rem !important;
   }
+
 }
 
 li::marker {
@@ -243,11 +245,6 @@ li::marker {
   text-decoration: underline !important;
 }
 
-.scroll-track {
-  animation: scroll 2s linear infinite;
-  transform: translateX(0);
-  gap: 20rem !important;
-}
 
 .running-img {
   animation: shake-rotate 0.3s linear infinite !important;

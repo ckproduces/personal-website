@@ -23,7 +23,7 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          width: "35rem",
+          width: "38rem",
         }}
       >
         <div
@@ -78,7 +78,7 @@ export default function Home() {
             color: "hsla(var(--color-primary-dark-2), 0.9)",
             fontSize: "1rem",
             textAlign: "left",
-            marginBottom: "5rem",
+            marginBottom: "3.8rem",
           }}
         >
           <span
@@ -147,10 +147,7 @@ export default function Home() {
           <br />
           <br />
           Here, you’ll find everything I’ve done so far—detailed, polished, and
-          styled with a great UI.
-          <br />
-          <br />
-          Feel free to reach out to{" "}
+          styled with a great UI. Feel free to reach out to{" "}
           <a
             href="mailto:cagrokan@gmail.com"
             style={{
@@ -212,14 +209,6 @@ export default function Home() {
                           ? "education"
                           : "connections"}
                       </h1>
-                      <div
-                        style={{
-                          height: "0.1rem",
-                          width: "100%",
-                          backgroundColor:
-                            "hsla(var(--color-primary-dark-6), 0.1)",
-                        }}
-                      />
                     </div>
                     <div
                       className="portfolio-item-grid"

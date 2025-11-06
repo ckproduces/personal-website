@@ -82,7 +82,7 @@ export const ArticleP: React.FC<ArticlePProps> = ({ children, style }) => {
       style={{
         marginBottom: "1.4rem",
         fontSize: "1.1rem",
-        lineHeight: "1.7em",
+        lineHeight: "1.6em",
         color: "hsla(var(--color-primary-dark-2), 0.8)",
         ...style,
       }}
@@ -114,7 +114,7 @@ export const ArticleImage: React.FC<ArticleImageProps> = ({ src, alt }) => {
           maxWidth: "100%",
           objectFit: "contain",
           display: "block",
-          borderRadius: "2rem",
+          borderRadius: "0.6rem",
           outline: "0.1rem solid " + "hsla(var(--color-primary-2), 0.4)",
         }}
         src={src}
@@ -237,7 +237,7 @@ export const ArticleViewer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
       <div
         className="article-viewer"
         style={{
-          width: "35rem",
+          width: "38rem",
           ...style,
         }}
       >

@@ -32,6 +32,11 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
     });
   }
 
+  href = href
+    ?.replace(/^https?:\/\//, "")
+    .replace("www.", "")
+    .replace(/\/$/, "");
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -57,9 +62,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         borderRadius: "0.8rem",
         justifyContent: "space-between",
         padding: "1.5rem",
-        backgroundColor: "hsla(var(--color-primary-dark-6), 0.03)",
-        boxShadow:
-          "inset 0 0 0 0.05rem hsla(var(--color-primary-dark-6), 0.08)",
+        // backgroundColor: "hsla(var(--color-primary-dark-6), 0.03)",
+        boxShadow: "inset 0 0 0 0.07rem hsla(var(--color-primary-dark-7), 0.2)",
       }}
     >
       <section
@@ -89,7 +93,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
             <>
               <span
                 style={{
-                  padding: "0 0.6rem",
+                  padding: "0 0.4rem",
                   color: "hsl(var(--color-primary-light-7))",
                   fontSize: "0.85rem",
                 }}
@@ -114,16 +118,16 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
             onMouseLeave={() => setHovered(false)}
             style={{
               textDecoration: "none",
-              margin: "0.2rem 0 0.3rem 0",
+              margin: "0.3rem 0 0.3rem 0",
             }}
             href={`/${slugify(name)}`}
           >
             <h1
               style={{
-                fontSize: "1.2rem",
+                fontSize: "1.1rem",
                 fontWeight: 500,
                 color: "hsl(var(--color-primary-dark-7))",
-                lineHeight: "1.4rem",
+                lineHeight: "1.3rem",
                 textDecoration: hovered ? "underline" : "none",
               }}
             >
@@ -133,12 +137,12 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         ) : (
           <h1
             style={{
-              fontSize: "1.2rem",
+              fontSize: "1.1rem",
               fontWeight: 500,
               color: "hsl(var(--color-primary-dark-2))",
-              lineHeight: "1.4rem",
+              lineHeight: "1.3rem",
               display: "inline-flex",
-              margin: "0.2rem 0 0.3rem 0",
+              margin: "0.3rem 0 0.3rem 0",
             }}
           >
             {name}
@@ -147,11 +151,11 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         <p
           className={image ? "preview-with-image" : "preview"}
           style={{
-            width: image ? "calc(100% - 1.5rem)" : "100%",
+            width: image ? "calc(100% - 1rem)" : "100%",
             display: "-webkit-box",
             lineHeight: "1.4em",
             color: "hsla(var(--color-primary-dark-2), 0.8)",
-            fontSize: "0.9rem",
+            fontSize: "0.85rem",
           }}
         >
           {preview}
@@ -165,15 +169,15 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
               textDecoration: "none",
               display: "flex",
               alignItems: "start",
-              marginTop: "0.2rem",
-              width: image ? "calc(100% - 1.5rem)" : "100%",
+              marginTop: "0.3rem",
+              width: image ? "calc(100% - 1rem)" : "100%",
             }}
             href={href}
           >
             <CkArrowIcon
               style={{
                 marginRight: "0.3rem",
-                transform: "translate(0px, 0.17rem)",
+                transform: "translate(0px, 0.18rem)",
               }}
               size="0.8rem"
               color={"hsl(var(--color-primary-dark-7))"}
@@ -196,12 +200,13 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
           <div
             className={image ? "tags-with-image" : "tags"}
             style={{
-              marginTop: "0.6rem",
+              marginTop: "0.5rem",
               display: "flex",
               flexWrap: "wrap",
-              columnGap: "0.3rem",
-              maxHeight: "calc(0.8rem * 1.2 + 0.6rem)",
-              width: image ? "calc(100% - 1.5rem)" : "100%",
+              columnGap: "0.26rem",
+              rowGap: "5rem",
+              maxHeight: "calc(0.8rem * 1.2 + 0.48rem)",
+              width: image ? "calc(100% - 1rem)" : "100%",
               overflow: "hidden",
             }}
           >
@@ -210,12 +215,12 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
                 <span
                   key={i}
                   style={{
-                    padding: "0.3rem 0.6rem",
+                    padding: "0.24rem 0.6rem",
                     borderRadius: "0.39rem",
                     backgroundColor: "hsla(var(--color-primary-dark-12), 1)",
-                    boxShadow:
-                      "inset 0 0 0 0.05rem hsl(var(--color-primary-11))",
-                    color: "hsla(var(--color-primary-dark-3), 1)",
+                    // boxShadow:
+                    //  "inset 0 0 0 0.05rem hsl(var(--color-primary-11))",
+                    color: "hsla(var(--color-primary-dark-4), 1)",
                     fontSize: "0.8rem",
                     alignItems: "center",
                     justifyContent: "center",

@@ -31,9 +31,7 @@ type Props = {
 // Generate metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = (await params).slug as string;
-  const portfolioItem = allData.find(
-    (p) => slugify(p.name) === slugify(slug)
-  );
+  const portfolioItem = allData.find((p) => slugify(p.name) === slugify(slug));
 
   if (!portfolioItem) {
     return { title: "Not found", description: "Not found" };
@@ -120,7 +118,7 @@ export default async function PortfolioPage({ params }: Props) {
             border: 0,
             background: "none",
           }}
-          to="back"
+          to="/"
           className="icon"
           size="1.3rem"
           color="hsl(var(--color-primary-dark-1))"
@@ -132,6 +130,17 @@ export default async function PortfolioPage({ params }: Props) {
             h2: (props) => <ArticleH2 {...props} />,
             h3: (props) => <ArticleH3 {...props} />,
             p: (props) => <ArticleP {...props} style={props.style ?? {}} />,
+            strong: (props) => (
+              <ArticleP
+                {...props}
+                style={{
+                  display: "inline",
+                  fontWeight: 500,
+                  ...props.style,
+                  backgroundColor: "hsla(var(--color-primary-dark-5), 0.07)",
+                }}
+              />
+            ),
             li: (props) => (
               <ArticleLi
                 {...props}
