@@ -38,6 +38,7 @@ export default function Home() {
             style={{
               width: "100%",
               overflow: "hidden",
+              position: "relative",
             }}
           >
             <div
@@ -61,12 +62,42 @@ export default function Home() {
                 alt="a photo of çağrı"
                 style={{
                   objectFit: "cover",
-                  cursor: "pointer",
                   borderRadius: "1.4rem",
                   width: "5rem",
                   aspectRatio: "1/1",
                 }}
               />
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                width: "100%",
+                top: "calc(50% - 0.25rem)",
+                right: "0%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+                gap: "0.5rem",
+                zIndex: "-1",
+              }}
+            >
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
+                return (
+                  <div
+                    className="dot"
+                    key={i}
+                    style={{
+                      width: "0.5rem",
+                      height: "0.5rem",
+                      backgroundColor: "hsla(var(--color-primary-dark-7), 0.6)",
+                      borderRadius: "50%",
+
+                      // CSS custom properties are not part of React's CSSProperties type; cast the key to any
+                      ["--i" as any]: i,
+                    }}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

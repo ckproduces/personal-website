@@ -4,7 +4,7 @@ const config = {
   generateRobotsTxt: true,
   sitemapSize: 5000,
   additionalPaths: async () => [
-    { loc: "/", priority: 1.0, changefreq: "weekly" },
+    { loc: "/", priority: 1.0, changefreq: "daily" },
     { loc: "/ecoistanbul", priority: 0.8, changefreq: "weekly" },
     { loc: "/senato", priority: 0.8, changefreq: "weekly" },
   ],

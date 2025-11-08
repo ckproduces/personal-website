@@ -200,9 +200,33 @@ li div {
 }
 
 .scroll-track {
-  animation: scroll 2s linear infinite;
+  animation: scroll 3.1s linear infinite;
   transform: translateX(0);
-  gap: 20rem !important;
+  gap: 15rem !important;
+}
+
+.dot {
+  opacity: 1;
+  animation: fade 3.1s ease-out infinite both;
+  animation-delay: calc(1.28s + var(--i) * 0.181s);
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 656px) {
@@ -229,7 +253,6 @@ li div {
   .cont-anim {
     font-size: 4rem !important;
   }
-
 }
 
 li::marker {
@@ -245,17 +268,16 @@ li::marker {
   text-decoration: underline !important;
 }
 
-
 .running-img {
   animation: shake-rotate 0.3s linear infinite !important;
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(-37rem);
+    transform: translateX(-100%);
   }
   100% {
-    transform: translateX(65rem); /* adjust depending on total width */
+    transform: translateX(calc(100%)); /* adjust depending on total width */
   }
 }
 

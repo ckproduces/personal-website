@@ -22,7 +22,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
   href,
 }) => {
   const [hovered, setHovered] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [tagss, setTags] = useState([]);
 
   function formatDate(date: Date) {
     return date.toLocaleDateString("en-GB", {
@@ -38,12 +38,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
     .replace(/\/$/, "");
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
+    setTags(tags);
+  }, [tags]); 
 
   function slugify(title: string) {
     return title
@@ -196,7 +192,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
             </p>
           </Link>
         )}
-        {tags && (
+        {tagss && (
           <div
             className={image ? "tags-with-image" : "tags"}
             style={{
@@ -210,7 +206,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
               overflow: "hidden",
             }}
           >
-            {tags.map((e, i) => {
+            {tagss.map((e, i) => {
               return (
                 <span
                   key={i}
