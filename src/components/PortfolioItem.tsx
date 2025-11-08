@@ -22,7 +22,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
   href,
 }) => {
   const [hovered, setHovered] = useState(false);
-  const [tagss, setTags] = useState([]);
+  const [tagss, setTags] = useState<string[]>([]);
 
   function formatDate(date: Date) {
     return date.toLocaleDateString("en-GB", {
@@ -38,8 +38,8 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
     .replace(/\/$/, "");
 
   useEffect(() => {
-    setTags(tags);
-  }, [tags]); 
+    setTags(tags ?? []);
+  }, [tags]);
 
   function slugify(title: string) {
     return title
