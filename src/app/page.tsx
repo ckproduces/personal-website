@@ -91,9 +91,7 @@ export default function Home() {
                       height: "0.5rem",
                       backgroundColor: "hsla(var(--color-primary-dark-7), 0.6)",
                       borderRadius: "50%",
-
-                      // CSS custom properties are not part of React's CSSProperties type; cast the key to any
-                      ["--i" as any]: i,
+                      ...({ ["--i"]: i } as React.CSSProperties),
                     }}
                   />
                 );
