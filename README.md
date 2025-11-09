@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Çağrı Okan — Personal Website
 
-## Getting Started
+Welcome to my personal website!  
+Here, I share my **past and ongoing experiences**, **education**, **projects**, and more —  
+think of it as my digital portfolio.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧭 Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project serves as a central hub for everything I’ve worked on — designed, built, and written by me.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I’m open to **suggestions** and **issues**,  
+but this repo isn’t intended for direct contributions —  
+after all, it’s a *personal* website.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 Live Site
 
-To learn more about Next.js, take a look at the following resources:
+You can visit the published version here:  
+➡️ **[cagriokan.com](https://cagriokan.com)**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚖️ License
 
-## Deploy on Vercel
+© 2025 [Çağrı Okan](https://cagriokan.com)  
+**Code:** Licensed under the [MIT License](https://opensource.org/licenses/MIT)  
+**Content:** Licensed under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
