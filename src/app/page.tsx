@@ -41,6 +41,7 @@ export default function Home() {
               position: "relative",
             }}
           >
+            <div className="scroll-container-bg" />
             <div
               style={{
                 display: "flex",
@@ -217,10 +218,9 @@ export default function Home() {
                   >
                     <div
                       style={{
-                        marginBottom: "1.4rem",
+                        marginBottom: "1.7rem",
                         display: "flex",
                         flexDirection: "column",
-                        gap: "0.2rem",
                       }}
                     >
                       <h1
@@ -245,11 +245,54 @@ export default function Home() {
                         width: "100%",
                         display: "flex",
                         flexDirection: "column",
-                        gap: "0.7rem",
+                        gap: "2.7rem",
+                        position: "relative",
                       }}
                     >
                       {section.map((item) => {
-                        return <PortfolioItem key={item.id} {...item} />;
+                        return (
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              gap: "1.4rem",
+                            }}
+                            key={item.id}
+                          >
+                            {(item.section === "education" ||
+                              item.section === "experience") && (
+                              <div
+                                className="çubuk"
+                                style={{
+                                  position: "absolute",
+                                  top: "calc(3%)",
+                                  left: "calc(0.2rem - 0.07rem)",
+                                  height: "94%",
+                                  width: "0.14rem",
+                                  zIndex: "5",
+                                  borderRadius: "100rem",
+                                }}
+                              />
+                            )}
+                            {(item.section === "education" ||
+                              item.section == "experience") && (
+                              <div
+                                style={{
+                                  height: "0.4rem",
+                                  width: "0.4rem",
+                                  borderRadius: "50%",
+                                  backgroundColor:
+                                    "hsla(var(--color-primary-dark-8))",
+                                  zIndex: "40",
+                                  flexShrink: "0",
+                                  marginBottom: "0.7rem",
+                                }}
+                              />
+                            )}
+                            <PortfolioItem {...item} />
+                          </div>
+                        );
                       })}
                     </div>
                   </div>

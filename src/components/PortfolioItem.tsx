@@ -32,7 +32,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
     });
   }
 
-  href = href
+  const hrefStyled = href
     ?.replace(/^https?:\/\//, "")
     .replace("www.", "")
     .replace(/\/$/, "");
@@ -57,9 +57,9 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         alignItems: "center",
         borderRadius: "0.8rem",
         justifyContent: "space-between",
-        padding: "1.5rem",
+        width: "100%"
         // backgroundColor: "hsla(var(--color-primary-dark-6), 0.03)",
-        boxShadow: "inset 0 0 0 0.07rem hsla(var(--color-primary-dark-7), 0.2)",
+        // boxShadow: "inset 0 0 0 0.07rem hsla(var(--color-primary-dark-7), 0.2)",
       }}
     >
       <section
@@ -188,11 +188,11 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
                 wordBreak: "break-all",
               }}
             >
-              {href}
+              {hrefStyled}
             </p>
           </Link>
         )}
-        {tagss && (
+        {(tagss.length !== 0) && (
           <div
             className={image ? "tags-with-image" : "tags"}
             style={{

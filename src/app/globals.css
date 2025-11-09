@@ -205,10 +205,51 @@ li div {
   gap: 15rem !important;
 }
 
+.çubuk {
+  background: linear-gradient(
+    to bottom,
+    hsla(var(--color-primary-dark-8), 0) 0%,
+    hsla(var(--color-primary-dark-8), 0.2) 15%,
+    hsla(var(--color-primary-dark-8), 0.2) 85%,
+    hsla(var(--color-primary-dark-8), 0) 100%
+  ) !important;
+}
+
+.scroll-container-bg {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 15%,
+    rgba(255, 255, 255, 0) 85%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
 .dot {
   opacity: 1;
   animation: fade 3.1s ease-out infinite both;
   animation-delay: calc(1.28s + var(--i) * 0.181s);
+}
+
+ul ul > li {
+  padding-left: 1rem;
+}
+ul ul ul > li {
+  padding-left: 1rem;
+}
+
+ol ol > li {
+  padding-left: 1rem;
+}
+ol ol ol > li {
+  padding-left: 1rem;
 }
 
 @keyframes fade {

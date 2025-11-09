@@ -13,6 +13,7 @@ export interface portfolioItem {
   seperatePage?: boolean;
   pageContent?: string; // markdown
   href?: string;
+  section: string;
 }
 
 let educationlist: portfolioItem[] = [
@@ -27,6 +28,7 @@ let educationlist: portfolioItem[] = [
     image: "/images/tevitol.png",
     alt: "Image of TEV İnanç Türkeş Private High School logo",
     href: "https://tevitol.k12.tr/",
+    section: "education",
   },
   {
     id: 2,
@@ -39,6 +41,7 @@ let educationlist: portfolioItem[] = [
     image: "/images/ytu.png",
     alt: "Image of Yıldız Technical University logo",
     href: "https://www.yildiz.edu.tr/en",
+    section: "education",
   },
 ];
 
@@ -50,8 +53,8 @@ let experienceslist: portfolioItem[] = [
       "I provide 24/7 IT service management, reviewing and triaging incoming tickets. I ensure accurate classification and timely escalation to the appropriate technical teams, maintaining service continuity and adherence to operational standards.",
     date: new Date(2025, 6, 1),
     type: ["", "experience"],
-    tags: ["hybrid", "it", "consulting", "monitoring", "specialist"],
     href: "https://www.artivearti.com/",
+    section: "experience",
   },
   {
     id: 2,
@@ -60,7 +63,7 @@ let experienceslist: portfolioItem[] = [
       "I lead the research and data analysis commission, focusing on data-driven decision making and policy development.",
     date: new Date(2025, 2, 17),
     type: ["", "experience"],
-    tags: ["research", "data analysis", "policy", "council"],
+    section: "experience",
   },
   {
     id: 3,
@@ -69,8 +72,8 @@ let experienceslist: portfolioItem[] = [
       "I coordinate the education committee, focusing on organizing workshops, seminars, and educational events related to data science.",
     date: new Date(2025, 5, 1),
     type: ["", "experience"],
-    tags: ["education", "data science", "workshops", "seminars"],
     href: "https://www.instagram.com/ytuveribilimi/",
+    section: "experience",
   },
 ];
 
@@ -83,6 +86,7 @@ export const socials: portfolioItem[] = [
     image: "/images/github.svg",
     alt: "GitHub logo",
     href: "https://github.com/ckproduces",
+    section: "social",
   },
   {
     id: 2,
@@ -93,6 +97,7 @@ export const socials: portfolioItem[] = [
     image: "/images/linkedin.png",
     alt: "LinkedIn logo",
     href: "https://www.linkedin.com/in/cagriokan",
+    section: "social",
   },
   {
     id: 3,
@@ -102,6 +107,7 @@ export const socials: portfolioItem[] = [
     image: "/images/kaggle.png",
     alt: "Kaggle logo",
     href: "https://www.kaggle.com/cagrokan",
+    section: "social",
   },
 ];
 
@@ -152,6 +158,7 @@ it had a much more minimalistic look, with a clean representation of the feature
 needless to say, the app was never published. we eventually stopped working on it due to the inadequacy of technical skills in the team and lack of R&D time on school campus. but it was a valuable experience that made me go through every single step of designing, developing, and deploying a project. also, my current main area of interest is artificial intelligence, thanks to hours of research spent for ecoistanbul.
 `,
     seperatePage: true,
+    section: "project",
   },
 
   {
@@ -177,6 +184,7 @@ The website is not live anymore, but traces from Senato can be easily noticed in
 ---
 [read the second issue of senato](https://www.yumpu.com/tr/document/view/67057044/senato-2-sayi) 
     `,
+    section: "project",
   },
 ];
 
@@ -224,8 +232,17 @@ const changeLog = [
     type: [""],
     tags: ["changes", "change log"],
     seperatePage: true,
+    section: "bos-yapma",
     pageContent: `
 # change log
+---
+## november 9, 2025
+- home page UI changes
+  - added pacman animation
+  - info cards are more readable now
+  - timeline item added next to time-related sections
+- there was a bug about links, fixed it.
+
 ---
 ## november 4, 2025
 - added "/change-log" page
