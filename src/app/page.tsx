@@ -13,7 +13,7 @@ export default function Home() {
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        padding: "5rem",
+        padding: "5rem 5rem 2rem 5rem",
       }}
     >
       <div
@@ -315,30 +315,12 @@ export default function Home() {
           style={{
             color: "hsla(var(--color-primary-dark-1), 0.5)",
             fontSize: "0.8rem",
-            marginBottom: "0.6rem",
             width: "100%",
             textAlign: "center",
           }}
         >
           built with 🌪️🧠
         </p>
-        <Link
-          style={{
-            textDecoration: "none",
-          }}
-          href="/change-log"
-        >
-          <p
-            style={{
-              color: "hsl(var(--color-primary-dark-7))",
-              marginTop: "0rem",
-              fontWeight: 500,
-              fontSize: "0.8rem",
-            }}
-          >
-            see change log
-          </p>
-        </Link>
       </div>
     </div>
   );

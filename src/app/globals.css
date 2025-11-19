@@ -215,11 +215,10 @@ li div {
   ) !important;
 }
 
-
 .dot {
-  opacity: 1;
   animation: fade 3.1s ease-out infinite both;
   animation-delay: calc(1.28s + var(--i) * 0.181s);
+  aspect-ratio: 1/1;
 }
 
 ul ul > li {
@@ -238,19 +237,19 @@ ol ol ol > li {
 
 @keyframes fade {
   0% {
-    opacity: 1;
+    scale: 1;
   }
   10% {
-    opacity: 0;
+    scale: 0;
   }
-  45% {
-    opacity: 0;
+  60% {
+    scale: 0;
   }
   65% {
-    opacity: 1;
+    scale: 1;
   }
   100% {
-    opacity: 1;
+    scale: 1;
   }
 }
 
