@@ -7,10 +7,6 @@ interface ArticleImageProps extends React.HTMLAttributes<HTMLImageElement> {
   alt?: string;
 }
 
-interface ArticlePProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  // style property is inherited from React.HTMLAttributes
-}
-
 interface ArticleAProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
 }
@@ -76,7 +72,7 @@ export const ArticleH3: React.FC<React.HTMLAttributes<HTMLHeadElement>> = ({
 };
 
 // paragraph
-export const ArticleP: React.FC<ArticlePProps> = ({ children, style }) => {
+export const ArticleP: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({ children, style }) => {
   return (
     <div
       style={{
