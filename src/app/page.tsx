@@ -1,7 +1,12 @@
 "use client";
-import portfolio, { education, experiences, socials } from "@/data/data";
+import portfolio, {
+  education,
+  experiences,
+  gallery,
+  socials,
+  portfolioItem,
+} from "@/data/data";
 import PortfolioItem from "@/components/PortfolioItem";
-import Link from "next/link";
 import { Logo } from "@/components/icons/Logo";
 
 export default function Home() {
@@ -90,7 +95,35 @@ export default function Home() {
                     style={{
                       width: "0.5rem",
                       height: "0.5rem",
-                      backgroundColor: "hsla(var(--color-primary-dark-7), 0.6)",
+                      backgroundColor: "hsla(var(--color-primary-dark-7), 1)",
+                      borderRadius: "50%",
+                      ...({ ["--i"]: i } as React.CSSProperties),
+                    }}
+                  />
+                );
+              })}
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                width: "100%",
+                top: "calc(50% - 0.25rem)",
+                right: "0%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+                gap: "0.5rem",
+                zIndex: "-1",
+              }}
+            >
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      width: "0.5rem",
+                      height: "0.5rem",
+                      backgroundColor: "hsla(var(--color-primary-dark-7), 0.15)",
                       borderRadius: "50%",
                       ...({ ["--i"]: i } as React.CSSProperties),
                     }}
@@ -113,7 +146,7 @@ export default function Home() {
         >
           <span
             style={{
-              fontSize: "1.3rem",
+              fontSize: "1.6rem",
             }}
           >
             hello there! 👋
@@ -202,7 +235,7 @@ export default function Home() {
           }}
         >
           {[
-            [experiences, portfolio, education, socials].map(
+            [experiences, portfolio, education, gallery, socials].map(
               (section, index) => {
                 return (
                   <div
@@ -233,68 +266,128 @@ export default function Home() {
                         {index === 0
                           ? "experience"
                           : index === 1
-                          ? "projects"
-                          : index === 2
-                          ? "education"
-                          : "connections"}
+                            ? "projects"
+                            : index === 2
+                              ? "education"
+                              : index === 3
+                                ? "gallery"
+                                : "connections"}
                       </h1>
                     </div>
-                    <div
-                      className="portfolio-item-grid"
-                      style={{
-                        width: "100%",
+                    {section[0].section === "gallery" ? (
+                      <div key={index} style={{
                         display: "flex",
-                        flexDirection: "column",
-                        gap: "2.7rem",
+                        overflow: "scroll hidden",
+                        scrollSnapType: "x mandatory",
+                        scrollSnapDestination: "center center",
+                        scrollBehavior: "smooth",
+                        width: "38rem",
                         position: "relative",
-                      }}
-                    >
-                      {section.map((item) => {
-                        return (
-                          <div
-                            style={{
+                        borderRadius: "1.2rem",
+                        userSelect: "none"
+                      }}>
+                        {section.map((item, index) => {
+                          return item.story ? (<div style={{
+                            padding: "2rem",
+                            writingMode: "vertical-rl",
+                            textOrientation: "mixed",
+                            transform: "rotate(180deg)",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            fontSize: "1.5rem",
+                            letterSpacing: "0",
+                            fontWeight: 200,
+                            height: "28rem",
+                            color: "white",
+                            backgroundColor: item.storyColor == "primary" ? "hsla(var(--color-primary-dark-7), 1)" : item.storyColor == "secondary" ? "hsla(var(--color-secondary-dark-7), 1)" : "hsla(var(--color-tertiary-dark-7), 1)",
+                            scrollSnapAlign: "start",
+                          }} key={index}>{item.text}</div>) : (<div className="image-cont" key={index} style={{
+                            position: "relative"
+                          }}>
+                            <div style={{
                               display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              gap: "1.4rem",
-                            }}
-                            key={item.id}
-                          >
-                            {(item.section === "education" ||
-                              item.section === "experience") && (
-                              <div
-                                className="çubuk"
-                                style={{
-                                  position: "absolute",
-                                  top: "calc(3%)",
-                                  left: "calc(0.2rem - 0.07rem)",
-                                  height: "94%",
-                                  width: "0.14rem",
-                                  zIndex: "5",
-                                  borderRadius: "100rem",
-                                }}
-                              />
-                            )}
-                            {(item.section === "education" ||
-                              item.section == "experience") && (
-                              <div
-                                style={{
-                                  height: "0.4rem",
-                                  width: "0.4rem",
-                                  borderRadius: "50%",
-                                  backgroundColor:
-                                    "hsla(var(--color-primary-dark-8))",
-                                  zIndex: "40",
-                                  flexShrink: "0",
-                                  marginBottom: "0.7rem",
-                                }}
-                              />
-                            )}
-                            <PortfolioItem {...item} />
-                          </div>
-                        );
-                      })}
-                    </div>
+                              flexDirection: "column",
+                              position: "absolute",
+                              bottom: "0",
+                              left: "0",
+                              padding: "1.2rem",
+                              gap: "0.2rem"
+                            }}>
+                              <p style={{
+                                fontSize: "1rem", color: "white", fontWeight: "500",
+                                zIndex: 9999
+                              }}>{item.description}</p>
+                              <p style={{
+                                fontSize: "0.9rem", color: "white",
+                                zIndex: 9999
+                              }}>{item.date?.toDateString()}</p>
+                            </div>
+                            <img style={{
+                              height: "28rem",
+                              scrollSnapAlign: "start",
+                            }} src={item.image} loading="lazy" />
+                          </div>)
+                        })}
+                      </div>
+                    ) : (
+                      <div
+                        className="portfolio-item-grid"
+                        style={{
+                          width: "100%",
+                          display: "flex",
+                          flexDirection: "column",
+                          gap: section[0].section === "project" ? "0.7rem" : "2.7rem",
+                          position: "relative",
+                        }}
+                      >
+                        {(section as portfolioItem[]).map((item) => {
+                          return (
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: "1.4rem",
+                              }}
+                              key={item.id}
+                            >
+                              {(item.section === "education" ||
+                                item.section === "experience") && (
+                                  <div
+                                    className="çubuk"
+                                    style={{
+                                      position: "absolute",
+                                      top: "calc(3%)",
+                                      left: "calc(0.2rem - 0.07rem)",
+                                      height: "94%",
+                                      width: "0.14rem",
+                                      zIndex: "5",
+                                      borderRadius: "100rem",
+                                    }}
+                                  />
+                                )}
+                              {(item.section === "education" ||
+                                item.section == "experience") && (
+                                  <div
+                                    style={{
+                                      height: "0.4rem",
+                                      width: "0.4rem",
+                                      borderRadius: "50%",
+                                      backgroundColor:
+                                        "hsla(var(--color-primary-dark-8))",
+                                      zIndex: "40",
+                                      flexShrink: "0",
+                                      marginBottom: "0.7rem",
+                                    }}
+                                  />
+                                )}
+                              <PortfolioItem key={item.id} {...item} />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 );
               }

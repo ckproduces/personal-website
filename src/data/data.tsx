@@ -13,7 +13,57 @@ export interface portfolioItem {
   seperatePage?: boolean;
   pageContent?: string; // markdown
   href?: string;
-  section: string;
+  section: "experience" | "education" | "project" | "social" | "bos-yapma";
+  story?: boolean
+  description?: string;
+  text?: string;
+  storyColor?: "primary" | "secondary" | "tertiary"
+}
+
+export interface galleryItem {
+  id: number;
+  name: string;
+  date?: Date;
+  dateEnd?: Date;
+  preview: string;
+  program?: string;
+  type: string[];
+  image?: string;
+  alt?: string;
+  tags?: string[];
+  imageBorderRadius?: number;
+  seperatePage?: boolean;
+  pageContent?: string; // markdown
+  href?: string;
+  section: "gallery";
+  description: string;
+  horizontal: boolean;
+  story: boolean;
+  text: string;
+  storyColor?: "primary" | "secondary" | "tertiary"
+}
+
+export interface story {
+  id?: number;
+  name?: string;
+  date?: Date;
+  dateEnd?: Date;
+  preview?: string;
+  program?: string;
+  type?: string[];
+  image?: string;
+  alt?: string;
+  tags?: string[];
+  imageBorderRadius?: number;
+  seperatePage?: boolean;
+  pageContent?: string; // markdown
+  href?: string;
+  description?: string;
+  horizontal?: boolean;
+  story?: boolean,
+  text?: string,
+  section?: "gallery",
+  storyColor?: "primary" | "secondary" | "tertiary"
 }
 
 let educationlist: portfolioItem[] = [
@@ -74,6 +124,21 @@ let experienceslist: portfolioItem[] = [
     type: ["", "experience"],
     href: "https://www.instagram.com/ytuveribilimi/",
     section: "experience",
+    seperatePage: true,
+    pageContent: `
+# YTU Data Science Club
+Yıldız Technical University Data Science Club is a community that brings together data-driven solution generation, analytical thinking, and technology. Our aim is to enable students to develop their knowledge and competencies in the field of data science and to support them in turning theory into practice through projects and workshops.
+
+it consists of five departments: **projects/competitions, education, organization, network, and media**. I coordinate the education department.
+
+here is a table of the workshops/events we organized so far.
+
+| Name    | Mentor | Date | Place |
+| -------- | ------- | ------- | ------- |
+| AI Eşliğinde Veri Bilimi | Ferhat İşyapan, Founder @ Verinin Mutfağı | 2025-10-27 - 2025-11-4 | Online  |
+| Veri Biliminin Evrimi ve Yapay Zeka Çağı: AI101 | Oğuzhan Şan MSc. | 2025-10-22 | YTU, class FEF - BZ-A06  |
+| Github Workshop | Baki Gül, Software Engineer @ HUAWEI | 2025-12-09 | YTU, class FEF - B2D13  |
+`,
   },
 ];
 
@@ -186,6 +251,36 @@ The website is not live anymore, but traces from Senato can be easily noticed in
     `,
     section: "project",
   },
+  {
+    id: 3,
+    name: "Overtime",
+    date: new Date(2025, 11, 5),
+    dateEnd: new Date(2025, 11, 7),
+    image: "/images/overtime.png",
+    preview:
+      "Overtime is an AI warehouse & inventory management agent. It was built in a hackathon in 48 hours!",
+    type: ["", "projects", "website"],
+    tags: ["warehouse", "inventory", "ai agent", "hackathon", "logistics"],
+    seperatePage: true,
+    section: "project",
+    pageContent: `
+# building overtime: a quick overview
+we tackled the problem of slow product searches in warehouses with overtime, an ai assistant for warehouse workers. the core idea? make finding items faster and easier.
+![](/images/overtime/overtime-banner.png)
+technically, we built overtime using a few key things:
+
+- **gemini-2.5-flash-lite**: this is our main ai brain, handling natural language understanding and generating helpful responses.
+- **google agent development kit**: we used this to structure overtime as a helpful agent that workers can interact with.
+- **flask**: this is our backend, managing the logic and data flow.
+- **next js**: this powers our user-friendly web interface.
+
+we also built in warehouse mapping, real-time inventory data integration, and detailed reporting to help warehouse managers optimize their operations. it's a combination of powerful ai and practical tools, all designed to make warehouse work more efficient.
+
+here is some images:
+![walking route optimization on warehouse map](/images/overtime/route.jpeg)
+![general info providing about warehouse](/images/overtime/general.jpeg)
+    `
+  },
 ];
 
 portfolio = portfolio
@@ -224,7 +319,7 @@ educationlist.map((i) => {
   }
 });
 
-const changeLog = [
+const changeLog: portfolioItem[] = [
   {
     id: 1,
     name: "change log",
@@ -253,6 +348,81 @@ const changeLog = [
     `,
   },
 ];
+
+export const gallery: (galleryItem | story)[] = [
+  {
+    story: true,
+    text: "welcome to my memories!",
+    section: "gallery",
+    storyColor: "primary"
+  },
+  {
+    story: true,
+    text: "did you know that i became vegan a month ago?",
+    section: "gallery",
+    storyColor: "secondary"
+  },
+  {
+    id: 1,
+    name: "vegfest",
+    image: "/gallery/vegfest.jpg",
+    description: "istanbul vegfest was awesome!",
+    preview: "vegfest",
+    date: new Date(2025, 10, 29),
+    type: ["gallery"],
+    section: "gallery",
+    horizontal: false,
+    story: false
+  },
+  {
+    id: 2,
+    name: "techstars startup weekend",
+    image: "/gallery/techstars.jpg",
+    description: "techstars startup weekend",
+    preview: "techstars startup weekend",
+    date: new Date(2025, 11, 7),
+    type: ["gallery"],
+    section: "gallery",
+    horizontal: true,
+    story: false
+  },
+  {
+    story: true,
+    text: "my go-to profile picture nowadays",
+    section: "gallery",
+    storyColor: "secondary"
+  },
+  {
+    id: 3,
+    name: "pp",
+    image: "/gallery/pp.jpeg",
+    description: "pp",
+    preview: "pp",
+    date: new Date(2025, 7, 12),
+    type: ["gallery"],
+    section: "gallery",
+    horizontal: true,
+    story: false
+  },
+  {
+    story: true,
+    text: "what is she drinking?",
+    section: "gallery",
+    storyColor: "primary"
+  },
+  {
+    id: 4,
+    name: "cute",
+    image: "/gallery/cute.jpg",
+    description: "a cute day with my girlfriend",
+    preview: "cute",
+    date: new Date(2025, 7, 12),
+    type: ["gallery"],
+    section: "gallery",
+    horizontal: true,
+    story: false
+  },
+]
 
 export const allData = experienceslist
   .concat(educationlist)

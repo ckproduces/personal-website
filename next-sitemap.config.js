@@ -7,6 +7,8 @@ const config = {
     { loc: "/", priority: 1.0, changefreq: "daily" },
     { loc: "/ecoistanbul", priority: 0.8, changefreq: "weekly" },
     { loc: "/senato", priority: 0.8, changefreq: "weekly" },
+    { loc: "/overtime", priority: 0.8, changefreq: "weekly" },
+    { loc: "/coordinator-of-education-committee-yt-data-science-club", priority: 0.8, changefreq: "weekly" },
   ],
 };
 

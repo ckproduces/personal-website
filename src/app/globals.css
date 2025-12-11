@@ -200,7 +200,7 @@ li div {
 }
 
 .scroll-track {
-  animation: scroll 3.1s linear infinite;
+  animation: scroll 5s linear infinite;
   transform: translateX(0);
   gap: 15rem !important;
 }
@@ -216,8 +216,8 @@ li div {
 }
 
 .dot {
-  animation: fade 3.1s ease-out infinite both;
-  animation-delay: calc(1.28s + var(--i) * 0.181s);
+  animation: fade 5s ease-out infinite both;
+  animation-delay: calc(1.59s + var(--i) * 0.181s);
   aspect-ratio: 1/1;
 }
 
@@ -235,21 +235,39 @@ ol ol ol > li {
   padding-left: 1rem;
 }
 
+li div {
+  line-height: 1.2em !important;
+}
+
+.image-cont {
+    height: 28rem;
+    position: relative;
+}
+
+.image-cont::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  box-shadow:inset 0rem -6rem 4rem rgba(0,0,0,0.7);
+  pointer-events:none;
+  z-index: 0;
+}
+
 @keyframes fade {
   0% {
-    scale: 1;
+    opacity: 1;
   }
-  10% {
-    scale: 0;
+  5% {
+    opacity: 0;
   }
-  60% {
-    scale: 0;
+  50% {
+    opacity: 0;
   }
-  65% {
-    scale: 1;
+  55% {
+    opacity: 1;
   }
   100% {
-    scale: 1;
+    opacity: 1;
   }
 }
 
@@ -298,10 +316,10 @@ li::marker {
 
 @keyframes scroll {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(-120%);
   }
   100% {
-    transform: translateX(calc(100%)); /* adjust depending on total width */
+    transform: translateX(calc(200%)); /* adjust depending on total width */
   }
 }
 

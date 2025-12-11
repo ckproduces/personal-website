@@ -8,7 +8,7 @@ interface ArticleImageProps extends React.HTMLAttributes<HTMLImageElement> {
 }
 
 interface ArticlePProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  style: React.CSSProperties;
+  // style property is inherited from React.HTMLAttributes
 }
 
 interface ArticleAProps extends React.HTMLAttributes<HTMLAnchorElement> {
@@ -244,5 +244,109 @@ export const ArticleViewer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
         {children}
       </div>
     </>
+  );
+};
+
+export const ArticleTable: React.FC<React.HTMLAttributes<HTMLTableElement>> = ({
+  children,
+  style,
+}) => {
+  return (
+    <table
+      style={{
+        width: "100%",
+        borderCollapse: "collapse",
+        marginBottom: "2.5rem",
+        marginTop: "2rem",
+        ...style,
+      }}
+    >
+      {children}
+    </table>
+  );
+};
+
+export const ArticleThead: React.FC<React.HTMLAttributes<HTMLTableSectionElement>> = ({
+  children,
+  style,
+}) => {
+  return (
+    <thead
+      style={{
+        borderBottom: "0.1rem solid hsla(var(--color-primary-4), 0.3)",
+        ...style,
+      }}
+    >
+      {children}
+    </thead>
+  );
+};
+
+export const ArticleTbody: React.FC<React.HTMLAttributes<HTMLTableSectionElement>> = ({
+  children,
+  style,
+}) => {
+  return (
+    <tbody
+      style={{
+        ...style,
+      }}
+    >
+      {children}
+    </tbody>
+  );
+};
+
+export const ArticleTr: React.FC<React.HTMLAttributes<HTMLTableRowElement>> = ({
+  children,
+  style,
+}) => {
+  return (
+    <tr
+      style={{
+        borderBottom: "0.1rem solid hsla(var(--color-primary-6), 0.15)",
+        ...style,
+      }}
+    >
+      {children}
+    </tr>
+  );
+};
+
+export const ArticleTh: React.FC<React.ThHTMLAttributes<HTMLTableCellElement>> = ({
+  children,
+  style,
+}) => {
+  return (
+    <th
+      style={{
+        padding: "0.75rem 1rem",
+        textAlign: "left",
+        fontSize: "0.9rem",
+        fontWeight: 600,
+        color: "hsla(var(--color-primary-2), 0.9)",
+        ...style,
+      }}
+    >
+      {children}
+    </th>
+  );
+};
+
+export const ArticleTd: React.FC<React.TdHTMLAttributes<HTMLTableCellElement>> = ({
+  children,
+  style,
+}) => {
+  return (
+    <td
+      style={{
+        padding: "0.75rem 1rem",
+        fontSize: "0.9rem",
+        color: "hsla(var(--color-primary-dark-2), 0.8)",
+        ...style,
+      }}
+    >
+      {children}
+    </td>
   );
 };

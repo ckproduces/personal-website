@@ -20,6 +20,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
   imageBorderRadius,
   seperatePage,
   href,
+  section
 }) => {
   const [hovered, setHovered] = useState(false);
   const [tagss, setTags] = useState<string[]>([]);
@@ -53,13 +54,16 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
       className="portfolio-item"
       style={{
         display: "flex",
+        flexDirection: section == "social" ? "row-reverse" : "row",
+        gap: section == "social" ? "1rem" : "0",
         justifyItems: "center",
         alignItems: "center",
         borderRadius: "0.8rem",
         justifyContent: "space-between",
-        width: "100%"
-        // backgroundColor: "hsla(var(--color-primary-dark-6), 0.03)",
-        // boxShadow: "inset 0 0 0 0.07rem hsla(var(--color-primary-dark-7), 0.2)",
+        width: "100%",
+        backgroundColor: section == "project" ? "hsla(var(--color-primary-dark-7), 0.02)" : "",
+        padding: section == "project" ? "1.3rem" : "0",
+        boxShadow: section == "project" ? "inset 0 0 0 0.05rem hsla(var(--color-primary-dark-7), 0.2)" : "",
       }}
     >
       <section
@@ -134,7 +138,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
           <h1
             style={{
               fontSize: "1.1rem",
-              fontWeight: 500,
+              fontWeight: 450,
               color: "hsl(var(--color-primary-dark-2))",
               lineHeight: "1.3rem",
               display: "inline-flex",
@@ -151,7 +155,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
             display: "-webkit-box",
             lineHeight: "1.4em",
             color: "hsla(var(--color-primary-dark-2), 0.8)",
-            fontSize: "0.85rem",
+            fontSize: "0.9rem",
           }}
         >
           {preview}

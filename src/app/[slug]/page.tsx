@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { BackArrow } from "@/components/icons/ckArrowIcon";
 import {
   ArticleA,
@@ -11,6 +12,12 @@ import {
   ArticleP,
   ArticleUl,
   ArticleViewer,
+  ArticleTable,
+  ArticleThead,
+  ArticleTbody,
+  ArticleTr,
+  ArticleTh,
+  ArticleTd,
 } from "@/components/article-components/articleComponents";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -125,6 +132,7 @@ export default async function PortfolioPage({ params }: Props) {
         />
 
         <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
           components={{
             h1: (props) => <ArticleH1 {...props} />,
             h2: (props) => <ArticleH2 {...props} />,
@@ -137,7 +145,8 @@ export default async function PortfolioPage({ params }: Props) {
                   display: "inline",
                   fontWeight: 500,
                   ...props.style,
-                  backgroundColor: "hsla(var(--color-primary-dark-5), 0.07)",
+                  backgroundColor: "hsla(var(--color-secondary-dark-8), 0.2)",
+                  padding: "0.1rem 0"
                 }}
               />
             ),
@@ -167,6 +176,12 @@ export default async function PortfolioPage({ params }: Props) {
               />
             ),
             hr: (props) => <ArticleHR {...props} />,
+            table: (props) => <ArticleTable {...props} />,
+            thead: (props) => <ArticleThead {...props} />,
+            tbody: (props) => <ArticleTbody {...props} />,
+            tr: (props) => <ArticleTr {...props} />,
+            th: (props) => <ArticleTh {...props} />,
+            td: (props) => <ArticleTd {...props} />,
           }}
         >
           {portfolioItem.pageContent}
