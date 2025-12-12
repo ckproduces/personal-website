@@ -119,6 +119,52 @@
   --color-secondary-light-12: 340, 28%, 97%;
 
   /* ------------------------
+     Tertiary Darker Shades
+  ------------------------ */
+  --color-tertiary-dark-1: 50, 98%, 4%;
+  --color-tertiary-dark-2: 50, 93%, 10%;
+  --color-tertiary-dark-3: 50, 86%, 16%;
+  --color-tertiary-dark-4: 50, 77%, 23%;
+  --color-tertiary-dark-5: 50, 66%, 31%;
+  --color-tertiary-dark-6: 50, 56%, 40%;
+  --color-tertiary-dark-7: 50, 45%, 49%;
+  --color-tertiary-dark-8: 50, 51%, 59%;
+  --color-tertiary-dark-9: 50, 58%, 68%;
+  --color-tertiary-dark-10: 50, 65%, 78%;
+  --color-tertiary-dark-11: 50, 74%, 87%;
+  --color-tertiary-dark-12: 50, 84%, 94%;
+  /* ------------------------
+     Tertiary Base Palette
+  ------------------------ */
+  --color-tertiary-1: 50, 97%, 2%;
+  --color-tertiary-2: 50, 91%, 6%;
+  --color-tertiary-3: 50, 82%, 11%;
+  --color-tertiary-4: 50, 71%, 18%;
+  --color-tertiary-5: 50, 60%, 27%;
+  --color-tertiary-6: 50, 48%, 36%;
+  --color-tertiary-7: 50, 37%, 47%;
+  --color-tertiary-8: 50, 39%, 58%;
+  --color-tertiary-9: 50, 45%, 70%;
+  --color-tertiary-10: 50, 51%, 80%;
+  --color-tertiary-11: 50, 57%, 89%;
+  --color-tertiary-12: 50, 67%, 96%;
+  /* ------------------------
+     Tertiary Light Shades
+  ------------------------ */
+  --color-tertiary-light-1: 50, 97%, 0%;
+  --color-tertiary-light-2: 50, 88%, 2%;
+  --color-tertiary-light-3: 50, 76%, 6%;
+  --color-tertiary-light-4: 50, 63%, 12%;
+  --color-tertiary-light-5: 50, 49%, 20%;
+  --color-tertiary-light-6: 50, 37%, 30%;
+  --color-tertiary-light-7: 50, 26%, 43%;
+  --color-tertiary-light-8: 50, 23%, 56%;
+  --color-tertiary-light-9: 50, 25%, 69%;
+  --color-tertiary-light-10: 50, 27%, 81%;
+  --color-tertiary-light-11: 50, 28%, 91%;
+  --color-tertiary-light-12: 50, 28%, 97%;
+
+  /* ------------------------
      Spacing (rem-based)
   ------------------------ */
   --space-xxs: 0.25rem; /* 4px */
@@ -346,3 +392,6 @@ li::marker {
     scale: 1.1;
   }
 }
+.tok-0 { background-color: hsl(var(--color-primary-dark-11)) }
+.tok-1 { background-color:hsl(var(--color-secondary-dark-11)) }
+.tok-2 { background-color:hsl(var(--color-tertiary-dark-11)) }

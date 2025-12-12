@@ -34,7 +34,7 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            marginBottom: "2rem",
+            marginBottom: "3rem",
             width: "100%",
           }}
         >
@@ -139,14 +139,16 @@ export default function Home() {
             width: "100%",
             lineHeight: "1.9em",
             color: "hsla(var(--color-primary-dark-2), 0.9)",
-            fontSize: "1rem",
+            fontSize: "1.2rem",
             textAlign: "left",
             marginBottom: "3.8rem",
           }}
         >
           <span
             style={{
-              fontSize: "1.6rem",
+              fontSize: "2.4rem",
+              fontWeight: 750,
+              color: "hsla(var(--color-primary-dark-2), 1)",
             }}
           >
             hello there! 👋
@@ -159,26 +161,12 @@ export default function Home() {
               color: "hsla(var(--color-primary-dark-6), 1)",
               backgroundColor: "hsla(var(--color-primary-light-11), 0.5)",
               fontWeight: 500,
-              fontSize: "1.2rem",
+              fontSize: "1.4rem",
             }}
           >
             Çağrı Okan
           </span>
-          , born in 2006 in Istanbul. I am a graduate of TEV İnanç Türkeş
-          Private High School and currently an undergraduate student in
-          Statistics at{" "}
-          <span
-            className="attention-span"
-            style={{
-              color: "hsla(var(--color-primary-dark-6), 1)",
-              backgroundColor: "hsla(var(--color-primary-light-11), 0.5)",
-              fontWeight: 500,
-              fontSize: "1.2rem",
-            }}
-          >
-            Yıldız Technical University
-          </span>
-          .<br />
+          , an aspiring AI engineer & researcher, data scientist, full stack web developer, and tech entrepreneur.<br />
           <br />I have experience in{" "}
           <span
             className="attention-span-secondary"
@@ -186,26 +174,11 @@ export default function Home() {
               color: "hsla(var(--color-secondary-dark-7), 1)",
               backgroundColor: "hsla(var(--color-secondary-light-11), 0.5)",
               fontWeight: 500,
-              fontSize: "1.2rem",
+              fontSize: "1.4rem",
             }}
           >
             music production, graphic design, UI/UX design, full-stack web
-            development, data science and artificial intelligence.
-          </span>{" "}
-          <br />
-          <br />
-          Additionally, I continuously develop my knowledge and skills in the
-          fields of{" "}
-          <span
-            style={{
-              color: "hsla(var(--color-secondary-dark-7), 1)",
-              backgroundColor: "hsla(var(--color-secondary-light-11), 0.5)",
-              fontWeight: 500,
-              fontSize: "1.2rem",
-            }}
-          >
-            mathematics, statistics, sustainability, psychology, and
-            entrepreneurship.
+            development, data science, artificial intelligence, and AI agents.
           </span>{" "}
           <br />
           <br />
@@ -218,7 +191,7 @@ export default function Home() {
               backgroundColor: "hsla(var(--color-primary-light-11), 0.5)",
               fontWeight: 500,
               textDecoration: "underline",
-              fontSize: "1.2rem",
+              fontSize: "1.4rem",
             }}
           >
             cagrokan@gmail.com
@@ -235,7 +208,7 @@ export default function Home() {
           }}
         >
           {[
-            [experiences, portfolio, education, gallery, socials].map(
+            [experiences, portfolio, education, socials].map(
               (section, index) => {
                 return (
                   <div
@@ -258,7 +231,7 @@ export default function Home() {
                     >
                       <h1
                         style={{
-                          fontWeight: 500,
+                          fontWeight: 600,
                           fontSize: "1.6rem",
                           color: "hsla(var(--color-primary-light-1), 0.85)",
                         }}
@@ -270,124 +243,64 @@ export default function Home() {
                             : index === 2
                               ? "education"
                               : index === 3
-                                ? "gallery"
-                                : "connections"}
+                              && "connections"}
                       </h1>
-                    </div>
-                    {section[0].section === "gallery" ? (
-                      <div key={index} style={{
+                    </div>                      <div
+                      className="portfolio-item-grid"
+                      style={{
+                        width: "100%",
                         display: "flex",
-                        overflow: "scroll hidden",
-                        scrollSnapType: "x mandatory",
-                        scrollSnapDestination: "center center",
-                        scrollBehavior: "smooth",
-                        width: "38rem",
+                        flexDirection: "column",
+                        gap: section[0].section === "project" ? "0.7rem" : "2.7rem",
                         position: "relative",
-                        borderRadius: "1.2rem",
-                        userSelect: "none"
-                      }}>
-                        {section.map((item, index) => {
-                          return item.story ? (<div style={{
-                            padding: "2rem",
-                            writingMode: "vertical-rl",
-                            textOrientation: "mixed",
-                            transform: "rotate(180deg)",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            fontSize: "1.5rem",
-                            letterSpacing: "0",
-                            fontWeight: 200,
-                            height: "28rem",
-                            color: "white",
-                            backgroundColor: item.storyColor == "primary" ? "hsla(var(--color-primary-dark-7), 1)" : item.storyColor == "secondary" ? "hsla(var(--color-secondary-dark-7), 1)" : "hsla(var(--color-tertiary-dark-7), 1)",
-                            scrollSnapAlign: "start",
-                          }} key={index}>{item.text}</div>) : (<div className="image-cont" key={index} style={{
-                            position: "relative"
-                          }}>
-                            <div style={{
+                      }}
+                    >
+                      {(section as portfolioItem[]).map((item) => {
+                        return (
+                          <div
+                            style={{
                               display: "flex",
-                              flexDirection: "column",
-                              position: "absolute",
-                              bottom: "0",
-                              left: "0",
-                              padding: "1.2rem",
-                              gap: "0.2rem"
-                            }}>
-                              <p style={{
-                                fontSize: "1rem", color: "white", fontWeight: "500",
-                                zIndex: 9999
-                              }}>{item.description}</p>
-                              <p style={{
-                                fontSize: "0.9rem", color: "white",
-                                zIndex: 9999
-                              }}>{item.date?.toDateString()}</p>
-                            </div>
-                            <img style={{
-                              height: "28rem",
-                              scrollSnapAlign: "start",
-                            }} src={item.image} loading="lazy" />
-                          </div>)
-                        })}
-                      </div>
-                    ) : (
-                      <div
-                        className="portfolio-item-grid"
-                        style={{
-                          width: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          gap: section[0].section === "project" ? "0.7rem" : "2.7rem",
-                          position: "relative",
-                        }}
-                      >
-                        {(section as portfolioItem[]).map((item) => {
-                          return (
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                gap: "1.4rem",
-                              }}
-                              key={item.id}
-                            >
-                              {(item.section === "education" ||
-                                item.section === "experience") && (
-                                  <div
-                                    className="çubuk"
-                                    style={{
-                                      position: "absolute",
-                                      top: "calc(3%)",
-                                      left: "calc(0.2rem - 0.07rem)",
-                                      height: "94%",
-                                      width: "0.14rem",
-                                      zIndex: "5",
-                                      borderRadius: "100rem",
-                                    }}
-                                  />
-                                )}
-                              {(item.section === "education" ||
-                                item.section == "experience") && (
-                                  <div
-                                    style={{
-                                      height: "0.4rem",
-                                      width: "0.4rem",
-                                      borderRadius: "50%",
-                                      backgroundColor:
-                                        "hsla(var(--color-primary-dark-8))",
-                                      zIndex: "40",
-                                      flexShrink: "0",
-                                      marginBottom: "0.7rem",
-                                    }}
-                                  />
-                                )}
-                              <PortfolioItem key={item.id} {...item} />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
+                              alignItems: "center",
+                              justifyContent: "center",
+                              gap: "1.4rem",
+                            }}
+                            key={item.id}
+                          >
+                            {(item.section === "education" ||
+                              item.section === "experience") && (
+                                <div
+                                  className="çubuk"
+                                  style={{
+                                    position: "absolute",
+                                    top: "calc(3%)",
+                                    left: "calc(0.2rem - 0.07rem)",
+                                    height: "94%",
+                                    width: "0.14rem",
+                                    zIndex: "5",
+                                    borderRadius: "100rem",
+                                  }}
+                                />
+                              )}
+                            {(item.section === "education" ||
+                              item.section == "experience") && (
+                                <div
+                                  style={{
+                                    height: "0.4rem",
+                                    width: "0.4rem",
+                                    borderRadius: "50%",
+                                    backgroundColor:
+                                      "hsla(var(--color-primary-dark-8))",
+                                    zIndex: "40",
+                                    flexShrink: "0",
+                                    marginBottom: "0.7rem",
+                                  }}
+                                />
+                              )}
+                            <PortfolioItem key={item.id} {...item} />
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 );
               }
@@ -404,16 +317,37 @@ export default function Home() {
           }}
         />
 
-        <p
+        <div
           style={{
-            color: "hsla(var(--color-primary-dark-1), 0.5)",
-            fontSize: "0.8rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.3rem",
             width: "100%",
-            textAlign: "center",
           }}
         >
-          built with 🌪️🧠
-        </p>
+          <p
+            style={{
+              color: "hsla(var(--color-primary-dark-1), 0.5)",
+              fontSize: "0.8rem",
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            built with 🌪️🧠
+          </p>
+          <p
+            style={{
+              color: "hsla(var(--color-primary-dark-1), 0.5)",
+              fontSize: "0.8rem",
+              width: "100%",
+              textAlign: "center",
+            }}
+          >
+            © {new Date().getFullYear()} Çağrı Okan. All rights reserved.
+          </p>
+        </div>
       </div>
     </div>
   );

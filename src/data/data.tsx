@@ -174,6 +174,16 @@ export const socials: portfolioItem[] = [
     href: "https://www.kaggle.com/cagrokan",
     section: "social",
   },
+  {
+    id: 4,
+    name: "instagram",
+    preview: "holy algorithm",
+    type: ["", "socials"],
+    image: "/images/instagram.png",
+    alt: "Instagram logo",
+    href: "https://www.instagram.com/crokan_",
+    section: "social",
+  },
 ];
 
 let portfolio: portfolioItem[] = [

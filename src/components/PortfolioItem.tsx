@@ -84,7 +84,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
           >
             <p
               style={{
-                fontSize: "0.85rem",
+                fontSize: "0.9rem",
                 color: "hsl(var(--color-primary-light-7))",
               }}
             >
@@ -95,14 +95,14 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
                 style={{
                   padding: "0 0.4rem",
                   color: "hsl(var(--color-primary-light-7))",
-                  fontSize: "0.85rem",
+                  fontSize: "0.9rem",
                 }}
               >
                 {"→"}
               </span>
               <p
                 style={{
-                  fontSize: "0.85rem",
+                  fontSize: "0.9rem",
                   color: "hsl(var(--color-primary-light-7))",
                 }}
               >
@@ -124,7 +124,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
           >
             <h1
               style={{
-                fontSize: "1.1rem",
+                fontSize: "1.2rem",
                 fontWeight: 500,
                 color: "hsl(var(--color-primary-dark-7))",
                 lineHeight: "1.3rem",
@@ -137,7 +137,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
         ) : (
           <h1
             style={{
-              fontSize: "1.1rem",
+              fontSize: "1.2rem",
               fontWeight: 450,
               color: "hsl(var(--color-primary-dark-2))",
               lineHeight: "1.3rem",
@@ -155,7 +155,7 @@ const PortfolioItem: React.FC<PortfolioItemProps> = ({
             display: "-webkit-box",
             lineHeight: "1.4em",
             color: "hsla(var(--color-primary-dark-2), 0.8)",
-            fontSize: "0.9rem",
+            fontSize: "0.95rem",
           }}
         >
           {preview}

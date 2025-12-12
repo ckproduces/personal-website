@@ -42,3 +42,4 @@ export function hslToRgb(h: number, s: number, l: number, a: number = 1) {
 
   return { r, g, b, a };
 }
+
