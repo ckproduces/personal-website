@@ -64,7 +64,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <Bulut projectId="2b160b81-5f30-45f4-ab50-5c00c58efc53" />
+        <Bulut projectId="a9774578-c8bc-4883-a85d-0273c10076e0" />
         {children}
         <Analytics />
       </body>

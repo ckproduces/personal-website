@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://cagriokan.com
+
+# Sitemaps
+Sitemap: https://cagriokan.com/sitemap.xml
