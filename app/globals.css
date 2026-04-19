@@ -178,10 +178,14 @@ body {
   text-transform: lowercase;
 }
 
-.page-footer__line {
+.page-footer .md-footer-markdown > *:first-child {
+  margin-block-start: 0;
+}
+
+.page-footer .md-footer-markdown p {
   margin: 0;
 }
 
-.page-footer__line + .page-footer__line {
+.page-footer .md-footer-markdown p + p {
   margin-block-start: 0.75rem;
 }

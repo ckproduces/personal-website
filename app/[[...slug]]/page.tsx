@@ -1,8 +1,9 @@
 import { MarkdownPage } from "@/components/MarkdownPage";
 import { SiteFooter } from "@/components/SiteFooter";
 import {
-  getAllMarkdownDocs,
   getMarkdownBySegments,
+  getMarkdownDocsForRoutes,
+  getSiteFooterDoc,
   pathToSlugParam,
 } from "@/lib/markdown";
 import type { Metadata } from "next";
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export function generateStaticParams() {
-  const docs = getAllMarkdownDocs();
+  const docs = getMarkdownDocsForRoutes();
   return docs.map((doc) => ({
     slug: pathToSlugParam(doc.path),
   }));
@@ -39,10 +40,11 @@ export default async function Page({ params }: Props) {
   if (!doc) {
     notFound();
   }
+  const footer = getSiteFooterDoc();
   return (
     <div className="page-shell">
       <MarkdownPage content={doc.body} />
-      <SiteFooter />
+      <SiteFooter content={footer.body} />
     </div>
   );
 }

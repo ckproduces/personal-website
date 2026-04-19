@@ -43,9 +43,15 @@ const components: Components = {
   ),
 };
 
-export function MarkdownPage({ content }: { content: string }) {
+export function MarkdownPage({
+  content,
+  className = "md-content",
+}: {
+  content: string;
+  className?: string;
+}) {
   return (
-    <article className="md-content">
+    <article className={className}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkDirective, remarkMdFlex]}
         components={components}

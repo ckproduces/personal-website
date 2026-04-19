@@ -15,7 +15,8 @@ This is the personal website of Çağrı Okan. It shows his achievements, projec
    ```
 
    Kebab-case or camelCase attribute names are accepted (`align-items` or `alignItems`). More custom components can be added the same way (remark directive + handler).
-3. For UI changes, read DESIGN.md to learn about the design system.
+3. **Site footer:** edit [`pages/site-footer.md`](pages/site-footer.md). It must use `Path: "/__site-footer"`. Paths that start with `/__` are internal-only (no public URL; they still use the same `Path` / `Title` header).
+4. For UI changes, read DESIGN.md to learn about the design system.
 
 # Development Rules
 1. After every change, create a git commit to checkpoint states.

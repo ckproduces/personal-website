@@ -1,8 +1,9 @@
-export function SiteFooter() {
+import { MarkdownPage } from "@/components/MarkdownPage";
+
+export function SiteFooter({ content }: { content: string }) {
   return (
     <footer className="page-footer">
-      <p className="page-footer__line">built with 🌪️🧠</p>
-      <p className="page-footer__line">© 2026 çağrı okan. all rights reserved.</p>
+      <MarkdownPage content={content} className="md-content md-footer-markdown" />
     </footer>
   );
 }
