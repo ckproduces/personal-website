@@ -1,4 +1,4 @@
-import { HeadingDots } from "@/components/HeadingDots";
+import { HeadingLink } from "@/components/HeadingLink";
 import { createElement, type ReactNode } from "react";
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
@@ -35,11 +35,8 @@ export function MdHeading({
       className: cls,
     },
     <>
-      <HeadingDots
-        level={level}
-        targetId={typeof id === "string" ? id : undefined}
-      />
       {children}
+      <HeadingLink targetId={typeof id === "string" ? id : undefined} />
     </>,
   );
 }
