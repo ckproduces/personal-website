@@ -1,0 +1,143 @@
+:root {
+  --color-base: #bd6956;
+  --color-white: #ffffff;
+  --color-black: #262221;
+}
+
+html {
+  font-size: 130%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.md-content {
+  box-sizing: border-box;
+  max-width: 50rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  text-transform: lowercase;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.md-content p {
+  line-height: 1.5;
+}
+
+.md-content h1,
+.md-content h2,
+.md-content h3,
+.md-content h4,
+.md-content h5,
+.md-content h6 {
+  line-height: 1.25;
+  font-weight: 600;
+  margin-block: 1.25em 0.5em;
+}
+
+.md-content h1 {
+  font-size: 2rem;
+  margin-block-start: 0;
+}
+
+.md-content h2 {
+  font-size: 1.65rem;
+}
+
+.md-content h3 {
+  font-size: 1.35rem;
+}
+
+.md-content ul,
+.md-content ol {
+  line-height: 1.5;
+  padding-inline-start: 1.25rem;
+}
+
+.md-content li {
+  margin-block: 0.35em;
+}
+
+.md-content hr {
+  border: none;
+  border-top: 0.0625rem solid color-mix(in srgb, var(--color-black) 18%, transparent);
+  margin-block: 2rem;
+}
+
+.md-content a {
+  color: var(--color-base);
+  text-underline-offset: 0.15em;
+}
+
+.md-content a:hover {
+  text-decoration-thickness: 0.12em;
+}
+
+.md-content strong {
+  font-weight: 600;
+}
+
+.md-content blockquote {
+  margin-inline: 0;
+  padding-inline-start: 1rem;
+  border-inline-start: 0.2rem solid
+    color-mix(in srgb, var(--color-black) 25%, transparent);
+  color: color-mix(in srgb, var(--color-black) 88%, transparent);
+}
+
+.md-content code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  background-color: color-mix(in srgb, var(--color-black) 6%, transparent);
+}
+
+.md-content pre {
+  padding: 1rem;
+  border-radius: 0.35rem;
+  overflow-x: auto;
+  background-color: color-mix(in srgb, var(--color-black) 6%, transparent);
+  line-height: 1.5;
+}
+
+.md-content pre code {
+  padding: 0;
+  background: none;
+  font-size: 0.85em;
+}
+
+.md-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-block: 1rem;
+}
+
+.md-content table {
+  width: 100%;
+  border-collapse: collapse;
+  line-height: 1.5;
+}
+
+.md-content thead {
+  border-bottom: 0.0625rem solid
+    color-mix(in srgb, var(--color-black) 22%, transparent);
+}
+
+.md-content th,
+.md-content td {
+  padding: 0.5rem 0.75rem;
+  text-align: start;
+  vertical-align: top;
+}
+
+.md-content tbody tr:nth-child(even) {
+  background-color: color-mix(in srgb, var(--color-black) 4%, transparent);
+}
