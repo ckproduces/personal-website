@@ -34,10 +34,12 @@ export function MdHeading({
       ...rest,
       className: cls,
     },
-    <HeadingDots
-      level={level}
-      targetId={typeof id === "string" ? id : undefined}
-    />,
-    children,
+    <>
+      <HeadingDots
+        level={level}
+        targetId={typeof id === "string" ? id : undefined}
+      />{" "}
+      {children}
+    </>,
   );
 }
