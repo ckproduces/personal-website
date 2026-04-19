@@ -3,7 +3,7 @@
   --color-white: #ffffff;
   --color-black: #262221;
   /* DESIGN.md: font size multiplier */
-  --font-scale: 1.5;
+  --font-scale: 1.3;
 }
 
 html {
@@ -53,6 +53,49 @@ body {
   line-height: 1.25;
   font-weight: 600;
   margin-block: 1.25em 0.5em;
+}
+
+.md-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35em;
+}
+
+.heading-squares {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.heading-squares:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.heading-squares:focus-visible {
+  outline: 0.125rem solid var(--color-base);
+  outline-offset: 0.125rem;
+}
+
+.heading-square {
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  background-color: var(--color-base);
+  flex-shrink: 0;
+}
+
+.md-heading-text {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 /* Scale headings from 1rem using --font-scale (DESIGN.md) */

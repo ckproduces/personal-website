@@ -1,8 +1,10 @@
+import { MdHeading } from "@/components/MdHeading";
 import { remarkMdFlex } from "@/lib/markdown/remark-md-flex";
 import Link from "next/link";
 import type { Components } from "react-markdown";
 import type { AnchorHTMLAttributes } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeSlug from "rehype-slug";
 import remarkDirective from "remark-directive";
 import remarkGfm from "remark-gfm";
 
@@ -37,6 +39,12 @@ function MdLink({ href, children, node: _node, ...rest }: MdAnchorProps) {
 
 const components: Components = {
   a: MdLink,
+  h1: (props) => <MdHeading {...props} level={1} />,
+  h2: (props) => <MdHeading {...props} level={2} />,
+  h3: (props) => <MdHeading {...props} level={3} />,
+  h4: (props) => <MdHeading {...props} level={4} />,
+  h5: (props) => <MdHeading {...props} level={5} />,
+  h6: (props) => <MdHeading {...props} level={6} />,
   table: ({ children, node: _n, ...props }) => (
     <div className="md-table-wrap">
       <table {...props}>{children}</table>
@@ -55,6 +63,7 @@ export function MarkdownPage({
     <article className={className}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkDirective, remarkMdFlex]}
+        rehypePlugins={[rehypeSlug]}
         components={components}
       >
         {content}

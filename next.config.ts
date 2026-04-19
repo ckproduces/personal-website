@@ -27,6 +27,8 @@ const nextConfig: NextConfig = {
     "unist-util-visit",
     "micromark-extension-directive",
     "micromark-extension-gfm",
+    "rehype-slug",
+    "github-slugger",
   ],
 };
 
