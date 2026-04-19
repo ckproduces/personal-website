@@ -26,8 +26,7 @@ Here, you’ll find everything I’ve done so far—detailed, polished, and styl
 # Experience
 
 ## Monitoring Specialist @ Artı ve Artı IT Consulting  
-
-July 2025 → Present
+**July 2025 → Present**
 
 I provide 24/7 IT service management, reviewing and triaging incoming tickets. I ensure accurate classification and timely escalation to the appropriate technical teams, maintaining service continuity and adherence to operational standards.
 

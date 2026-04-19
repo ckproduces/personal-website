@@ -11,7 +11,7 @@ Use mostly white, black, and colors between them (shades). Rarely use the base c
 - For paragraphs, line height must be 1.5.
 - Character spacing will be -2% globally.
 - Every text must be lowercase. Everything.
-- Let font size multipler be 1.5x (headings use powers of this factor from 1rem).
+- Let font size multipler be 1.2x (headings use powers of this factor from 1rem).
 
 # Layout & System
 - Max width of pages will be 45rem. They will be centered on the screen horizontally.
