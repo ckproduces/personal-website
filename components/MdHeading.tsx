@@ -26,7 +26,7 @@ export function MdHeading({
   className?: string;
   node?: unknown;
 } & Record<string, unknown>) {
-  const cls = [className].filter(Boolean).join(" ") || undefined;
+  const cls = ["md-heading", className].filter(Boolean).join(" ") || undefined;
   return createElement(
     TAGS[level],
     {

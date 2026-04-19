@@ -55,20 +55,31 @@ body {
   margin-block: 1.25em 0.5em;
 }
 
-/* Literal · prefix (level N) inside heading text; click copies #anchor */
+/* Center dot prefix + title; vertically align · with heading text */
+.md-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  text-align: center;
+}
+
+/* Literal · prefix (level N); click copies #anchor */
 .heading-dots {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   font-size: 1.55em;
   font-weight: inherit;
   line-height: 1;
   margin: 0;
-  margin-inline-end: 0.2em;
   padding: 0;
   border: none;
   background: transparent;
   color: var(--color-base);
   cursor: pointer;
-  vertical-align: baseline;
   font-family: inherit;
   letter-spacing: 0.02em;
 }
