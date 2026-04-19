@@ -14,7 +14,7 @@ import { visit } from "unist-util-visit";
  * - align-items / alignItems
  * - justify-content / justifyContent
  * - flex-direction / flexDirection
- * - gap (unitless numbers get `rem`, per DESIGN.md)
+ * - gap (unitless numbers get `rem`, including negatives, e.g. `-1` → `-1rem`)
  */
 export function remarkMdFlex() {
   return (tree: Root) => {
@@ -46,7 +46,7 @@ function getAttr(
 
 function normalizeGap(value: string): string {
   const t = value.trim();
-  if (/^\d+(\.\d+)?$/.test(t)) {
+  if (/^-?\d+(\.\d+)?$/.test(t)) {
     return `${t}rem`;
   }
   return t;
