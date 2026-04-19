@@ -38,8 +38,8 @@ export function MdHeading({
       <HeadingDots
         level={level}
         targetId={typeof id === "string" ? id : undefined}
-      />{" "}
-      {children}
+      />
+      <span className="md-heading-text">{children}</span>
     </>,
   );
 }

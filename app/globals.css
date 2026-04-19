@@ -55,17 +55,29 @@ body {
   margin-block: 1.25em 0.5em;
 }
 
-/* Inline · prefix + title as one text line (left-aligned block) */
+/* Dots + title: bottom-aligned on the cross axis; left-aligned row */
 .md-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 0.2em;
   text-align: left;
 }
 
-/* Literal · prefix (level N); inline with heading text; click copies URL, sets hash, scrolls */
+.md-heading-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Literal · prefix (level N); click copies URL, sets hash, scrolls */
 .heading-dots {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   font-size: 1.55em;
   font-weight: inherit;
-  line-height: inherit;
+  line-height: 1;
   margin: 0;
   padding: 0;
   border: none;
@@ -74,7 +86,6 @@ body {
   cursor: pointer;
   font-family: inherit;
   letter-spacing: 0.02em;
-  vertical-align: baseline;
 }
 
 .heading-dots:disabled {
