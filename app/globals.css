@@ -55,11 +55,11 @@ body {
   margin-block: 1.25em 0.5em;
 }
 
-/* Dots + title: bottom-aligned on the cross axis; left-aligned row */
+/* Dots + title: top-aligned on the cross axis; left-aligned row */
 .md-heading {
   display: flex;
   flex-wrap: nowrap;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: flex-start;
   gap: 0.2em;
   text-align: left;
@@ -68,7 +68,7 @@ body {
 .md-heading-text {
   flex: 1 1 auto;
   min-width: 0;
-  align-self: flex-end;
+  align-self: flex-start;
 }
 
 /* Literal · prefix (level N); click copies URL, sets hash, scrolls.
@@ -77,10 +77,10 @@ body {
   -webkit-appearance: none;
   appearance: none;
   display: inline-flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: flex-start;
   flex: 0 0 auto;
-  align-self: flex-end;
+  align-self: flex-start;
   width: max-content;
   height: auto;
   min-height: 0;
