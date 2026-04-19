@@ -55,43 +55,22 @@ body {
   margin-block: 1.25em 0.5em;
 }
 
-/* Dots + title: dots sit on the first line only; later lines drop below them. */
 .md-heading {
-  display: flow-root;
   text-align: left;
 }
 
-.md-heading-text {
-  display: inline;
-}
-
-/* Literal · prefix (level N); click copies URL, sets hash, scrolls.
-   Scope under .md-heading so global button styles cannot stretch dots. */
 .md-heading .heading-dots {
-  -webkit-appearance: none;
-  appearance: none;
-  float: left;
-  display: inline-block;
-  width: max-content;
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  font-size: 1.15em;
+  display: inline;
+  font-size: inherit;
   font-weight: inherit;
-  line-height: 1;
   margin: 0;
-  margin-inline-end: 0.2em;
   padding: 0;
-  border: none;
-  background: transparent;
   color: var(--color-base);
   cursor: pointer;
   font-family: inherit;
-  letter-spacing: 0.02em;
-  box-sizing: border-box;
 }
 
-.md-heading .heading-dots:disabled {
+.md-heading .heading-dots[aria-disabled="true"] {
   cursor: default;
   opacity: 0.5;
 }

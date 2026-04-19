@@ -2,7 +2,7 @@
 
 import type { KeyboardEvent } from "react";
 
-const DOT = "\u00B7";
+const DOT = ".";
 
 export function HeadingDots({
   level,
@@ -38,7 +38,7 @@ export function HeadingDots({
       aria-disabled={!targetId}
       onKeyDown={onKeyDown}
     >
-      {DOT.repeat(n)}
+      {DOT.repeat(n)}{" "}
     </span>
   );
 }
