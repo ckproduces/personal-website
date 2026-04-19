@@ -2,8 +2,6 @@
 
 import type { KeyboardEvent } from "react";
 
-const DOT = ".";
-
 export function HeadingDots({
   level,
   targetId,
@@ -39,7 +37,9 @@ export function HeadingDots({
       aria-disabled={!targetId}
       onKeyDown={onKeyDown}
     >
-      {DOT.repeat(n)}{" "}
+      {Array.from({ length: n }, (_, index) => (
+        <span key={index} className="heading-dot" aria-hidden="true" />
+      ))}
     </span>
   );
 }

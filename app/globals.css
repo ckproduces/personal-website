@@ -60,14 +60,22 @@ body {
 }
 
 .md-heading .heading-dots {
-  display: inline;
-  font-size: inherit;
-  font-weight: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15em;
   margin: 0;
+  margin-inline-end: 0.35em;
   padding: 0;
-  color: var(--color-base);
   cursor: pointer;
-  font-family: inherit;
+  vertical-align: middle;
+}
+
+.md-heading .heading-dot {
+  display: inline-block;
+  width: 0.35em;
+  height: 0.35em;
+  border-radius: 0.08em;
+  background-color: var(--color-base);
 }
 
 .md-heading .heading-dots[aria-disabled="true"] {
