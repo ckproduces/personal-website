@@ -1,9 +1,11 @@
 import { MarkdownPage } from "@/components/MarkdownPage";
+import { SiteFooter } from "@/components/SiteFooter";
 import {
   getAllMarkdownDocs,
   getMarkdownBySegments,
   pathToSlugParam,
 } from "@/lib/markdown";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 export const dynamicParams = false;
@@ -11,6 +13,17 @@ export const dynamicParams = false;
 type Props = {
   params: Promise<{ slug?: string[] }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const doc = getMarkdownBySegments(slug ?? []);
+  if (!doc) {
+    return {};
+  }
+  return {
+    title: doc.title,
+  };
+}
 
 export function generateStaticParams() {
   const docs = getAllMarkdownDocs();
@@ -26,5 +39,10 @@ export default async function Page({ params }: Props) {
   if (!doc) {
     notFound();
   }
-  return <MarkdownPage content={doc.body} />;
+  return (
+    <div className="page-shell">
+      <MarkdownPage content={doc.body} />
+      <SiteFooter />
+    </div>
+  );
 }

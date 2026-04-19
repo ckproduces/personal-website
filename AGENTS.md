@@ -3,7 +3,7 @@ This is the personal website of Çağrı Okan. It shows his achievements, projec
 
 # General Content
 0. Stack is Next js.
-1. Every page is actually a markdown file inside /pages. Pages can also be in subfolders. Markdown files will be translated into UI with certain rules and components. Every page will be the same in styles, layout, and logic. Markdown files will start with "Path: {path}\n\n", then content comes. That path will be the slug of the web page.
+1. Every page is actually a markdown file inside /pages. Pages can also be in subfolders. Markdown files will be translated into UI with certain rules and components. Every page will be the same in styles, layout, and logic. Markdown files will start with `Path: {path}` and `Title: {title}` (in that order), then the markdown body. The path is the URL slug; the title is the document title (shown lowercased in the browser tab).
 2. For UI changes, read DESIGN.md to learn about the design system.
 
 # Development Rules

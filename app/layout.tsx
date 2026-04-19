@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-hanken-grotesk",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Çağrı Okan",
+  title: "çağrı okan",
   description: "Personal website — bio, projects, and writing.",
 };
 
@@ -21,10 +21,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={spaceGrotesk.variable}
+      className={hankenGrotesk.variable}
       suppressHydrationWarning
     >
-      <body className={spaceGrotesk.className} suppressHydrationWarning>
+      <body className={hankenGrotesk.className} suppressHydrationWarning>
         {children}
       </body>
     </html>

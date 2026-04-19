@@ -5,6 +5,7 @@ import { pathToSegments, segmentsToPath } from "./path";
 
 export type MarkdownDoc = {
   path: string;
+  title: string;
   body: string;
   filePath: string;
 };
@@ -20,6 +21,7 @@ function loadAllDocs(): Map<string, MarkdownDoc> {
     const parsed = parseMarkdownFile(raw);
     const doc: MarkdownDoc = {
       path: parsed.path,
+      title: parsed.title,
       body: parsed.body,
       filePath,
     };
