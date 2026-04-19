@@ -68,12 +68,23 @@ body {
 .md-heading-text {
   flex: 1 1 auto;
   min-width: 0;
+  align-self: flex-end;
 }
 
-/* Literal · prefix (level N); click copies URL, sets hash, scrolls */
-.heading-dots {
+/* Literal · prefix (level N); click copies URL, sets hash, scrolls.
+   Scope under .md-heading so global button { height: 100% } etc. cannot stretch dots. */
+.md-heading .heading-dots {
+  -webkit-appearance: none;
+  appearance: none;
   display: inline-flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  align-self: flex-end;
+  width: max-content;
+  height: auto;
+  min-height: 0;
+  max-height: none;
   flex-shrink: 0;
   font-size: 1.55em;
   font-weight: inherit;
@@ -86,14 +97,15 @@ body {
   cursor: pointer;
   font-family: inherit;
   letter-spacing: 0.02em;
+  box-sizing: border-box;
 }
 
-.heading-dots:disabled {
+.md-heading .heading-dots:disabled {
   cursor: default;
   opacity: 0.5;
 }
 
-.heading-dots:focus-visible {
+.md-heading .heading-dots:focus-visible {
   outline: 0.125rem solid var(--color-base);
   outline-offset: 0.125rem;
 }
