@@ -8,6 +8,26 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "[[...slug]]": ["./pages/**/*.md"],
   },
+  // Remark / mdast are split into vendor chunks that break in dev workers (e.g. static-paths-worker).
+  // Load them from node_modules instead of webpack chunks.
+  serverExternalPackages: [
+    "react-markdown",
+    "remark-gfm",
+    "remark-directive",
+    "remark-parse",
+    "remark-rehype",
+    "remark-stringify",
+    "unified",
+    "mdast-util-to-markdown",
+    "mdast-util-from-markdown",
+    "mdast-util-to-hast",
+    "mdast-util-directive",
+    "mdast-util-gfm",
+    "hastscript",
+    "unist-util-visit",
+    "micromark-extension-directive",
+    "micromark-extension-gfm",
+  ],
 };
 
 export default nextConfig;
