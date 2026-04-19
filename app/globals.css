@@ -3,7 +3,7 @@
   --color-white: #ffffff;
   --color-black: #262221;
   /* DESIGN.md: font size multiplier */
-  --font-scale: 1.2;
+  --font-scale: 1.5;
 }
 
 html {
@@ -33,6 +33,11 @@ body {
   text-transform: lowercase;
   word-break: break-word;
   overflow-wrap: anywhere;
+}
+
+/* Flex container from :::flex directive (see AGENTS.md) */
+.md-flex {
+  min-width: 0;
 }
 
 .md-content p {

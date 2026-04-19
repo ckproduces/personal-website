@@ -1,6 +1,8 @@
+import { remarkMdFlex } from "@/lib/markdown/remark-md-flex";
 import Link from "next/link";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
+import remarkDirective from "remark-directive";
 import remarkGfm from "remark-gfm";
 
 function MdLink({
@@ -44,7 +46,10 @@ const components: Components = {
 export function MarkdownPage({ content }: { content: string }) {
   return (
     <article className="md-content">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm, remarkDirective, remarkMdFlex]}
+        components={components}
+      >
         {content}
       </ReactMarkdown>
     </article>

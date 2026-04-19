@@ -4,7 +4,18 @@ This is the personal website of Çağrı Okan. It shows his achievements, projec
 # General Content
 0. Stack is Next js.
 1. Every page is actually a markdown file inside /pages. Pages can also be in subfolders. Markdown files will be translated into UI with certain rules and components. Every page will be the same in styles, layout, and logic. Markdown files will start with `Path: {path}` and `Title: {title}` (in that order), then the markdown body. The path is the URL slug; the title is the document title (shown lowercased in the browser tab).
-2. For UI changes, read DESIGN.md to learn about the design system.
+2. **Layout directives (remark):** use a **flex** container with optional `align-items`, `justify-content`, and `gap` (unitless numbers are treated as `rem`):
+
+   ```
+   :::flex{align-items=center justify-content=space-between gap=1rem}
+
+   inner markdown (paragraphs, lists, etc.)
+
+   :::
+   ```
+
+   Kebab-case or camelCase attribute names are accepted (`align-items` or `alignItems`). More custom components can be added the same way (remark directive + handler).
+3. For UI changes, read DESIGN.md to learn about the design system.
 
 # Development Rules
 1. After every change, create a git commit to checkpoint states.
