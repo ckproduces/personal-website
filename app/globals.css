@@ -58,7 +58,7 @@ body {
 /* Dots + title: bottom-aligned on the cross axis; left-aligned row */
 .md-heading {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: flex-end;
   justify-content: flex-start;
   gap: 0.2em;
