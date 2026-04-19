@@ -1,9 +1,9 @@
-import { MarkdownPage } from "@/components/MarkdownPage";
+import type { ReactNode } from "react";
 
-export function SiteFooter({ content }: { content: string }) {
+export function SiteFooter({ children }: { children: ReactNode }) {
   return (
     <footer className="page-footer">
-      <MarkdownPage content={content} className="md-content md-footer-markdown" />
+      <div className="md-content md-footer-markdown">{children}</div>
     </footer>
   );
 }
