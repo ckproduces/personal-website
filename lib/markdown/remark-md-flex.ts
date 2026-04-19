@@ -6,13 +6,14 @@ import { visit } from "unist-util-visit";
 /**
  * Container directive for flex layouts. Use in markdown:
  *
- * :::flex{align-items=center justify-content=space-between gap=1rem}
+ * :::flex{align-items=center justify-content=space-between flex-direction=column gap=1rem}
  * markdown **inside** the flex container
  * :::
  *
  * Supported attributes (kebab-case or camelCase):
  * - align-items / alignItems
  * - justify-content / justifyContent
+ * - flex-direction / flexDirection
  * - gap (unitless numbers get `rem`, per DESIGN.md)
  */
 export function remarkMdFlex() {
@@ -64,6 +65,11 @@ function buildFlexStyleRecord(
   const justify = getAttr(attrs, "justify-content", "justifyContent");
   if (justify) {
     style.justifyContent = justify;
+  }
+
+  const flexDir = getAttr(attrs, "flex-direction", "flexDirection");
+  if (flexDir) {
+    style.flexDirection = flexDir;
   }
 
   const gap = getAttr(attrs, "gap", "gap");
