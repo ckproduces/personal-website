@@ -39,7 +39,7 @@ export function MdHeading({
         level={level}
         targetId={typeof id === "string" ? id : undefined}
       />
-      <span className="md-heading-text">{children}</span>
+      {children}
     </>,
   );
 }
