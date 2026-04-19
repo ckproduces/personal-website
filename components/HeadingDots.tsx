@@ -13,8 +13,9 @@ export function HeadingDots({
 }) {
   const onActivate = () => {
     if (!targetId || typeof window === "undefined") return;
-    const url = `${window.location.origin}${window.location.pathname}${window.location.search}#${targetId}`;
-    void navigator.clipboard.writeText(url);
+    const slug = `#${targetId}`;
+    const url = `${window.location.pathname}${window.location.search}${slug}`;
+    void navigator.clipboard.writeText(slug);
     window.history.replaceState(null, "", url);
     const el = document.getElementById(targetId);
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
