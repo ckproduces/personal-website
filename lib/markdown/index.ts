@@ -18,8 +18,15 @@ function loadAllDocs(): Map<string, MarkdownDoc> {
   const files = discoverMarkdownFiles();
 
   for (const filePath of files) {
-    const raw = fs.readFileSync(filePath, "utf8");
-    const parsed = parseMarkdownFile(raw);
+    let raw: string;
+    let parsed: ReturnType<typeof parseMarkdownFile>;
+    try {
+      raw = fs.readFileSync(filePath, "utf8");
+      parsed = parseMarkdownFile(raw);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : String(e);
+      throw new Error(`Markdown failed in ${filePath}: ${msg}`);
+    }
     const doc: MarkdownDoc = {
       path: parsed.path,
       title: parsed.title,
@@ -61,14 +68,8 @@ export function getMarkdownDocsForRoutes(): MarkdownDoc[] {
   return getAllMarkdownDocs().filter((d) => !isReservedDocPath(d.path));
 }
 
-export function getSiteFooterDoc(): MarkdownDoc {
-  const doc = getMarkdownMap().get(SITE_FOOTER_PATH);
-  if (!doc) {
-    throw new Error(
-      `Missing site footer: add a markdown file with Path: "${SITE_FOOTER_PATH}".`,
-    );
-  }
-  return doc;
+export function getSiteFooterDoc(): MarkdownDoc | undefined {
+  return getMarkdownMap().get(SITE_FOOTER_PATH);
 }
 
 export { SITE_FOOTER_PATH, isReservedDocPath } from "./reserved";

@@ -9,6 +9,12 @@ import {
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+/** Used when `pages/site-footer.md` is missing (e.g. deploy without content files). */
+const DEFAULT_FOOTER_MARKDOWN = `built with 🌪️🧠
+
+© 2026 çağrı okan. all rights reserved.
+`;
+
 export const dynamicParams = false;
 
 type Props = {
@@ -44,7 +50,7 @@ export default async function Page({ params }: Props) {
   return (
     <div className="page-shell">
       <MarkdownPage content={doc.body} />
-      <SiteFooter content={footer.body} />
+      <SiteFooter content={footer?.body ?? DEFAULT_FOOTER_MARKDOWN} />
     </div>
   );
 }

@@ -1,15 +1,16 @@
 import { remarkMdFlex } from "@/lib/markdown/remark-md-flex";
 import Link from "next/link";
 import type { Components } from "react-markdown";
+import type { AnchorHTMLAttributes } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkDirective from "remark-directive";
 import remarkGfm from "remark-gfm";
 
-function MdLink({
-  href,
-  children,
-  ...rest
-}: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+type MdAnchorProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
+  node?: unknown;
+};
+
+function MdLink({ href, children, node: _node, ...rest }: MdAnchorProps) {
   if (!href) {
     return <a {...rest}>{children}</a>;
   }
@@ -36,7 +37,7 @@ function MdLink({
 
 const components: Components = {
   a: MdLink,
-  table: ({ children, ...props }) => (
+  table: ({ children, node: _n, ...props }) => (
     <div className="md-table-wrap">
       <table {...props}>{children}</table>
     </div>
