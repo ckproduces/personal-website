@@ -3,7 +3,11 @@ Title: "Çağrı Okan"
 
 # Çağrı Okan
 
-Hello there! I am **Çağrı Okan**, an aspiring AI engineer & researcher, data scientist, full stack web developer, and tech entrepreneur. I have experience in:
+Hello there!
+
+I am Çağrı Okan, an aspiring AI engineer & researcher, data scientist, full stack web developer, and tech entrepreneur.
+
+I have experience in:
 
 - Music production
 - Graphic design
@@ -13,7 +17,9 @@ Hello there! I am **Çağrı Okan**, an aspiring AI engineer & researcher, data 
 - Artificial intelligence
 - AI agents
 
-Here, you’ll find everything I’ve done so far—detailed, polished, and styled with a great UI. Feel free to reach out to: cagrokan@gmail.com
+Here, you’ll find everything I’ve done so far—detailed, polished, and styled with a great UI. Feel free to reach out to:
+
+- cagrokan@gmail.com
 
 ---
 
@@ -26,6 +32,7 @@ I provide 24/7 IT service management, reviewing and triaging incoming tickets. I
 
 Website: https://artivearti.com
 
+---
 
 ## Coordinator of Education Committee @ YTÜ Data Science Club  
 **June 2025 → Present**
@@ -33,6 +40,8 @@ Website: https://artivearti.com
 I coordinate the education committee, focusing on organizing workshops, seminars, and educational events related to data science.
 
 Instagram: https://instagram.com/ytuveribilimi
+
+---
 
 ## Head of Research and Data Analysis Commission @ Küçükçekmece City Council  
 **March 2025 → Present**
