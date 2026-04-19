@@ -1,4 +1,4 @@
-import { HeadingSquares } from "@/components/HeadingSquares";
+import { HeadingDots } from "@/components/HeadingDots";
 import { createElement, type ReactNode } from "react";
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
@@ -26,7 +26,7 @@ export function MdHeading({
   className?: string;
   node?: unknown;
 } & Record<string, unknown>) {
-  const cls = ["md-heading", className].filter(Boolean).join(" ");
+  const cls = [className].filter(Boolean).join(" ") || undefined;
   return createElement(
     TAGS[level],
     {
@@ -34,10 +34,10 @@ export function MdHeading({
       ...rest,
       className: cls,
     },
-    <HeadingSquares
+    <HeadingDots
       level={level}
       targetId={typeof id === "string" ? id : undefined}
     />,
-    <span className="md-heading-text">{children}</span>,
+    children,
   );
 }

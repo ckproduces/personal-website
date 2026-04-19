@@ -1,8 +1,9 @@
 "use client";
 
-import { HeadingSquare } from "@/components/HeadingSquare";
+/** Middle dot (U+00B7), repeated as heading-level prefix; click copies section URL. */
+const DOT = "\u00B7";
 
-export function HeadingSquares({
+export function HeadingDots({
   level,
   targetId,
 }: {
@@ -20,14 +21,12 @@ export function HeadingSquares({
   return (
     <button
       type="button"
-      className="heading-squares"
+      className="heading-dots"
       onClick={() => copy()}
       disabled={!targetId}
       aria-label="Copy link to this section"
     >
-      {Array.from({ length: n }, (_, i) => (
-        <HeadingSquare key={i} />
-      ))}
+      {DOT.repeat(n)}
     </button>
   );
 }

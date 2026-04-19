@@ -55,47 +55,32 @@ body {
   margin-block: 1.25em 0.5em;
 }
 
-.md-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35em;
-}
-
-.heading-squares {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2em;
-  flex-shrink: 0;
+/* Literal · prefix (level N) inside heading text; click copies #anchor */
+.heading-dots {
+  display: inline;
+  font-size: 1.55em;
+  font-weight: inherit;
+  line-height: 1;
   margin: 0;
+  margin-inline-end: 0.2em;
   padding: 0;
   border: none;
   background: transparent;
+  color: var(--color-base);
   cursor: pointer;
-  line-height: 1;
+  vertical-align: baseline;
+  font-family: inherit;
+  letter-spacing: 0.02em;
 }
 
-.heading-squares:disabled {
+.heading-dots:disabled {
   cursor: default;
   opacity: 0.5;
 }
 
-.heading-squares:focus-visible {
+.heading-dots:focus-visible {
   outline: 0.125rem solid var(--color-base);
   outline-offset: 0.125rem;
-}
-
-.heading-square {
-  display: inline-block;
-  width: 0.45em;
-  height: 0.45em;
-  background-color: var(--color-base);
-  flex-shrink: 0;
-}
-
-.md-heading-text {
-  flex: 1 1 auto;
-  min-width: 0;
 }
 
 /* Scale headings from 1rem using --font-scale (DESIGN.md) */
