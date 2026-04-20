@@ -16,11 +16,11 @@ export function preprocessMarkdownHeadingBang(markdown: string): string {
   );
 }
 
-/** Expands `!---` to a half-width horizontal rule. */
+/** Expands `!---` to a three-dot separator. */
 export function preprocessMarkdownHalfRule(markdown: string): string {
   return markdown.replace(
     /^(\s{0,3})!---\s*$/gm,
-    '$1<hr class="md-hr md-hr--half" />',
+    '$1<div class="md-dot-rule" aria-hidden="true"><span></span><span></span><span></span></div>',
   );
 }
 
