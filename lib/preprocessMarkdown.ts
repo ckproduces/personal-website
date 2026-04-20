@@ -20,17 +20,24 @@ export function preprocessMarkdownHeadingBang(markdown: string): string {
  * Expands custom image syntax before markdown parsing:
  * - `![alt](path)(full)` → full-width image
  * - `![alt](path)(N)` → width 100% with max-width N rem
+ * - append `(center)` after the width token to center the image
  */
 export function preprocessMarkdownImageSizing(markdown: string): string {
-  let out = markdown.replace(
-    /!\[([^\]]*)\]\(([^)]+)\)\(full\)/g,
-    (_m, alt: string, src: string) =>
-      `<img src="${escapeHtmlAttr(src)}" alt="${escapeHtmlAttr(alt)}" class="md-img md-img--full" />`,
+  return markdown.replace(
+    /!\[([^\]]*)\]\(([^)]+)\)\((full|\d+)\)(\(center\))?/g,
+    (_m, alt: string, src: string, width: string, center?: string) => {
+      const classes = [
+        "md-img",
+        width === "full" ? "md-img--full" : "md-img--sized",
+        center ? "md-img--center" : undefined,
+      ]
+        .filter(Boolean)
+        .join(" ");
+      const style =
+        width === "full"
+          ? ""
+          : ` style="width:100%;max-width:${width}rem;height:auto"`;
+      return `<img src="${escapeHtmlAttr(src)}" alt="${escapeHtmlAttr(alt)}" class="${classes}"${style} />`;
+    },
   );
-  out = out.replace(
-    /!\[([^\]]*)\]\(([^)]+)\)\((\d+)\)/g,
-    (_m, alt: string, src: string, rem: string) =>
-      `<img src="${escapeHtmlAttr(src)}" alt="${escapeHtmlAttr(alt)}" class="md-img md-img--sized" style="width:100%;max-width:${rem}rem;height:auto" />`,
-  );
-  return out;
 }
