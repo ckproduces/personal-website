@@ -36,11 +36,33 @@ function slugFromChildren(children: ReactNode): string | undefined {
   return slug || undefined;
 }
 
+/** `##! title` → ATX text `! title`; strip `! ` and mark for extra top margin. */
+function stripSpacedHeadingMarker(children: ReactNode): {
+  displayChildren: ReactNode;
+  spaced: boolean;
+} {
+  const text = textFromNode(children);
+  if (!/^\!\s/.test(text)) {
+    return { displayChildren: children, spaced: false };
+  }
+  const stripped = text.replace(/^\!\s*/, "");
+  if (stripped === "") {
+    return { displayChildren: children, spaced: false };
+  }
+  return { displayChildren: stripped, spaced: true };
+}
+
 function createHeading(level: HeadingLevel) {
   function Heading({ id, children, ...props }: HeadingProps) {
+    const { displayChildren, spaced } = stripSpacedHeadingMarker(children);
     return (
-      <MdHeading level={level} id={id ?? slugFromChildren(children)} {...props}>
-        {children}
+      <MdHeading
+        level={level}
+        id={id ?? slugFromChildren(displayChildren)}
+        spaced={spaced}
+        {...props}
+      >
+        {displayChildren}
       </MdHeading>
     );
   }

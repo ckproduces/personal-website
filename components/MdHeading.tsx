@@ -17,6 +17,7 @@ export function MdHeading({
   id,
   children,
   className,
+  spaced,
   node: _node,
   ...rest
 }: {
@@ -24,9 +25,12 @@ export function MdHeading({
   id?: string;
   children?: ReactNode;
   className?: string;
+  spaced?: boolean;
   node?: unknown;
 } & Record<string, unknown>) {
-  const cls = ["md-heading", className].filter(Boolean).join(" ") || undefined;
+  const cls = ["md-heading", spaced && "md-heading--spaced", className]
+    .filter(Boolean)
+    .join(" ") || undefined;
   return createElement(
     TAGS[level],
     {
@@ -35,7 +39,7 @@ export function MdHeading({
       className: cls,
     },
     <>
-      {children}
+      <span className="md-heading__label">{children}</span>
       <HeadingLink targetId={typeof id === "string" ? id : undefined} />
     </>,
   );

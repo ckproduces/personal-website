@@ -7,6 +7,16 @@ function escapeHtmlAttr(s: string): string {
 }
 
 /**
+ * Normalizes `##! title` to `## ! title` so ATX headings parse with text `! title` (spaced heading marker).
+ */
+export function preprocessMarkdownHeadingBang(markdown: string): string {
+  return markdown.replace(
+    /^(\s{0,3})(#{1,6})!\s+(.+)$/gm,
+    "$1$2 ! $3",
+  );
+}
+
+/**
  * Expands custom image syntax before markdown parsing:
  * - `![alt](path)(full)` → full-width image
  * - `![alt](path)(N)` → width 100% with max-width N rem

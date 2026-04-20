@@ -1,5 +1,8 @@
 import { M } from "@/components/Md";
-import { preprocessMarkdownImageSizing } from "@/lib/preprocessMarkdown";
+import {
+  preprocessMarkdownHeadingBang,
+  preprocessMarkdownImageSizing,
+} from "@/lib/preprocessMarkdown";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
@@ -72,7 +75,7 @@ export function MarkdownBody({
       rehypePlugins={[rehypeRaw]}
       components={markdownComponents}
     >
-      {preprocessMarkdownImageSizing(markdown)}
+      {preprocessMarkdownImageSizing(preprocessMarkdownHeadingBang(markdown))}
     </ReactMarkdown>
   );
   if (wrapWithMdPage) {

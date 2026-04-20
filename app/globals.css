@@ -9,7 +9,7 @@
   --heading-margin-before-min: 1.1em;
   --heading-margin-after-max: 0.24em;
   --heading-margin-after-min: 0.24em;
-  /* Extra top margin when a heading follows non-heading content (paragraph, list, etc.) */
+  /* Extra top margin only for `##!` headings (see AGENTS.md) */
   --header-seperation-multiplier: 2;
 }
 
@@ -71,20 +71,17 @@ body {
     var(--heading-margin-before-max) - (var(--md-heading-level) - 1) *
       var(--heading-margin-step)
   );
-  margin-block-start: calc(
-    var(--heading-margin-before) * var(--header-seperation-multiplier)
-  );
+  margin-block-start: var(--heading-margin-before);
   margin-block-end: calc(
     var(--heading-margin-after-max) - (var(--md-heading-level) - 1) *
       var(--heading-margin-after-step)
   );
 }
 
-/* After another heading, after <hr>, or as first child: base margin (no separation multiplier). */
-.md-content > :first-child:is(h1, h2, h3, h4, h5, h6),
-.md-content > :is(h1, h2, h3, h4, h5, h6) + :is(h1, h2, h3, h4, h5, h6),
-.md-content > hr + :is(h1, h2, h3, h4, h5, h6) {
-  margin-block-start: var(--heading-margin-before);
+.md-content :is(h1, h2, h3, h4, h5, h6).md-heading.md-heading--spaced {
+  margin-block-start: calc(
+    var(--heading-margin-before) * var(--header-seperation-multiplier)
+  );
 }
 
 .md-heading {
