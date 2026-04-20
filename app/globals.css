@@ -227,13 +227,6 @@ body {
   margin-block: 0.35em;
 }
 
-.md-content hr {
-  border: none;
-  border-top: 0.0625rem solid
-    color-mix(in srgb, var(--color-base) 35%, transparent);
-  margin-block: 2rem;
-}
-
 .md-content .md-dot-rule {
   display: flex;
   gap: 1.33rem;

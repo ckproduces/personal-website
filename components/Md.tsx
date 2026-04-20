@@ -127,6 +127,20 @@ function MdTable({
   );
 }
 
+function MdDotRule({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
+  const cls = ["md-dot-rule", className].filter(Boolean).join(" ");
+  return (
+    <div className={cls || undefined} aria-hidden="true" {...props}>
+      <span />
+      <span />
+      <span />
+    </div>
+  );
+}
+
 export const M = {
   Page: MdPage,
   H1: createHeading(1),
@@ -142,7 +156,7 @@ export const M = {
   Ul: (props: HTMLAttributes<HTMLUListElement>) => <ul {...props} />,
   Ol: (props: HTMLAttributes<HTMLOListElement>) => <ol {...props} />,
   Li: (props: HTMLAttributes<HTMLLIElement>) => <li {...props} />,
-  Hr: (props: HTMLAttributes<HTMLHRElement>) => <hr {...props} />,
+  Hr: MdDotRule,
   Blockquote: (props: HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote {...props} />
   ),
