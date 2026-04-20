@@ -1,7 +1,3 @@
-import DebugComponentsPage, {
-  path as debugComponentsPath,
-  title as debugComponentsTitle,
-} from "@/pages/debug-components";
 import { discoverMarkdownPages } from "@/lib/discoverMarkdownPages";
 import type { ComponentType } from "react";
 
@@ -44,17 +40,7 @@ export function isReservedPagePath(path: string): boolean {
   return path.startsWith("/__");
 }
 
-const markdownDefs = discoverMarkdownPages();
-
-const tsxPageDefinitions = [
-  {
-    path: debugComponentsPath,
-    title: debugComponentsTitle,
-    Component: DebugComponentsPage,
-  },
-];
-
-const pageDefinitions = [...markdownDefs, ...tsxPageDefinitions];
+const pageDefinitions = discoverMarkdownPages();
 
 const pageMap = new Map<string, SitePage>();
 
