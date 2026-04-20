@@ -90,16 +90,35 @@ body {
 }
 
 .md-heading {
+  --md-heading-hover-t: 200ms;
   position: relative;
   text-align: left;
   border-radius: 0.25rem;
-  transition: background-color 160ms ease;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color var(--md-heading-hover-t) ease;
+}
+
+/* Hover: label 30% opacity, base tint background, centered icon — one transition. */
+.md-heading__label {
+  position: relative;
+  z-index: 0;
+  opacity: 1;
+  transition: opacity var(--md-heading-hover-t) ease;
+}
+
+.md-heading:hover .md-heading__label,
+.md-heading:focus-within .md-heading__label {
+  opacity: 0.3;
 }
 
 .md-heading:hover,
 .md-heading:focus-within {
   background-color: color-mix(in srgb, var(--color-base) 20%, transparent);
-  cursor: pointer;
+}
+
+.md-heading:not(:hover):not(:focus-within) {
+  background-color: transparent;
 }
 
 .md-heading .heading-link {
@@ -121,7 +140,7 @@ body {
   width: 2.5em;
   height: 2.5em;
   opacity: 0;
-  transition: opacity 160ms ease;
+  transition: opacity var(--md-heading-hover-t) ease;
 }
 
 .md-heading:hover .heading-link svg,
@@ -131,7 +150,7 @@ body {
 
 @media (hover: none) {
   .md-heading .heading-link svg {
-    opacity: 0.55;
+    opacity: 0.35;
   }
 
   .md-heading:active .heading-link svg {
