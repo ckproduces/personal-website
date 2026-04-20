@@ -4,6 +4,10 @@
   --color-black: #262221;
   /* DESIGN.md: font size multiplier */
   --font-scale: 1.2;
+  --heading-margin-before-base: var(--base-font-size);
+  --heading-margin-before-multiplier: 0.32;
+  --heading-margin-after-base: var(--base-font-size);
+  --heading-margin-after-multiplier: 0.09;
   /* Extra top margin only for `##!` headings (see AGENTS.md) */
   --header-seperation-multiplier: 2;
 }
@@ -57,6 +61,19 @@ body {
 .md-content h5,
 .md-content h6 {
   line-height: 1.25;
+  --heading-importance: calc(6 - var(--md-heading-level));
+  --heading-margin-before-scale: calc(
+    1 + var(--heading-importance) * var(--heading-margin-before-multiplier)
+  );
+  --heading-margin-after-scale: calc(
+    1 + var(--heading-importance) * var(--heading-margin-after-multiplier)
+  );
+  --heading-margin-before: calc(
+    var(--heading-margin-before-base) * var(--heading-margin-before-scale)
+  );
+  --heading-margin-after: calc(
+    var(--heading-margin-after-base) * var(--heading-margin-after-scale)
+  );
   margin-block: var(--heading-margin-before) var(--heading-margin-after);
 }
 
@@ -155,8 +172,6 @@ body {
 /* Scale headings from 1rem using --font-scale (DESIGN.md) */
 .md-content h1 {
   --md-heading-level: 1;
-  --heading-margin-before: 2.85rem;
-  --heading-margin-after: 1.6rem;
   font-size: calc(
     var(--base-font-size) * var(--font-scale) * var(--font-scale) *
       var(--font-scale) * var(--font-scale)
@@ -166,8 +181,6 @@ body {
 
 .md-content h2 {
   --md-heading-level: 2;
-  --heading-margin-before: 2.5rem;
-  --heading-margin-after: 1.5rem;
   font-size: calc(
     var(--base-font-size) * var(--font-scale) * var(--font-scale) *
       var(--font-scale)
@@ -177,8 +190,6 @@ body {
 
 .md-content h3 {
   --md-heading-level: 3;
-  --heading-margin-before: 2.15rem;
-  --heading-margin-after: 1.4rem;
   font-size: calc(
     var(--base-font-size) * var(--font-scale) * var(--font-scale)
   );
@@ -187,24 +198,18 @@ body {
 
 .md-content h4 {
   --md-heading-level: 4;
-  --heading-margin-before: 1.8rem;
-  --heading-margin-after: 1.3rem;
   font-size: calc(var(--base-font-size) * var(--font-scale));
   font-weight: 500;
 }
 
 .md-content h5 {
   --md-heading-level: 5;
-  --heading-margin-before: 1.45rem;
-  --heading-margin-after: 1.2rem;
   font-size: calc(var(--base-font-size) * var(--font-scale));
   font-weight: 500;
 }
 
 .md-content h6 {
   --md-heading-level: 6;
-  --heading-margin-before: 1.1rem;
-  --heading-margin-after: 1.1rem;
   font-size: calc(var(--base-font-size));
   font-weight: 500;
 }
