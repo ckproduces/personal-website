@@ -3,7 +3,7 @@
   --color-white: #ffffff;
   --color-black: #262221;
   /* DESIGN.md: font size multiplier */
-  --font-scale: 1.2;
+  --font-scale: 1.25;
   /* Heading vertical rhythm: one range + level (1–6) scales margins */
   --heading-margin-before-max: 1em;
   --heading-margin-before-min: 1.1em;
@@ -36,6 +36,8 @@ body {
   box-sizing: border-box;
   max-width: 45rem;
   margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
 }
 
 .md-content {
