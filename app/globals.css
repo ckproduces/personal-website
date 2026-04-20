@@ -4,6 +4,11 @@
   --color-black: #262221;
   /* DESIGN.md: font size multiplier */
   --font-scale: 1.25;
+  /* Heading vertical rhythm: one range + level (1–6) scales margins */
+  --heading-margin-before-max: 2em;
+  --heading-margin-before-min: 1.1em;
+  --heading-margin-after-max: 0.35em;
+  --heading-margin-after-min: 0.24em;
 }
 
 html {
@@ -53,6 +58,21 @@ body {
 .md-content h6 {
   line-height: 1.25;
   font-weight: 600;
+  /* Linear ramp from h1 (level 1) to h6 (level 6) */
+  --heading-margin-step: calc(
+    (var(--heading-margin-before-max) - var(--heading-margin-before-min)) / 5
+  );
+  --heading-margin-after-step: calc(
+    (var(--heading-margin-after-max) - var(--heading-margin-after-min)) / 5
+  );
+  margin-block-start: calc(
+    var(--heading-margin-before-max) -
+      (var(--md-heading-level) - 1) * var(--heading-margin-step)
+  );
+  margin-block-end: calc(
+    var(--heading-margin-after-max) -
+      (var(--md-heading-level) - 1) * var(--heading-margin-after-step)
+  );
 }
 
 /* Heading vertical rhythm: more space above, tighter below; scales with level. */
@@ -106,45 +126,39 @@ body {
 
 /* Scale headings from 1rem using --font-scale (DESIGN.md) */
 .md-content h1 {
+  --md-heading-level: 1;
   font-size: calc(var(--base-font-size) * var(--font-scale) * var(--font-scale) * var(--font-scale));
   font-weight: 500;
-  margin-block-start: 2em;
-  margin-block-end: 0.35em;
 }
 
 .md-content h2 {
+  --md-heading-level: 2;
   font-size: calc(var(--base-font-size) * var(--font-scale) * var(--font-scale));
   font-weight: 500;
-  margin-block-start: 1.75em;
-  margin-block-end: 0.32em;
 }
 
 .md-content h3 {
+  --md-heading-level: 3;
   font-size: calc(var(--base-font-size) * var(--font-scale));
   font-weight: 500;
-  margin-block-start: 1.55em;
-  margin-block-end: 0.3em;
 }
 
 .md-content h4 {
+  --md-heading-level: 4;
   font-size: var(--base-font-size);
   font-weight: 500;
-  margin-block-start: 1.4em;
-  margin-block-end: 0.28em;
 }
 
 .md-content h5 {
+  --md-heading-level: 5;
   font-size: calc(var(--base-font-size) / var(--font-scale));
   font-weight: 500;
-  margin-block-start: 1.25em;
-  margin-block-end: 0.26em;
 }
 
 .md-content h6 {
+  --md-heading-level: 6;
   font-size: calc(var(--base-font-size) / var(--font-scale) / var(--font-scale));
   font-weight: 500;
-  margin-block-start: 1.1em;
-  margin-block-end: 0.24em;
 }
 
 .md-content ul,
