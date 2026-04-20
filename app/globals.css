@@ -118,8 +118,8 @@ body {
 }
 
 .md-heading .heading-link svg {
-  width: 1.25em;
-  height: 1.25em;
+  width: 2.5em;
+  height: 2.5em;
   opacity: 0;
   transition: opacity 160ms ease;
 }
