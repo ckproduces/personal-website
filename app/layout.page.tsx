@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-geist",
+  variable: "--font-hanken-grotesk",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "çağrı okan",
-  description: "Personal website — bio, projects, and writing.",
+  description: "personal website — bio, projects, and writing.",
 };
 
 export default function RootLayout({
@@ -21,10 +21,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={geist.variable}
+      className={hankenGrotesk.variable}
       suppressHydrationWarning
     >
-      <body className={geist.className} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.png" />
+      </head>
+      <body className={hankenGrotesk.className} suppressHydrationWarning>
         {children}
       </body>
     </html>

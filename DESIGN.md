@@ -6,7 +6,7 @@ Main color palette:
 Use mostly white, black, and colors between them (shades). Rarely use the base color for emphasis.
 
 # Font & Text
-- Geist from Google Fonts.
+- Hanken Grotesk from Google Fonts.
 - Body text is 1rem. Heading sizes step from that using the multiplier below.
 - For paragraphs, line height must be 1.5.
 - Character spacing will be -2% globally.
