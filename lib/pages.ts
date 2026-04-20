@@ -1,4 +1,7 @@
-import { discoverMarkdownPages } from "@/lib/discoverMarkdownPages";
+import {
+  discoverMarkdownPages,
+  parseMarkdownFile,
+} from "@/lib/discoverMarkdownPages";
 import type { ComponentType } from "react";
 
 export const SITE_FOOTER_PATH = "/__site-footer";
@@ -7,6 +10,8 @@ export type SitePage = {
   path: string;
   title: string;
   Component: ComponentType;
+  /** When set, title and body are read from this file at request time (dev-friendly). */
+  markdownRelativePath?: string;
 };
 
 function normalizePath(value: string): string {
@@ -53,7 +58,19 @@ for (const page of pageDefinitions) {
     path: normalizedPath,
     title: normalizeTitle(page.title),
     Component: page.Component,
+    markdownRelativePath: page.markdownRelativePath,
   });
+}
+
+/** Document title for metadata: re-read frontmatter when the page is backed by a markdown file. */
+export function resolvePageTitle(page: SitePage): string {
+  if (page.markdownRelativePath) {
+    const { data } = parseMarkdownFile(page.markdownRelativePath);
+    if (typeof data.title === "string" && data.title.trim()) {
+      return normalizeTitle(data.title.trim());
+    }
+  }
+  return page.title;
 }
 
 export function getPageBySegments(segments: string[]): SitePage | undefined {

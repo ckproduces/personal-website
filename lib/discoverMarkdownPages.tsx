@@ -6,11 +6,19 @@ import { MarkdownBody } from "@/components/MarkdownBody";
 
 export const MARKDOWN_CONTENT_DIR = path.join(process.cwd(), "content");
 
-type MarkdownPageRecord = {
+export type MarkdownPageRecord = {
   path: string;
   title: string;
+  markdownRelativePath: string;
   Component: ComponentType;
 };
+
+/** Read and parse a file under `content/` (fresh read each call — used in dev for hot edits). */
+export function parseMarkdownFile(relativePath: string) {
+  const fullPath = path.join(MARKDOWN_CONTENT_DIR, relativePath);
+  const raw = fs.readFileSync(fullPath, "utf8");
+  return matter(raw);
+}
 
 function normalizePath(value: string): string {
   const trimmed = value.trim();
@@ -47,12 +55,16 @@ function walkMarkdownFiles(dir: string, base: string): string[] {
 }
 
 function makeMarkdownComponent(
-  body: string,
+  relativePath: string,
   wrapWithMdPage: boolean,
 ): ComponentType {
   function MarkdownBackedPage() {
+    const { content } = parseMarkdownFile(relativePath);
     return (
-      <MarkdownBody markdown={body} wrapWithMdPage={wrapWithMdPage} />
+      <MarkdownBody
+        markdown={content.trim()}
+        wrapWithMdPage={wrapWithMdPage}
+      />
     );
   }
   MarkdownBackedPage.displayName = "MarkdownBackedPage";
@@ -67,9 +79,7 @@ export function discoverMarkdownPages(): MarkdownPageRecord[] {
     MARKDOWN_CONTENT_DIR,
     MARKDOWN_CONTENT_DIR,
   )) {
-    const fullPath = path.join(MARKDOWN_CONTENT_DIR, relative);
-    const raw = fs.readFileSync(fullPath, "utf8");
-    const { data, content: body } = matter(raw);
+    const { data } = parseMarkdownFile(relative);
     const title = typeof data.title === "string" ? data.title.trim() : "";
     if (!title) {
       throw new Error(
@@ -89,7 +99,8 @@ export function discoverMarkdownPages(): MarkdownPageRecord[] {
     records.push({
       path: urlPath,
       title,
-      Component: makeMarkdownComponent(body.trim(), wrapWithMdPage),
+      markdownRelativePath: relative,
+      Component: makeMarkdownComponent(relative, wrapWithMdPage),
     });
   }
 

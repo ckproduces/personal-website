@@ -4,6 +4,7 @@ import {
   getRoutePages,
   pathToSlugParam,
   getSiteFooterPage,
+  resolvePageTitle,
 } from "@/lib/pages";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -30,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
   return {
-    title: page.title,
+    title: resolvePageTitle(page),
   };
 }
 
