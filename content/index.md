@@ -66,7 +66,7 @@ I taught JavaScript to about 100 beginner students through remote programs.
 
 _2026 · [cisimcik.com](https://www.cisimcik.com/)_
 
-**Cisimcik AI Labs** builds Turkish-first language models; **cisimcik-4b** is the first shipping line, based on the **Qwen3.5 4B** family with Turkish capability as the main goal and **CETVEL** as the primary benchmark target. The product is a compact assistant with web search, tool use, multimodal input, and agent-style workflows—tuned so Turkish stays strong without needless English regression.
+**Cisimcik AI Labs** is a small research and engineering team building Turkish-first AI: practical language models and assistants that feel natural in Turkish, stay useful in English where it matters, and ship with real-world capabilities—web search, tools, multimodal understanding, and agent-style help—rather than benchmark chasing alone.
 
 ---
 
