@@ -10,7 +10,7 @@
   --heading-margin-after-max: 0.24em;
   --heading-margin-after-min: 0.24em;
   /* Extra top margin when a heading follows non-heading content (paragraph, list, etc.) */
-  --header-seperation-multiplier: 1.35;
+  --header-seperation-multiplier: 2;
 }
 
 html {
@@ -78,11 +78,12 @@ body {
   );
 }
 
-/* Heading-after-heading and first heading: use base margin (no separation multiplier). */
+/* After another heading, after <hr>, or as first child: base margin (no separation multiplier). */
 .md-content > :first-child:is(h1, h2, h3, h4, h5, h6),
 .md-content
   > :is(h1, h2, h3, h4, h5, h6)
-  + :is(h1, h2, h3, h4, h5, h6) {
+  + :is(h1, h2, h3, h4, h5, h6),
+.md-content > hr + :is(h1, h2, h3, h4, h5, h6) {
   margin-block-start: var(--heading-margin-before);
 }
 
