@@ -5,9 +5,9 @@
   /* DESIGN.md: font size multiplier */
   --font-scale: 1.25;
   /* Heading vertical rhythm: one range + level (1–6) scales margins */
-  --heading-margin-before-max: 2em;
+  --heading-margin-before-max: 1.3em;
   --heading-margin-before-min: 1.1em;
-  --heading-margin-after-max: 0.35em;
+  --heading-margin-after-max: 0.24em;
   --heading-margin-after-min: 0.24em;
 }
 
@@ -34,8 +34,6 @@ body {
   box-sizing: border-box;
   max-width: 45rem;
   margin-inline: auto;
-  padding-inline: clamp(1rem, 4vw, 2rem);
-  padding-block: clamp(1.5rem, 4vw, 3rem);
 }
 
 .md-content {
