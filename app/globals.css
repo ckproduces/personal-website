@@ -55,7 +55,7 @@ body {
 .md-content p {
   line-height: 1.5;
   letter-spacing: 0em;
-  margin-block: 0 1rem;
+  margin-block: 0 1.125rem;
 }
 
 .md-content h1,
@@ -164,8 +164,8 @@ body {
 /* Scale headings from 1rem using --font-scale (DESIGN.md) */
 .md-content h1 {
   --md-heading-level: 1;
-  --md-heading-margin-before: 0.5rem;
-  --md-heading-margin-after: 1.25rem;
+  --md-heading-margin-before: 0.625rem;
+  --md-heading-margin-after: 1.5rem;
   font-size: calc(
     var(--base-font-size) * var(--font-scale) * var(--font-scale) *
       var(--font-scale) * var(--font-scale)
@@ -175,8 +175,8 @@ body {
 
 .md-content h2 {
   --md-heading-level: 2;
-  --md-heading-margin-before: 3rem;
-  --md-heading-margin-after: 1rem;
+  --md-heading-margin-before: 3.5rem;
+  --md-heading-margin-after: 1.25rem;
   font-size: calc(
     var(--base-font-size) * var(--font-scale) * var(--font-scale) *
       var(--font-scale)
@@ -186,8 +186,8 @@ body {
 
 .md-content h3 {
   --md-heading-level: 3;
-  --md-heading-margin-before: 2rem;
-  --md-heading-margin-after: 0.75rem;
+  --md-heading-margin-before: 2.25rem;
+  --md-heading-margin-after: 0.875rem;
   font-size: calc(
     var(--base-font-size) * var(--font-scale) * var(--font-scale)
   );
@@ -196,24 +196,24 @@ body {
 
 .md-content h4 {
   --md-heading-level: 4;
-  --md-heading-margin-before: 1.5rem;
-  --md-heading-margin-after: 0.5rem;
+  --md-heading-margin-before: 1.75rem;
+  --md-heading-margin-after: 0.625rem;
   font-size: calc(var(--base-font-size) * var(--font-scale));
   font-weight: 500;
 }
 
 .md-content h5 {
   --md-heading-level: 5;
-  --md-heading-margin-before: 1.25rem;
-  --md-heading-margin-after: 0.5rem;
+  --md-heading-margin-before: 1.5rem;
+  --md-heading-margin-after: 0.625rem;
   font-size: calc(var(--base-font-size) * var(--font-scale));
   font-weight: 500;
 }
 
 .md-content h6 {
   --md-heading-level: 6;
-  --md-heading-margin-before: 1.25rem;
-  --md-heading-margin-after: 0.5rem;
+  --md-heading-margin-before: 1.5rem;
+  --md-heading-margin-after: 0.625rem;
   font-size: calc(var(--base-font-size));
   font-weight: 500;
 }
@@ -221,17 +221,17 @@ body {
 .md-content ul,
 .md-content ol {
   line-height: 1.5;
-  margin-block: 0 1.25rem;
+  margin-block: 0 1.5rem;
   padding-inline-start: 1.25rem;
 }
 
 .md-content li {
-  margin-block: 0.35rem;
+  margin-block: 0.45rem;
 }
 
 .md-content li > ul,
 .md-content li > ol {
-  margin-block: 0.5rem 0;
+  margin-block: 0.625rem 0;
 }
 
 .md-content .md-dot-rule {
@@ -239,7 +239,7 @@ body {
   gap: 1.33rem;
   align-items: center;
   justify-content: center;
-  margin-block: 2.75rem;
+  margin-block: 3.25rem;
 }
 
 .md-content .md-dot-rule span {
@@ -263,7 +263,7 @@ body {
 }
 
 .md-content blockquote {
-  margin-block: 1.5rem;
+  margin-block: 1.75rem;
   margin-inline: 0;
   padding-inline-start: 1rem;
   border-inline-start: 0.2rem solid
@@ -275,7 +275,7 @@ body {
   display: block;
   height: auto;
   max-width: 85%;
-  margin-block: 2rem 1.75rem;
+  margin-block: 2.25rem 2rem;
 }
 
 .md-content > .md-img:first-child {
@@ -303,7 +303,7 @@ body {
 }
 
 .md-content pre {
-  margin-block: 1.5rem;
+  margin-block: 1.75rem;
   padding: 1rem;
   border-radius: 0.35rem;
   overflow-x: auto;
@@ -320,7 +320,7 @@ body {
 .md-table-wrap {
   overflow-x: auto;
   max-width: 100%;
-  margin-block: 1.5rem;
+  margin-block: 1.75rem;
 }
 
 .md-content table {
