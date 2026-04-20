@@ -6,6 +6,28 @@ export const title = "Çağrı Okan";
 export default function HomePage() {
   return (
     <M.Page>
+      <M.Flex
+        alignItems="center"
+        gap={1.5}
+        style={{ flexWrap: "wrap", marginBottom: "1.5rem" }}
+      >
+        <img
+          src="/images/cisimcik_text_logo.svg"
+          alt="Cisimcik"
+          style={{ height: "1.75rem", width: "auto", objectFit: "contain" }}
+        />
+        <img
+          src="/images/aibs.jpeg"
+          alt="AIBS"
+          style={{ height: "1.75rem", width: "auto", objectFit: "contain" }}
+        />
+        <img
+          src="/images/pera_text_logo.svg"
+          alt="Pera"
+          style={{ height: "1.75rem", width: "auto", objectFit: "contain" }}
+        />
+      </M.Flex>
+
       <M.H1>Çağrı Okan</M.H1>
 
       <M.P>
@@ -32,7 +54,6 @@ export default function HomePage() {
       <M.Hr />
 
       <M.H1>Experience</M.H1>
-
       <M.H2>Monitoring Specialist @ Artı ve Artı IT Consulting</M.H2>
       <M.P>
         <M.Strong>July 2025 → Present</M.Strong>
@@ -44,8 +65,7 @@ export default function HomePage() {
         adherence to operational standards.
       </M.P>
       <M.P>
-        Website:{" "}
-        <M.A href="https://artivearti.com">https://artivearti.com</M.A>
+        Website: <M.A href="https://artivearti.com">https://artivearti.com</M.A>
       </M.P>
 
       <M.H2>Coordinator of Education Committee @ YTÜ Data Science Club</M.H2>
@@ -126,9 +146,7 @@ export default function HomePage() {
       </M.P>
       <M.P>
         Website:{" "}
-        <M.A href="https://yildiz.edu.tr/en">
-          https://yildiz.edu.tr/en
-        </M.A>
+        <M.A href="https://yildiz.edu.tr/en">https://yildiz.edu.tr/en</M.A>
       </M.P>
 
       <M.Hr />
@@ -143,8 +161,7 @@ export default function HomePage() {
         admitting gifted students through a selective process.
       </M.P>
       <M.P>
-        Website:{" "}
-        <M.A href="https://tevitol.k12.tr">https://tevitol.k12.tr</M.A>
+        Website: <M.A href="https://tevitol.k12.tr">https://tevitol.k12.tr</M.A>
       </M.P>
 
       <M.Hr />
