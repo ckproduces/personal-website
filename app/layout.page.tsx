@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-const hankenGrotesk = Hanken_Grotesk({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-hanken-grotesk",
+  variable: "--font-geist",
   display: "swap",
 });
 
@@ -21,10 +21,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={hankenGrotesk.variable}
+      className={geist.variable}
       suppressHydrationWarning
     >
-      <body className={hankenGrotesk.className} suppressHydrationWarning>
+      <body className={geist.className} suppressHydrationWarning>
         {children}
       </body>
     </html>
