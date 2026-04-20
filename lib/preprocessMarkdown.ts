@@ -16,11 +16,14 @@ export function preprocessMarkdownHeadingBang(markdown: string): string {
   );
 }
 
-/** Expands `!---` to a three-dot separator. */
-export function preprocessMarkdownHalfRule(markdown: string): string {
+const DOT_RULE_HTML =
+  '<div class="md-dot-rule" aria-hidden="true"><span></span><span></span><span></span></div>';
+
+/** Expands `---` and `!---` to a three-dot separator. */
+export function preprocessMarkdownDotRule(markdown: string): string {
   return markdown.replace(
-    /^(\s{0,3})!---\s*$/gm,
-    '$1<div class="md-dot-rule" aria-hidden="true"><span></span><span></span><span></span></div>',
+    /^(\s{0,3})(?:!?)---\s*$/gm,
+    (_m, indent: string) => `${indent}${DOT_RULE_HTML}`,
   );
 }
 

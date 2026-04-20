@@ -228,20 +228,13 @@ body {
 }
 
 .md-content hr {
-  --md-dot-color: var(--color-base);
   border: none;
-  width: 3.2rem;
-  height: 0.18rem;
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-base) 35%, transparent);
   margin-block: 2rem;
-  margin-inline: auto;
-  background:
-    radial-gradient(circle at 0.09rem 50%, var(--md-dot-color) 0.09rem, transparent 0.1rem),
-    radial-gradient(circle at 1.6rem 50%, var(--md-dot-color) 0.09rem, transparent 0.1rem),
-    radial-gradient(circle at 3.11rem 50%, var(--md-dot-color) 0.09rem, transparent 0.1rem);
 }
 
 .md-content .md-dot-rule {
-  --md-dot-color: var(--color-base);
   display: flex;
   gap: 1.33rem;
   align-items: center;
@@ -253,7 +246,7 @@ body {
   width: 0.18rem;
   height: 0.18rem;
   border-radius: 50%;
-  background-color: var(--md-dot-color);
+  background-color: var(--color-base);
 }
 
 .md-content a {

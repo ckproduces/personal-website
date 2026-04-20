@@ -1,6 +1,6 @@
 import { M } from "@/components/Md";
 import {
-  preprocessMarkdownHalfRule,
+  preprocessMarkdownDotRule,
   preprocessMarkdownHeadingBang,
   preprocessMarkdownImageSizing,
 } from "@/lib/preprocessMarkdown";
@@ -77,7 +77,7 @@ export function MarkdownBody({
       components={markdownComponents}
     >
       {preprocessMarkdownImageSizing(
-        preprocessMarkdownHalfRule(preprocessMarkdownHeadingBang(markdown)),
+        preprocessMarkdownDotRule(preprocessMarkdownHeadingBang(markdown)),
       )}
     </ReactMarkdown>
   );
