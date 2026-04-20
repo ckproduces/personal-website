@@ -3,29 +3,11 @@ This is the personal website of Çağrı Okan. It shows his achievements, projec
 
 # General Content
 0. Stack is Next js.
-1. Every page is a TSX file inside /pages. Pages can also be in subfolders. Each page exports `path` and `title`, then exports a default React component for the page body. The path is the URL slug; the title is the document title (shown lowercased in the browser tab).
-2. Use predefined markdown-style React components from `components/Md.tsx` for page body content:
-
-   ```
-   import { M } from "@/components/Md";
-
-   export const path = "/";
-   export const title = "Page title";
-
-   export default function Page() {
-     return (
-       <M.Page>
-         <M.H1>Heading</M.H1>
-         <M.P>Body copy.</M.P>
-       </M.Page>
-     );
-   }
-   ```
-
-3. Use `<M.Flex>` for flex layout with optional `alignItems`, `justifyContent`, `flexDirection`, and `gap` props. Unitless numeric gaps are treated as `rem`.
-4. **Site footer:** edit [`pages/site-footer.tsx`](pages/site-footer.tsx). It must export `path = "/__site-footer"`. Paths that start with `/__` are internal-only (no public URL; they still use the same `path` / `title` contract).
-5. Register every content page in [`lib/pages.ts`](lib/pages.ts). App Router files use the `*.page.tsx` extension because `next.config.ts` excludes plain `*.tsx` files from Next routing.
-6. For UI changes, read DESIGN.md to learn about the design system.
+1. **Markdown pages (default):** Add a `.md` file under [`content/`](content/). At build time, every markdown file is registered as a site page: the URL path mirrors the file path relative to `content/` (see rules below). Each file must start with YAML frontmatter that includes `title` (document title; shown lowercased in the browser tab). Page body is Markdown. Rendering uses the same visual components as the legacy `M.*` API via [`components/MarkdownBody.tsx`](components/MarkdownBody.tsx) (headings, paragraphs, links, lists, etc. map to [`components/Md.tsx`](components/Md.tsx)).
+2. **Path mapping:** Trailing `index.md` names the enclosing directory’s URL (e.g. `content/index.md` → `/`, `content/docs/index.md` → `/docs`). Any other `*.md` maps to a path matching its path without extension (e.g. `content/about.md` → `/about`, `content/foo/bar.md` → `/foo/bar`).
+3. **Internal-only routes:** Files whose URL would start with `/__` are not listed in public routes but are still registered. The site footer must live at [`content/__site-footer.md`](content/__site-footer.md) (URL `/__site-footer`). It renders Markdown **without** the main article wrapper (`M.Page`), since the footer shell already applies `md-content` styles.
+4. **TSX pages (when needed):** Interactive or non-Markdown pages stay as modules under [`pages/`](pages/) exporting `path`, `title`, and a default React component. Register each TSX page in [`lib/pages.ts`](lib/pages.ts) (markdown discovery runs first; do not duplicate a path). App Router entry files use the `*.page.tsx` extension because [`next.config.ts`](next.config.ts) limits routing to those extensions.
+5. For UI changes, read DESIGN.md to learn about the design system.
 
 # Development Rules
 1. After every change, create a git commit to checkpoint states.

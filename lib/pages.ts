@@ -1,11 +1,8 @@
-import HomePage, {
-  path as homePath,
-  title as homeTitle,
-} from "@/pages/index";
-import SiteFooterPage, {
-  path as siteFooterPath,
-  title as siteFooterTitle,
-} from "@/pages/site-footer";
+import DebugComponentsPage, {
+  path as debugComponentsPath,
+  title as debugComponentsTitle,
+} from "@/pages/debug-components";
+import { discoverMarkdownPages } from "@/lib/discoverMarkdownPages";
 import type { ComponentType } from "react";
 
 export const SITE_FOOTER_PATH = "/__site-footer";
@@ -47,14 +44,17 @@ export function isReservedPagePath(path: string): boolean {
   return path.startsWith("/__");
 }
 
-const pageDefinitions = [
-  { path: homePath, title: homeTitle, Component: HomePage },
+const markdownDefs = discoverMarkdownPages();
+
+const tsxPageDefinitions = [
   {
-    path: siteFooterPath,
-    title: siteFooterTitle,
-    Component: SiteFooterPage,
+    path: debugComponentsPath,
+    title: debugComponentsTitle,
+    Component: DebugComponentsPage,
   },
 ];
+
+const pageDefinitions = [...markdownDefs, ...tsxPageDefinitions];
 
 const pageMap = new Map<string, SitePage>();
 
