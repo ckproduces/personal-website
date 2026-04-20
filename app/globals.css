@@ -346,7 +346,3 @@ body {
 .page-footer .md-footer-markdown p {
   margin: 0;
 }
-
-.page-footer .md-footer-markdown p + p {
-  margin-block-start: 0.75rem;
-}
