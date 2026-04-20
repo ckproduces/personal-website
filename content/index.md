@@ -78,6 +78,14 @@ A hackathon-winning synthetic dataset creator focused on image and video generat
 
 ---
 
+## Cisimcik
+
+_2026 · [cisimcik.com](https://www.cisimcik.com/)_
+
+A compact, capable language model (cisimcik-4b) built for real-world use: web search, tool and agent workflows, multimodal input, and focused, reliable answers.
+
+---
+
 ## EcoIstanbul — Sustainable Tourism App
 
 _March 2023 → June 2023 · Kocaeli, Gebze_
@@ -90,7 +98,7 @@ Instagram: [https://instagram.com/ecoistanbulapp](https://instagram.com/ecoistan
 
 # Education
 
-## Yıldız Technical University — BSc Statistics
+## Yıldız Technical University, BSc Statistics
 
 _Expected June 2029 · Istanbul_
 
@@ -100,7 +108,7 @@ Website: [https://yildiz.edu.tr/en](https://yildiz.edu.tr/en)
 
 ---
 
-## TEV İnanç Türkeş Private High School — T21C Program
+## TEV İnanç Türkeş Private High School
 
 _August 2020 → June 2024 · Gebze, Kocaeli_
 
@@ -112,24 +120,10 @@ Website: [https://tevitol.k12.tr](https://tevitol.k12.tr)
 
 # Connections
 
-## GitHub
+GitHub: [Find my public code repositories here](https://github.com/ckproduces)
 
-[Find my public code repositories here](https://github.com/ckproduces)
+LinkedIn: [Let’s connect](https://linkedin.com/in/cagriokan)
 
----
+Kaggle: [import pandas as pd](https://kaggle.com/cagrokan)
 
-## LinkedIn
-
-[Let’s connect](https://linkedin.com/in/cagriokan)
-
----
-
-## Kaggle
-
-[import pandas as pd](https://kaggle.com/cagrokan)
-
----
-
-## Instagram
-
-[holy algorithm](https://instagram.com/crokan)
+Instagram: [holy algorithm](https://instagram.com/crokan)
