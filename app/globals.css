@@ -93,18 +93,12 @@ body {
   transition: opacity var(--md-heading-hover-t) ease;
 }
 
-.md-heading:hover .md-heading__label,
 .md-heading:focus-within .md-heading__label {
   opacity: 0.1;
 }
 
-.md-heading:hover,
 .md-heading:focus-within {
   background-color: color-mix(in srgb, var(--color-base) 15%, transparent);
-}
-
-.md-heading:not(:hover):not(:focus-within) {
-  background-color: transparent;
 }
 
 .md-heading .heading-link {
@@ -129,17 +123,20 @@ body {
   transition: opacity var(--md-heading-hover-t) ease;
 }
 
-.md-heading:hover .heading-link svg,
 .md-heading:focus-within .heading-link svg {
   opacity: 1;
 }
 
-@media (hover: none) {
-  .md-heading .heading-link svg {
-    opacity: 0.35;
+@media (hover: hover) {
+  .md-heading:hover .md-heading__label {
+    opacity: 0.1;
   }
 
-  .md-heading:active .heading-link svg {
+  .md-heading:hover {
+    background-color: color-mix(in srgb, var(--color-base) 15%, transparent);
+  }
+
+  .md-heading:hover .heading-link svg {
     opacity: 1;
   }
 }
