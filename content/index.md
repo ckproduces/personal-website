@@ -62,6 +62,14 @@ I taught JavaScript to about 100 beginner students through remote programs.
 
 # Projects
 
+## Cisimcik
+
+_2026 · [cisimcik.com](https://www.cisimcik.com/)_
+
+**Cisimcik AI Labs** builds Turkish-first language models; **cisimcik-4b** is the first shipping line, based on the **Qwen3.5 4B** family with Turkish capability as the main goal and **CETVEL** as the primary benchmark target. The product is a compact assistant with web search, tool use, multimodal input, and agent-style workflows—tuned so Turkish stays strong without needless English regression.
+
+---
+
 ## Bulut — Accessibility Web Assistant
 
 _2026 · [komünite voice ai hackathon presentation](https://youtu.be/CvCZOk-YLrw?t=3430)_
@@ -75,14 +83,6 @@ An accessibility-focused web assistant that can read and navigate pages, scroll,
 _2026 · [watch hackathon presentation](https://youtu.be/LfmWSh3rnm0?t=4544)_
 
 A hackathon-winning synthetic dataset creator focused on image and video generation for near–edge cases.
-
----
-
-## Cisimcik
-
-_2026 · [cisimcik.com](https://www.cisimcik.com/)_
-
-A compact, capable language model (cisimcik-4b) built for real-world use: web search, tool and agent workflows, multimodal input, and focused, reliable answers.
 
 ---
 
