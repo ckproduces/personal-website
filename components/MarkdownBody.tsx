@@ -1,6 +1,8 @@
 import { M } from "@/components/Md";
+import { preprocessMarkdownImageSizing } from "@/lib/preprocessMarkdown";
 import type { Components } from "react-markdown";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
 function stripNode<T extends { node?: unknown }>(props: T) {
@@ -46,6 +48,15 @@ const markdownComponents: Components = {
       </M.Code>
     );
   },
+  img: (props) => {
+    const { className, alt, ...rest } = stripNode(props);
+    const cls = ["md-img", className].filter(Boolean).join(" ");
+    /* Markdown allows any URL; next/image is not suitable for arbitrary remote paths. */
+    return (
+      // eslint-disable-next-line @next/next/no-img-element -- see above
+      <img className={cls || undefined} alt={alt ?? ""} {...rest} />
+    );
+  },
 };
 
 export function MarkdownBody({
@@ -56,8 +67,12 @@ export function MarkdownBody({
   wrapWithMdPage: boolean;
 }) {
   const inner = (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
-      {markdown}
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
+      components={markdownComponents}
+    >
+      {preprocessMarkdownImageSizing(markdown)}
     </ReactMarkdown>
   );
   if (wrapWithMdPage) {
