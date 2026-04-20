@@ -4,27 +4,27 @@ title: Çağrı Okan
 
 # Çağrı Okan
 
-Hello there! I am **Çağrı Okan**, an aspiring AI engineer & researcher, data scientist, full stack web developer, and tech entrepreneur. I work across language models, agentic systems, and full-stack web; I also care about design and accessibility.
+Hello there! I am **Çağrı Okan**, an aspiring AI engineer & researcher, data scientist, full stack web developer, and tech entrepreneur. I work across language models, agentic systems, and full-stack web.
 
-**Languages:** Turkish (native), English (C1), Spanish (A2). **Stack highlights:** JavaScript, Python, Go; Node.js, Next.js, MongoDB; PyTorch, scikit-learn, NumPy, Pandas, XGBoost; Figma and Adobe tools.
-
-Here, you’ll find a concise snapshot of my background. Reach out: [cagrokan@gmail.com](mailto:cagrokan@gmail.com), [+90 538 736 76 67](tel:+905387367667).
+Here, you’ll find a concise snapshot of my background. Reach out: [cagrokan@gmail.com](mailto:cagrokan@gmail.com)
 
 ---
 
 # Experience
 
-## Part-Time Software Engineer @ AI Business School
+## Software Engineer Intern @ AI Business School
 
-**February 2026 → Present** · Istanbul (remote)
+_February 2026 → Present · Istanbul (remote)_
 
 I contribute to the Adoption and Content platforms: production support, engineering tickets, and resolving live issues.
+
+Website: [https://www.aibusinessschool.com](https://www.aibusinessschool.com)
 
 ---
 
 ## Monitoring Specialist @ Artı ve Artı IT Consulting
 
-**July 2025 → Present** · Istanbul
+_July 2025 → February 2026 · Istanbul (remote)_
 
 I provide 24/7 remote monitoring support: triaging technical tickets, forwarding them to the right teams, and preparing incident reports.
 
@@ -34,7 +34,7 @@ Website: [https://artivearti.com](https://artivearti.com)
 
 ## Project Intern @ Yenibirlider Association
 
-**July 2022 → August 2022** · Istanbul
+_July 2022 → August 2022 · Istanbul_
 
 I supported entrepreneurship programs and built a full-stack web application—the **HiFellow** student panel.
 
@@ -44,7 +44,7 @@ I supported entrepreneurship programs and built a full-stack web application—t
 
 ## Coordinator of Education Committee @ YTÜ Data Science Club
 
-**June 2024 → Present** · Istanbul
+_June 2024 → Present · Istanbul_
 
 I organize workshops, summits, and competitions around data science.
 
@@ -54,7 +54,7 @@ Instagram: [https://instagram.com/ytuveribilimi](https://instagram.com/ytuveribi
 
 ## Education Mentor @ Kodluyoruz
 
-**June 2022 → June 2023** · Istanbul
+_June 2022 → June 2023 · Istanbul_
 
 I taught JavaScript to about 100 beginner students through remote programs.
 
@@ -64,23 +64,23 @@ I taught JavaScript to about 100 beginner students through remote programs.
 
 ## Bulut — Accessibility Web Assistant
 
-**2026** · [bulut.lu](https://bulut.lu)
+_2026 · [komünite voice ai hackathon presentation](https://youtu.be/CvCZOk-YLrw?t=3430)_
 
 An accessibility-focused web assistant that can read and navigate pages, scroll, click controls, and fill forms through an on-page widget.
 
 ---
 
-## Overtime — Warehouse Management AI Agent
+## Manifold — Synthetic Dataset Creator
 
-**December 2025** · Istanbul
+_2026 · [watch hackathon presentation](https://youtu.be/LfmWSh3rnm0?t=4544)_
 
-Built in a 48-hour hackathon: an AI agent to optimize warehouse and inventory operations using **Gemini 2.5 Flash Lite**, Flask, and LangChain.
+A hackathon-winning synthetic dataset creator focused on image and video generation for near–edge cases.
 
 ---
 
 ## EcoIstanbul — Sustainable Tourism App
 
-**March 2023 → June 2023** · Kocaeli, Gebze
+_March 2023 → June 2023 · Kocaeli, Gebze_
 
 An AI-powered sustainable tourism application built with **Kotlin** and Android Studio; our team placed **6th globally** in the World Affairs Challenge.
 
@@ -92,7 +92,7 @@ Instagram: [https://instagram.com/ecoistanbulapp](https://instagram.com/ecoistan
 
 ## Yıldız Technical University — BSc Statistics
 
-**Expected June 2029** · Istanbul
+_Expected June 2029 · Istanbul_
 
 Cumulative GPA: **3.76 / 4.0**. YTU is one of Istanbul’s major public universities, strong in engineering and the natural sciences.
 
@@ -102,7 +102,7 @@ Website: [https://yildiz.edu.tr/en](https://yildiz.edu.tr/en)
 
 ## TEV İnanç Türkeş Private High School — T21C Program
 
-**August 2020 → June 2024** · Gebze, Kocaeli
+_August 2020 → June 2024 · Gebze, Kocaeli_
 
 A selective boarding program for gifted students, run by the Turkish Education Foundation.
 
