@@ -16,6 +16,14 @@ export function preprocessMarkdownHeadingBang(markdown: string): string {
   );
 }
 
+/** Expands `!---` to a half-width horizontal rule. */
+export function preprocessMarkdownHalfRule(markdown: string): string {
+  return markdown.replace(
+    /^(\s{0,3})!---\s*$/gm,
+    '$1<hr class="md-hr md-hr--half" />',
+  );
+}
+
 /**
  * Expands custom image syntax before markdown parsing:
  * - `![alt](path)(full)` → full-width image

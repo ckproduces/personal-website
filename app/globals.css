@@ -234,6 +234,11 @@ body {
   margin-block: 2rem;
 }
 
+.md-content .md-hr--half {
+  width: 50%;
+  margin-inline: auto;
+}
+
 .md-content a {
   color: var(--color-base);
   text-underline-offset: 0.15em;
