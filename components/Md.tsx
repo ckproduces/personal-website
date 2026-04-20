@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   isValidElement,
   type AnchorHTMLAttributes,
-  type CSSProperties,
   type HTMLAttributes,
   type ReactNode,
 } from "react";
@@ -12,12 +11,6 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type HeadingProps = HTMLAttributes<HTMLHeadingElement> & {
   children?: ReactNode;
   id?: string;
-};
-type FlexProps = HTMLAttributes<HTMLDivElement> & {
-  alignItems?: CSSProperties["alignItems"];
-  justifyContent?: CSSProperties["justifyContent"];
-  flexDirection?: CSSProperties["flexDirection"];
-  gap?: string | number;
 };
 
 function textFromNode(node: ReactNode): string {
@@ -53,16 +46,6 @@ function createHeading(level: HeadingLevel) {
   }
   Heading.displayName = `MdH${level}`;
   return Heading;
-}
-
-function normalizeGap(value: string | number | undefined): CSSProperties["gap"] {
-  if (typeof value === "number") {
-    return `${value}rem`;
-  }
-  if (typeof value === "string" && /^-?\d+(\.\d+)?$/.test(value.trim())) {
-    return `${value.trim()}rem`;
-  }
-  return value;
 }
 
 function MdPage({
@@ -111,35 +94,6 @@ function MdA({
   );
 }
 
-function MdFlex({
-  alignItems,
-  justifyContent,
-  flexDirection,
-  gap,
-  style,
-  className,
-  children,
-  ...props
-}: FlexProps) {
-  const cls = ["md-flex", className].filter(Boolean).join(" ");
-  return (
-    <div
-      className={cls}
-      style={{
-        ...style,
-        display: "flex",
-        alignItems,
-        justifyContent,
-        flexDirection,
-        gap: normalizeGap(gap),
-      }}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
-
 function MdTable({
   children,
   ...props
@@ -182,5 +136,4 @@ export const M = {
   Tr: (props: HTMLAttributes<HTMLTableRowElement>) => <tr {...props} />,
   Th: (props: HTMLAttributes<HTMLTableCellElement>) => <th {...props} />,
   Td: (props: HTMLAttributes<HTMLTableCellElement>) => <td {...props} />,
-  Flex: MdFlex,
 };
