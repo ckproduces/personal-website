@@ -73,11 +73,6 @@ body {
   );
 }
 
-/* Heading vertical rhythm: more space above, tighter below; scales with level. */
-.md-content > :first-child:is(h1, h2, h3, h4, h5, h6) {
-  margin-block-start: 0;
-}
-
 .md-heading {
   text-align: left;
 }
