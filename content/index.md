@@ -34,22 +34,6 @@ _July 2022 → August 2022 · Istanbul_
 
 ---
 
-## Involvement
-
-### Coordinator of Education Committee @ YTÜ Data Science Club
-
-I organize workshops, summits, and competitions around data science.
-
-_June 2024 → Present · Istanbul · [instagram.com/ytuveribilimi](https://instagram.com/ytuveribilimi)_
-
-### Education Mentor @ Kodluyoruz
-
-I taught JavaScript to about 100 beginner students through remote programs.
-
-_June 2022 → June 2023 · Istanbul_
-
----
-
 ## Projects
 
 ### Cisimcik AI Labs
@@ -75,6 +59,22 @@ _2026 · [watch hackathon presentation](https://youtu.be/LfmWSh3rnm0?t=4544)_
 An AI-powered sustainable tourism application built with **Kotlin** and Android Studio; our team placed **6th globally** in the World Affairs Challenge. Instagram:
 
 _March 2023 → June 2023 · [instagram.com/ecoistanbulapp](https://instagram.com/ecoistanbulapp)_
+
+---
+
+## Involvement
+
+### Coordinator of Education Committee @ YTÜ Data Science Club
+
+I organize workshops, summits, and competitions around data science.
+
+_June 2024 → Present · Istanbul · [instagram.com/ytuveribilimi](https://instagram.com/ytuveribilimi)_
+
+### Education Mentor @ Kodluyoruz
+
+I taught JavaScript to about 100 beginner students through remote programs.
+
+_June 2022 → June 2023 · Istanbul_
 
 ---
 

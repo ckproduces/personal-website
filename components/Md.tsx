@@ -36,7 +36,7 @@ function slugFromChildren(children: ReactNode): string | undefined {
   return slug || undefined;
 }
 
-/** `##! title` → ATX text `! title`; strip `! ` and mark for extra top margin. */
+/** `## title` → ATX text `! title`; strip `! ` and mark for extra top margin. */
 function stripSpacedHeadingMarker(children: ReactNode): {
   displayChildren: ReactNode;
   spaced: boolean;
@@ -116,10 +116,7 @@ function MdA({
   );
 }
 
-function MdTable({
-  children,
-  ...props
-}: HTMLAttributes<HTMLTableElement>) {
+function MdTable({ children, ...props }: HTMLAttributes<HTMLTableElement>) {
   return (
     <div className="md-table-wrap">
       <table {...props}>{children}</table>
@@ -127,18 +124,9 @@ function MdTable({
   );
 }
 
-function MdDotRule({
-  className,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
-  const cls = ["md-dot-rule", className].filter(Boolean).join(" ");
-  return (
-    <div className={cls || undefined} aria-hidden="true" {...props}>
-      <span />
-      <span />
-      <span />
-    </div>
-  );
+function MdHr({ className, ...props }: HTMLAttributes<HTMLHRElement>) {
+  const cls = ["md-hr", className].filter(Boolean).join(" ");
+  return <hr className={cls || undefined} {...props} />;
 }
 
 export const M = {
@@ -156,7 +144,7 @@ export const M = {
   Ul: (props: HTMLAttributes<HTMLUListElement>) => <ul {...props} />,
   Ol: (props: HTMLAttributes<HTMLOListElement>) => <ol {...props} />,
   Li: (props: HTMLAttributes<HTMLLIElement>) => <li {...props} />,
-  Hr: MdDotRule,
+  Hr: MdHr,
   Blockquote: (props: HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote {...props} />
   ),

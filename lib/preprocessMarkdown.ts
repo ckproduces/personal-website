@@ -7,21 +7,15 @@ function escapeHtmlAttr(s: string): string {
 }
 
 /**
- * Normalizes `##! title` to `## ! title` so ATX headings parse with text `! title` (spaced heading marker).
+ * Normalizes `## title` to `## ! title` so ATX headings parse with text `! title` (spaced heading marker).
  */
 export function preprocessMarkdownHeadingBang(markdown: string): string {
-  return markdown.replace(
-    /^(\s{0,3})(#{1,6})!\s+(.+)$/gm,
-    "$1$2 ! $3",
-  );
+  return markdown.replace(/^(\s{0,3})(#{1,6})!\s+(.+)$/gm, "$1$2 ! $3");
 }
 
-/** Normalizes `!---` to the markdown rule token. Rendering maps it to dots. */
+/** Normalizes `!---` to the markdown horizontal rule token (`---`). */
 export function preprocessMarkdownDotRule(markdown: string): string {
-  return markdown.replace(
-    /^(\s{0,3})!---[ \t]*$/gm,
-    "$1---",
-  );
+  return markdown.replace(/^(\s{0,3})!---[ \t]*$/gm, "$1---");
 }
 
 /**

@@ -4,15 +4,15 @@ title: Markdown style lab
 
 # How this page is meant to be read
 
-This route exists **only** to stress the stylesheet: headings, measure, lists, tables, code, and inline nuance should remain legible when they appear *together*. Treat the prose as a short note on *reading on screens*—not filler—so you can judge spacing, weight, and rhythm with realistic sentences.
+This route exists **only** to stress the stylesheet: headings, measure, lists, tables, code, and inline nuance should remain legible when they appear _together_. Treat the prose as a short note on _reading on screens_—not filler—so you can judge spacing, weight, and rhythm with realistic sentences.
 
 If something looks wrong, note **which combination** failed (for example, a list inside a blockquote next to a table), then adjust CSS once rather than chasing isolated edge cases.
 
 ---
 
-##! Headings and hierarchy
+## Headings and hierarchy
 
-Sections need predictable steps. On paper, hierarchy is mostly size; on the web, **weight**, *slant*, and whitespace do more work than raw point size. A page that jumps from a quiet paragraph to a shouting headline feels careless; a page that steps down smoothly feels edited.
+Sections need predictable steps. On paper, hierarchy is mostly size; on the web, **weight**, _slant_, and whitespace do more work than raw point size. A page that jumps from a quiet paragraph to a shouting headline feels careless; a page that steps down smoothly feels edited.
 
 ### Third level: subsections
 
@@ -20,7 +20,7 @@ Use `h3` when the parent `h2` still owns the topic. Readers scan the left edge; 
 
 #### Fourth level: fine grain
 
-At `h4` and below, you are labeling *parts* of an argument, not new chapters. Keep titles short: **claim**, not paragraph.
+At `h4` and below, you are labeling _parts_ of an argument, not new chapters. Keep titles short: **claim**, not paragraph.
 
 ##### Fifth level: rare
 
@@ -32,9 +32,9 @@ If you reach `h6`, ask whether a **definition list**, a table column, or bold le
 
 ---
 
-##! Emphasis, code, and links in context
+## Emphasis, code, and links in context
 
-A single sentence can carry several inline tools without turning into decoration. Here is **bold** for keywords, *italic* for titles or stress, ***bold italic*** when both apply, and ~~strikethrough~~ when policy changes and old text must remain visible. Inline `code` marks tokens (`fetch`, `--header-seperation-multiplier`) so they do not pretend to be prose.
+A single sentence can carry several inline tools without turning into decoration. Here is **bold** for keywords, _italic_ for titles or stress, **_bold italic_** when both apply, and ~~strikethrough~~ when policy changes and old text must remain visible. Inline `code` marks tokens (`fetch`, `--header-seperation-multiplier`) so they do not pretend to be prose.
 
 Links should read naturally: compare a [named link to MDN](https://developer.mozilla.org) with an autolink <https://example.com> and a mail route [email the author](mailto:cagrokan@gmail.com). For the same destination twice, use reference-style links to keep the sentence clean: [W3C HTML spec][htmlspec] and [the same spec again][htmlspec].
 
@@ -44,7 +44,7 @@ Line breaks matter when poetry or addresses appear. Two spaces at the end of a l
 
 ---
 
-##! Lists: scanning, nesting, and tasks
+## Lists: scanning, nesting, and tasks
 
 Unordered lists suit parallel points:
 
@@ -73,30 +73,30 @@ Task lists (GFM) map to real editorial work:
 
 ---
 
-##! Blockquotes and asides
+## Blockquotes and asides
 
 > Typography is the craft of endowing human language with a durable visual form. When a quote runs long, the block should still feel like a single voice: same measure as body text, slightly different tone.
 
-> Nested emphasis inside a quote should survive: *italics* for titles, **bold** for terms, and `code` for exact strings.
+> Nested emphasis inside a quote should survive: _italics_ for titles, **bold** for terms, and `code` for exact strings.
 >
 > > Second-level quoting is uncommon on the web; if it renders, your blockquote borders and padding are probably sane.
 
 ---
 
-##! Tables: alignment and density
+## Tables: alignment and density
 
-| Element | Typical role | Watch for |
-| --- | :--- | ---: |
-| `p` | Continuous reading | Runts, widows, hyphenation |
-| `ul` / `ol` | Scannable lists | Bullet alignment, nested indent |
-| `table` | Comparable facts | Zebra striping, header contrast |
-| `pre` / `code` | Exact strings | Overflow, scrollbars, font choice |
+| Element        | Typical role       |                         Watch for |
+| -------------- | :----------------- | --------------------------------: |
+| `p`            | Continuous reading |        Runts, widows, hyphenation |
+| `ul` / `ol`    | Scannable lists    |   Bullet alignment, nested indent |
+| `table`        | Comparable facts   |   Zebra striping, header contrast |
+| `pre` / `code` | Exact strings      | Overflow, scrollbars, font choice |
 
 Pipe characters in cells need escaping: use `\|` when the cell must show a literal pipe.
 
 ---
 
-##! Code blocks and preformatted text
+## Code blocks and preformatted text
 
 Short CSS illustrates monospace and padding:
 
@@ -118,7 +118,7 @@ function excerpt(text, max = 140) {
 
 ---
 
-##! Images (site-specific sizing)
+## Images (site-specific sizing)
 
 This site supports width hints after the image: a modest logo for inline context, then the same asset constrained to a max width.
 
@@ -130,7 +130,7 @@ Use `(full)` sparingly for figures that must span the column; here we only demon
 
 ---
 
-##! Raw HTML (when Markdown is not enough)
+## Raw HTML (when Markdown is not enough)
 
 The pipeline allows raw HTML for elements Markdown does not model. Use this to verify that prose styles do not fight component defaults.
 
@@ -143,10 +143,10 @@ The pipeline allows raw HTML for elements Markdown does not model. Use this to v
 
 ---
 
-##! Horizontal rules and final checks
+## Horizontal rules and final checks
 
-Thematic breaks separate *movements*, not every paragraph.
+Thematic breaks separate _movements_, not every paragraph.
 
 ---
 
-Before shipping a theme change, scroll this page top to bottom: if **headings**, *emphasis*, `code`, lists, tables, quotes, tasks, and `<details>` still feel like one system, the CSS is doing its job.
+Before shipping a theme change, scroll this page top to bottom: if **headings**, _emphasis_, `code`, lists, tables, quotes, tasks, and `<details>` still feel like one system, the CSS is doing its job.

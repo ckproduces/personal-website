@@ -1,4 +1,3 @@
-import { HeadingLink } from "@/components/HeadingLink";
 import { createElement, type ReactNode } from "react";
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
@@ -28,7 +27,7 @@ export function MdHeading({
   spaced?: boolean;
   node?: unknown;
 } & Record<string, unknown>) {
-  const cls = ["md-heading", spaced && "md-heading--spaced", className]
+  const cls = [spaced && "md-heading--spaced", className]
     .filter(Boolean)
     .join(" ") || undefined;
   return createElement(
@@ -38,9 +37,6 @@ export function MdHeading({
       ...rest,
       className: cls,
     },
-    <>
-      <span className="md-heading__label">{children}</span>
-      <HeadingLink targetId={typeof id === "string" ? id : undefined} />
-    </>,
+    children,
   );
 }
