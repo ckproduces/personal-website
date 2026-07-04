@@ -1,11 +1,11 @@
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
-import { Schibsted_Grotesk } from "next/font/google";
+import { Onest } from "next/font/google";
 import "./globals.css";
 
-const schibstedGrotesk = Schibsted_Grotesk({
+const onest = Onest({
   subsets: ["latin"],
-  variable: "--font-schibsted-grotesk",
+  variable: "--font-onest",
   display: "swap",
 });
 
@@ -20,11 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={schibstedGrotesk.variable}>
+    <html lang="en" className={onest.variable}>
       <head>
         <link rel="icon" href="/favicon.png" />
       </head>
-      <body className={schibstedGrotesk.className}>
+      <body className={onest.className}>
         <div className="page-shell">
           {children}
           <Footer />

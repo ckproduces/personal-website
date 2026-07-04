@@ -1,11 +1,9 @@
 import { Content } from "@/components/Content";
 import { SmartLink } from "@/components/SmartLink";
-import Image from "next/image";
 
 export default function HomePage() {
   return (
     <Content>
-      <Image src="/images/logo.svg" alt="" width={80} height={80} priority />
       <h1>Çağrı Okan</h1>
       <p>
         Hello there! I am <strong>Çağrı Okan</strong>, an aspiring AI engineer

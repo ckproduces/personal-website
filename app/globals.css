@@ -39,31 +39,40 @@
   --color-neutral-900: color-mix(in srgb, var(--color-black) 90%, var(--color-white));
 
   /* Type — DESIGN.md (base 1rem = 16px, scale steps by 1.2) */
-  --font-size-body: 1rem;
-  --font-size-h6: 1.2rem;
-  --font-size-h5: 1.44rem;
-  --font-size-h4: 1.728rem;
-  --font-size-h3: 2.0736rem;
-  --font-size-h2: 2.48832rem;
-  --font-size-h1: 2.985984rem;
-  --letter-spacing: -1%;
+  --font-size-body: 1.14rem;
+  --font-size-multiplier: 1.1;
+  --font-size-h6: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 1));
+  --font-size-h5: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 2));
+  --font-size-h4: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 3));
+  --font-size-h3: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 4));
+  --font-size-h2: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 5));
+  --font-size-h1: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 6));
+  --letter-spacing: 0;
   --line-height-body: 1.7;
   --line-height-heading: 1.2;
   --font-weight-body: 400;
   --font-weight-heading: 500;
 
-  /* Scale — DESIGN.md (1, 2, 4, 8, 16, 32… starting from 1px) */
-  --space-1: 0.0625rem;
-  --space-2: 0.125rem;
-  --space-4: 0.25rem;
-  --space-8: 0.5rem;
-  --space-16: 1rem;
-  --space-32: 2rem;
-  --space-64: 4rem;
-  --space-128: 8rem;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-3: 3px;
+  --space-4: 4px;
+  --space-5: 6px;
+  --space-6: 8px;
+  --space-7: 12px;
+  --space-8: 16px;
+  --space-9: 24px;
+  --space-10: 32px;
+  --space-11: 48px;
+  --space-12: 64px;
+  --space-13: 96px;
+  --space-14: 128px;
+  --space-15: 192px;
+  --space-multiplier: 1.2;
+  --margin-difference-multiplier: 3;
 
   /* Page — DESIGN.md */
-  --page-max-width: 39rem;
+  --page-max-width: 46rem;
 
   --rule-border: var(--space-1) solid
     color-mix(in srgb, var(--color-black) 20%, transparent);
@@ -84,6 +93,8 @@ body {
   letter-spacing: var(--letter-spacing);
   color: var(--color-black);
   background-color: var(--color-white);
+  padding: var(--space-11);
+
 }
 
 ::selection {
@@ -113,7 +124,7 @@ body {
 }
 
 .content p {
-  margin-block: 0 var(--space-32);
+  margin-block: 0 var(--space-16);
 }
 
 .content h1,
@@ -124,31 +135,39 @@ body {
 .content h6 {
   font-weight: var(--font-weight-heading);
   line-height: var(--line-height-heading);
-  margin-block: var(--space-16) var(--space-16);
+  margin-block-start: calc(var(--heading-space) * 2);
+  margin-block-end: var(--heading-space);
 }
 
 .content h1 {
   font-size: var(--font-size-h1);
+  --heading-space: var(--space-8);
 }
 
 .content h2 {
   font-size: var(--font-size-h2);
+  --heading-space: var(--space-7);
+
 }
 
 .content h3 {
   font-size: var(--font-size-h3);
+  --heading-space: var(--space-6);
 }
 
 .content h4 {
   font-size: var(--font-size-h4);
+  --heading-space: var(--space-5);
 }
 
 .content h5 {
   font-size: var(--font-size-h5);
+  --heading-space: var(--space-4);
 }
 
 .content h6 {
   font-size: var(--font-size-h6);
+  --heading-space: var(--space-3);
 }
 
 .content ul,
