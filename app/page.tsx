@@ -18,7 +18,7 @@ export default function HomePage() {
 
       <hr />
 
-      <h2 className="section-heading">Experience</h2>
+      <h2>Experience</h2>
 
       <h3>Software Engineer Intern @ AI Business School</h3>
       <p>
@@ -57,7 +57,7 @@ export default function HomePage() {
 
       <hr />
 
-      <h2 className="section-heading">Involvement</h2>
+      <h2>Involvement</h2>
 
       <h3>Coordinator of Education Committee @ YTÜ Data Science Club</h3>
       <p>
@@ -83,7 +83,7 @@ export default function HomePage() {
 
       <hr />
 
-      <h2 className="section-heading">Projects</h2>
+      <h2>Projects</h2>
 
       <h3>Cisimcik AI Labs</h3>
       <p>
@@ -145,7 +145,7 @@ export default function HomePage() {
 
       <hr />
 
-      <h2 className="section-heading">Education</h2>
+      <h2>Education</h2>
 
       <h3>Yıldız Technical University, BSc Statistics</h3>
       <p>
@@ -173,7 +173,7 @@ export default function HomePage() {
 
       <hr />
 
-      <h2 className="section-heading">Connections</h2>
+      <h2>Connections</h2>
 
       <ul>
         <li>

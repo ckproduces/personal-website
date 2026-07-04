@@ -1,265 +1,38 @@
 import { Content } from "@/components/Content";
-import { SmartLink } from "@/components/SmartLink";
 import type { Metadata } from "next";
-import Image from "next/image";
+import { ArticleSection } from "./article";
+import { ComponentsSection } from "./components-section";
+import { ColorsSection, ScaleSection, TypeSection } from "./foundations";
 
 export const metadata: Metadata = {
   title: "Style guide — Çağrı Okan",
 };
 
-const COLORS = [
-  { name: "Main", token: "--color-main", hex: "#E92E3E" },
-  { name: "Secondary", token: "--color-secondary", hex: "#E9B72E" },
-  { name: "Black", token: "--color-black", hex: "#0E0103" },
-  { name: "White", token: "--color-white", hex: "#FFFFFF" },
-];
-
-const COLOR_SCALES = [
-  { name: "Main", token: "main" },
-  { name: "Secondary", token: "secondary" },
-  { name: "Neutral", token: "neutral" },
-];
-
-const SCALE_STEPS = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-
-const TYPE_STEPS = [
-  { tag: "h1", token: "--font-size-h1" },
-  { tag: "h2", token: "--font-size-h2" },
-  { tag: "h3", token: "--font-size-h3" },
-  { tag: "h4", token: "--font-size-h4" },
-  { tag: "h5", token: "--font-size-h5" },
-  { tag: "h6", token: "--font-size-h6" },
-  { tag: "body", token: "--font-size-body" },
-];
-
-const SPACE_STEPS = [
-  "--space-1",
-  "--space-2",
-  "--space-4",
-  "--space-8",
-  "--space-16",
-  "--space-32",
-  "--space-64",
-  "--space-128",
-];
-
 export default function StyleGuidePage() {
   return (
     <Content>
-      <h1>Style guide</h1>
+      <h1>style guide</h1>
       <p>
-        A living reference for the design tokens defined in{" "}
-        <code>DESIGN.md</code> and the shared components built on top of
-        them. Check this page whenever a component changes to confirm the
-        system still reads as one thing.
+        the living reference for this site&rsquo;s design system: four brand
+        colors expanded into scales, one modular ladder for every dimension,
+        and the components built on top. if a change does not look right
+        here, it is not right anywhere.
       </p>
 
       <hr />
-
-      <h2 className="section-heading">Colors</h2>
-      <ul
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "var(--space-16)",
-          listStyle: "none",
-          paddingInlineStart: 0,
-        }}
-      >
-        {COLORS.map((color) => (
-          <li key={color.token} style={{ width: "9rem" }}>
-            <div
-              style={{
-                height: "4rem",
-                borderRadius: "var(--space-8)",
-                background: `var(${color.token})`,
-                border: "var(--space-1) solid color-mix(in srgb, var(--color-black) 20%, transparent)",
-              }}
-            />
-            <p style={{ margin: "var(--space-8) 0 0" }}>
-              {color.name}
-              <br />
-              <code>{color.hex}</code>
-            </p>
-          </li>
-        ))}
-      </ul>
-
-      <h3>Color scales</h3>
-      {COLOR_SCALES.map((scale) => (
-        <div key={scale.token} style={{ marginBlockEnd: "var(--space-16)" }}>
-          <p style={{ margin: "0 0 var(--space-8)" }}>{scale.name}</p>
-          <ul
-            style={{
-              display: "flex",
-              gap: "var(--space-8)",
-              listStyle: "none",
-              paddingInlineStart: 0,
-            }}
-          >
-            {SCALE_STEPS.map((step) => (
-              <li key={step} style={{ textAlign: "center" }}>
-                <div
-                  style={{
-                    width: "3rem",
-                    height: "3rem",
-                    borderRadius: "var(--space-4)",
-                    background: `var(--color-${scale.token}-${step})`,
-                    border:
-                      "var(--space-1) solid color-mix(in srgb, var(--color-black) 20%, transparent)",
-                  }}
-                />
-                <code style={{ fontSize: "0.75rem" }}>{step}</code>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      <ColorsSection />
 
       <hr />
-
-      <h2 className="section-heading">Type scale</h2>
-      {TYPE_STEPS.map((step) => (
-        <p
-          key={step.token}
-          style={{
-            fontSize: `var(${step.token})`,
-            margin: "0 0 var(--space-8)",
-          }}
-        >
-          {step.tag} — <code>{step.token}</code>
-        </p>
-      ))}
+      <ScaleSection />
 
       <hr />
-
-      <h2 className="section-heading">Spacing scale</h2>
-      <ul style={{ paddingInlineStart: 0, listStyle: "none" }}>
-        {SPACE_STEPS.map((token) => (
-          <li
-            key={token}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "var(--space-16)",
-              marginBlockEnd: "var(--space-8)",
-            }}
-          >
-            <div
-              style={{
-                width: `var(${token})`,
-                height: "var(--space-16)",
-                background: "var(--color-main)",
-                flexShrink: 0,
-              }}
-            />
-            <code>{token}</code>
-          </li>
-        ))}
-      </ul>
+      <TypeSection />
 
       <hr />
-
-      <h2 className="section-heading">Headings</h2>
-      <h1>Heading one</h1>
-      <h2>Heading two</h2>
-      <h3>Heading three</h3>
-      <h4>Heading four</h4>
-      <h5>Heading five</h5>
-      <h6>Heading six</h6>
+      <ComponentsSection />
 
       <hr />
-
-      <h2 className="section-heading">Text and links</h2>
-      <p>
-        A paragraph can carry <strong>bold text</strong>,{" "}
-        <em>italic text</em>, inline <code>code</code>, and a link such as{" "}
-        <SmartLink href="https://developer.mozilla.org">
-          a link to MDN
-        </SmartLink>{" "}
-        or an internal one to the{" "}
-        <SmartLink href="/">home page</SmartLink>.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam
-        varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus
-        magna felis sollicitudin mauris. Integer in mauris eu nibh euismod
-        gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis
-        risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue,
-        eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas
-        fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a
-        mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque.
-      </p>
-
-      <h2 className="section-heading">Lists</h2>
-      <ul>
-        <li>Unordered item one</li>
-        <li>Unordered item two</li>
-        <li>
-          Unordered item with a nested list
-          <ul>
-            <li>Nested item one</li>
-            <li>Nested item two</li>
-          </ul>
-        </li>
-      </ul>
-      <ol>
-        <li>Ordered item one</li>
-        <li>Ordered item two</li>
-        <li>Ordered item three</li>
-      </ol>
-
-      <h2 className="section-heading">Blockquote</h2>
-      <blockquote>
-        Typography is the craft of endowing human language with a durable
-        visual form.
-      </blockquote>
-
-      <h2 className="section-heading">Table</h2>
-      <div className="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Element</th>
-              <th>Typical role</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <code>p</code>
-              </td>
-              <td>Continuous reading</td>
-            </tr>
-            <tr>
-              <td>
-                <code>table</code>
-              </td>
-              <td>Comparable facts</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 className="section-heading">Code block</h2>
-      <pre>
-        <code>{`function excerpt(text, max = 140) {
-  const t = text.trim();
-  return t.length <= max ? t : \`\${t.slice(0, max - 1)}…\`;
-}`}</code>
-      </pre>
-
-      <h2 className="section-heading">Image</h2>
-      <Image src="/images/logo.svg" alt="" width={80} height={80} />
+      <ArticleSection />
     </Content>
   );
 }
