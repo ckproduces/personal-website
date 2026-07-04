@@ -1,100 +1,40 @@
-:root {
-  /* Colors — DESIGN.md */
-  --color-main: #e92e3e;
-  --color-secondary: #e9b72e;
-  --color-black: #0e0103;
-  --color-white: #ffffff;
+@import "./styles/tokens.css";
+@import "./styles/content.css";
+@import "./styles/components.css";
 
-  /* Color scales — 500 is the pure color; each step below mixes in another
-     20% White, each step above mixes in another 20% Black. */
-  --color-main-100: color-mix(in srgb, var(--color-white) 80%, var(--color-main));
-  --color-main-200: color-mix(in srgb, var(--color-white) 60%, var(--color-main));
-  --color-main-300: color-mix(in srgb, var(--color-white) 40%, var(--color-main));
-  --color-main-400: color-mix(in srgb, var(--color-white) 20%, var(--color-main));
-  --color-main-500: var(--color-main);
-  --color-main-600: color-mix(in srgb, var(--color-black) 20%, var(--color-main));
-  --color-main-700: color-mix(in srgb, var(--color-black) 40%, var(--color-main));
-  --color-main-800: color-mix(in srgb, var(--color-black) 60%, var(--color-main));
-  --color-main-900: color-mix(in srgb, var(--color-black) 80%, var(--color-main));
+/* -- Base ------------------------------------------------------------------- */
 
-  --color-secondary-100: color-mix(in srgb, var(--color-white) 80%, var(--color-secondary));
-  --color-secondary-200: color-mix(in srgb, var(--color-white) 60%, var(--color-secondary));
-  --color-secondary-300: color-mix(in srgb, var(--color-white) 40%, var(--color-secondary));
-  --color-secondary-400: color-mix(in srgb, var(--color-white) 20%, var(--color-secondary));
-  --color-secondary-500: var(--color-secondary);
-  --color-secondary-600: color-mix(in srgb, var(--color-black) 20%, var(--color-secondary));
-  --color-secondary-700: color-mix(in srgb, var(--color-black) 40%, var(--color-secondary));
-  --color-secondary-800: color-mix(in srgb, var(--color-black) 60%, var(--color-secondary));
-  --color-secondary-900: color-mix(in srgb, var(--color-black) 80%, var(--color-secondary));
-
-  /* Neutral scale — Black mixed into White in 10% increments per step. */
-  --color-neutral-100: color-mix(in srgb, var(--color-black) 10%, var(--color-white));
-  --color-neutral-200: color-mix(in srgb, var(--color-black) 20%, var(--color-white));
-  --color-neutral-300: color-mix(in srgb, var(--color-black) 30%, var(--color-white));
-  --color-neutral-400: color-mix(in srgb, var(--color-black) 40%, var(--color-white));
-  --color-neutral-500: color-mix(in srgb, var(--color-black) 50%, var(--color-white));
-  --color-neutral-600: color-mix(in srgb, var(--color-black) 60%, var(--color-white));
-  --color-neutral-700: color-mix(in srgb, var(--color-black) 70%, var(--color-white));
-  --color-neutral-800: color-mix(in srgb, var(--color-black) 80%, var(--color-white));
-  --color-neutral-900: color-mix(in srgb, var(--color-black) 90%, var(--color-white));
-
-  /* Type — DESIGN.md (base 1rem = 16px, scale steps by 1.2) */
-  --font-size-body: 1.14rem;
-  --font-size-multiplier: 1.1;
-  --font-size-h6: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 1));
-  --font-size-h5: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 2));
-  --font-size-h4: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 3));
-  --font-size-h3: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 4));
-  --font-size-h2: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 5));
-  --font-size-h1: calc(var(--font-size-body) * pow(var(--font-size-multiplier), 6));
-  --letter-spacing: 0;
-  --line-height-body: 1.7;
-  --line-height-heading: 1.2;
-  --font-weight-body: 400;
-  --font-weight-heading: 500;
-
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-3: 3px;
-  --space-4: 4px;
-  --space-5: 6px;
-  --space-6: 8px;
-  --space-7: 12px;
-  --space-8: 16px;
-  --space-9: 24px;
-  --space-10: 32px;
-  --space-11: 48px;
-  --space-12: 64px;
-  --space-13: 96px;
-  --space-14: 128px;
-  --space-15: 192px;
-  --space-multiplier: 1.2;
-  --margin-difference-multiplier: 3;
-
-  /* Page — DESIGN.md */
-  --page-max-width: 46rem;
-
-  --rule-border: var(--space-1) solid
-    color-mix(in srgb, var(--color-black) 20%, transparent);
+*,
+::before,
+::after {
+  box-sizing: border-box;
 }
 
 html {
   font-size: 100%;
-  text-transform: lowercase !important;
+  /* The whole site reads lowercase by design. */
+  text-transform: lowercase;
+}
+
+code,
+pre,
+kbd,
+samp {
+  /* Code is case-sensitive; exempt it from the global lowercase. */
+  text-transform: none;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--font-schibsted-grotesk), sans-serif;
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-body);
-  line-height: var(--line-height-body);
-  letter-spacing: var(--letter-spacing);
-  color: var(--color-black);
-  background-color: var(--color-white);
-  padding: var(--space-11);
-
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
@@ -102,187 +42,20 @@ body {
   background-color: var(--color-main);
 }
 
+/* -- Page shell ----------------------------------------------------------------- */
+
 .page-shell {
-  box-sizing: border-box;
-  width: min(95%, var(--page-max-width));
+  width: min(100% - var(--size-36), var(--page-width));
   margin-inline: auto;
-  margin-block: var(--space-64);
-}
-
-.content {
-  box-sizing: border-box;
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
-
-.content > *:first-child {
-  margin-block-start: 0;
-}
-
-.content > *:last-child {
-  margin-block-end: 0;
-}
-
-.content p {
-  margin-block: 0 var(--space-16);
-}
-
-.content h1,
-.content h2,
-.content h3,
-.content h4,
-.content h5,
-.content h6 {
-  font-weight: var(--font-weight-heading);
-  line-height: var(--line-height-heading);
-  margin-block-start: calc(var(--heading-space) * 2);
-  margin-block-end: var(--heading-space);
-}
-
-.content h1 {
-  font-size: var(--font-size-h1);
-  --heading-space: var(--space-8);
-}
-
-.content h2 {
-  font-size: var(--font-size-h2);
-  --heading-space: var(--space-7);
-
-}
-
-.content h3 {
-  font-size: var(--font-size-h3);
-  --heading-space: var(--space-6);
-}
-
-.content h4 {
-  font-size: var(--font-size-h4);
-  --heading-space: var(--space-5);
-}
-
-.content h5 {
-  font-size: var(--font-size-h5);
-  --heading-space: var(--space-4);
-}
-
-.content h6 {
-  font-size: var(--font-size-h6);
-  --heading-space: var(--space-3);
-}
-
-.content ul,
-.content ol {
-  margin-block: 0 var(--space-32);
-  padding-inline-start: var(--space-32);
-}
-
-.content li {
-  margin-block: var(--space-4);
-}
-
-.content li > ul,
-.content li > ol {
-  margin-block: var(--space-8) var(--space-8);
-}
-
-.content hr {
-  border: none;
-  border-block-start: var(--rule-border);
-  margin-block: var(--space-32);
-}
-
-.content a {
-  color: var(--color-main);
-  text-underline-offset: 0.15em;
-}
-
-.content a:hover {
-  background-color: color-mix(in srgb, var(--color-main) 15%, transparent);
-  transition: background-color 200ms ease;
-}
-
-.content strong {
-  font-weight: var(--font-weight-heading);
-}
-
-.content blockquote {
-  margin-block: var(--space-32);
-  margin-inline: 0;
-  padding-inline-start: var(--space-16);
-  border-inline-start: var(--space-2) solid
-    color-mix(in srgb, var(--color-black) 25%, transparent);
-  color: color-mix(in srgb, var(--color-black) 88%, transparent);
-}
-
-.content img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  margin-block: var(--space-32);
-}
-
-.content > img:first-child {
-  margin-block-start: 0;
-}
-
-.content code {
-  font-family: ui-monospace, monospace;
-  font-size: 0.9em;
-  padding: 0.1em 0.35em;
-  border-radius: var(--space-4);
-  background-color: color-mix(in srgb, var(--color-black) 6%, transparent);
-}
-
-.content pre {
-  margin-block: var(--space-32);
-  padding: var(--space-16);
-  border-radius: var(--space-8);
-  overflow-x: auto;
-  background-color: color-mix(in srgb, var(--color-black) 6%, transparent);
-  line-height: var(--line-height-body);
-}
-
-.content pre code {
-  padding: 0;
-  background: none;
-  font-size: 0.85em;
-}
-
-.content .table-wrap {
-  overflow-x: auto;
-  max-width: 100%;
-  margin-block: var(--space-32);
-}
-
-.content table {
-  width: 100%;
-  border-collapse: collapse;
-  line-height: var(--line-height-body);
-}
-
-.content thead {
-  border-bottom: var(--space-1) solid
-    color-mix(in srgb, var(--color-black) 22%, transparent);
-}
-
-.content th,
-.content td {
-  padding: var(--space-8) var(--space-16);
-  text-align: start;
-  vertical-align: top;
-  font-weight: var(--font-weight-body);
-}
-
-.content tbody tr:nth-child(even) {
-  background-color: color-mix(in srgb, var(--color-black) 4%, transparent);
+  padding-block: var(--size-66) var(--size-46);
 }
 
 .page-footer {
-  margin-block-start: var(--space-64);
-  padding-block-start: var(--space-32);
-  border-block-start: var(--rule-border);
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-body);
+  margin-block-start: var(--size-66);
+  padding-block-start: var(--size-23);
+  border-block-start: var(--border-thin) solid var(--color-border);
+  font-size: var(--text-small);
+  color: var(--color-fg-muted);
 }
 
 .page-footer p {
@@ -290,5 +63,5 @@ body {
 }
 
 .page-footer p + p {
-  margin-block-start: var(--space-8);
+  margin-block-start: var(--size-4);
 }

@@ -1,0 +1,395 @@
+/* ---------------------------------------------------------------------------
+   Component classes. Every dimension snaps to the modular scale in tokens.css.
+--------------------------------------------------------------------------- */
+
+/* -- Focus ------------------------------------------------------------------ */
+
+:is(.button, .input, .select select, .checkbox, .radio, .switch):focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* -- Button ------------------------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-8);
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-control);
+  padding: var(--size-9) var(--size-18);
+  border: var(--border-thin) solid transparent;
+  border-radius: var(--radius-medium);
+  background: none;
+  color: var(--color-fg);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.button-small {
+  font-size: var(--text-small);
+  padding: var(--size-4) var(--size-13);
+}
+
+.button-large {
+  font-size: var(--text-body);
+  padding: var(--size-13) var(--size-23);
+}
+
+.button-primary {
+  background-color: var(--color-main-500);
+  color: var(--color-white);
+}
+
+.button-primary:hover:not(:disabled) {
+  background-color: var(--color-main-600);
+}
+
+.button-primary:active:not(:disabled) {
+  background-color: var(--color-main-700);
+}
+
+.button-secondary {
+  background-color: var(--color-secondary-500);
+  color: var(--color-black);
+}
+
+.button-secondary:hover:not(:disabled) {
+  background-color: var(--color-secondary-400);
+}
+
+.button-secondary:active:not(:disabled) {
+  background-color: var(--color-secondary-600);
+}
+
+.button-outline {
+  border-color: var(--color-border-strong);
+}
+
+.button-ghost {
+  border-color: transparent;
+}
+
+.button-outline:hover:not(:disabled),
+.button-ghost:hover:not(:disabled) {
+  background-color: var(--color-black-a-100);
+}
+
+/* -- Badge ---------------------------------------------------------------------- */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-4);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-control);
+  padding: var(--size-2) var(--size-9);
+  border: var(--border-thin) solid transparent;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  color: var(--color-fg-muted);
+}
+
+.badge-main {
+  background-color: var(--color-main-100);
+  color: var(--color-main-700);
+}
+
+.badge-secondary {
+  background-color: var(--color-secondary-100);
+  color: var(--color-secondary-800);
+}
+
+.badge-outline {
+  background: none;
+  border-color: var(--color-border-strong);
+}
+
+/* -- Text input and select ---------------------------------------------------------- */
+
+.input,
+.select select {
+  appearance: none;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--text-ui);
+  line-height: var(--leading-control);
+  color: var(--color-fg);
+  background-color: var(--color-bg);
+  border: var(--border-thin) solid var(--color-border-strong);
+  border-radius: var(--radius-medium);
+  padding: var(--size-9) var(--size-13);
+  transition: border-color var(--duration-fast) ease;
+}
+
+.input:hover,
+.select select:hover {
+  border-color: var(--color-black-a-450);
+}
+
+.input::placeholder {
+  color: var(--color-fg-subtle);
+}
+
+.input[aria-invalid="true"] {
+  border-color: var(--color-main-500);
+}
+
+.input:disabled,
+.select select:disabled {
+  background-color: var(--color-surface);
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.select {
+  position: relative;
+  display: block;
+}
+
+.select select {
+  padding-inline-end: var(--size-36);
+  cursor: pointer;
+}
+
+.select::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: var(--size-13);
+  width: var(--size-10);
+  background-color: var(--color-fg-muted);
+  clip-path: polygon(0 35%, 12% 25%, 50% 60%, 88% 25%, 100% 35%, 50% 75%);
+  pointer-events: none;
+}
+
+/* -- Checkbox, radio, switch ------------------------------------------------------------ */
+
+.checkbox,
+.radio {
+  appearance: none;
+  flex-shrink: 0;
+  width: var(--size-18);
+  height: var(--size-18);
+  margin: 0;
+  display: inline-grid;
+  place-content: center;
+  border: var(--border-thin) solid var(--color-border-strong);
+  background-color: var(--color-bg);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease;
+}
+
+.checkbox {
+  border-radius: var(--radius-small);
+}
+
+.radio {
+  border-radius: var(--radius-full);
+}
+
+.checkbox:checked,
+.radio:checked {
+  background-color: var(--color-main-500);
+  border-color: var(--color-main-500);
+}
+
+.checkbox:checked::before {
+  content: "";
+  width: var(--size-10);
+  height: var(--size-10);
+  background-color: var(--color-white);
+  clip-path: polygon(38% 100%, 0 62%, 14% 48%, 38% 72%, 86% 10%, 100% 24%);
+}
+
+.radio:checked::before {
+  content: "";
+  width: var(--size-8);
+  height: var(--size-8);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+}
+
+.switch {
+  appearance: none;
+  flex-shrink: 0;
+  position: relative;
+  width: var(--size-36);
+  height: var(--size-20);
+  margin: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: var(--color-black-a-250);
+  cursor: pointer;
+  transition: background-color var(--duration-base) ease;
+}
+
+.switch::before {
+  content: "";
+  position: absolute;
+  inset-block-start: var(--size-2);
+  inset-inline-start: var(--size-2);
+  width: var(--size-16);
+  height: var(--size-16);
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  transition: translate var(--duration-base) ease;
+}
+
+.switch:checked {
+  background-color: var(--color-main-500);
+}
+
+.switch:checked::before {
+  translate: var(--size-16) 0;
+}
+
+.checkbox:disabled,
+.radio:disabled,
+.switch:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* -- Field ----------------------------------------------------------------------------- */
+
+.field {
+  display: grid;
+  gap: var(--size-8);
+}
+
+.field > label {
+  font-size: var(--text-ui);
+  font-weight: var(--weight-medium);
+}
+
+.field-hint {
+  font-size: var(--text-small);
+  color: var(--color-fg-muted);
+}
+
+.field-error {
+  font-size: var(--text-small);
+  color: var(--color-main-600);
+}
+
+.label-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-9);
+  font-size: var(--text-ui);
+  cursor: pointer;
+}
+
+.label-inline:has(:disabled) {
+  cursor: not-allowed;
+  color: var(--color-fg-subtle);
+}
+
+/* -- Callout -------------------------------------------------------------------------------- */
+
+.callout {
+  padding: var(--size-14) var(--size-18);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background-color: var(--color-surface);
+}
+
+.callout > :first-child {
+  margin-block-start: 0;
+}
+
+.callout > :last-child {
+  margin-block-end: 0;
+}
+
+.callout-title {
+  display: block;
+  font-weight: var(--weight-semibold);
+  margin-block-end: var(--size-4);
+}
+
+.callout-main {
+  background-color: var(--color-main-100);
+  border-color: color-mix(in srgb, var(--color-main) 30%, transparent);
+}
+
+.callout-secondary {
+  background-color: var(--color-secondary-100);
+  border-color: color-mix(in srgb, var(--color-secondary) 45%, transparent);
+}
+
+.content .callout {
+  margin-block: var(--size-29);
+}
+
+/* -- Card ---------------------------------------------------------------------------------- */
+
+.card {
+  display: block;
+  padding: var(--size-20);
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  text-decoration: none;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.card > :first-child {
+  margin-block-start: 0;
+}
+
+.card > :last-child {
+  margin-block-end: 0;
+}
+
+a.card:hover {
+  border-color: var(--color-border-strong);
+  background: none;
+}
+
+.card-meta {
+  font-size: var(--text-small);
+  color: var(--color-fg-muted);
+}
+
+/* -- Slot ------------------------------------------------------------------------------------- */
+
+.slot {
+  display: grid;
+  place-content: center;
+  min-height: var(--size-66);
+  padding: var(--size-18);
+  border: var(--border-thin) dashed var(--color-border-strong);
+  border-radius: var(--radius-medium);
+  color: var(--color-fg-subtle);
+  font-size: var(--text-small);
+  text-align: center;
+}
+
+/* -- Kbd ---------------------------------------------------------------------------------------- */
+
+kbd {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: var(--leading-control);
+  padding: var(--size-2) var(--size-8);
+  border: var(--border-thin) solid var(--color-border-strong);
+  border-block-end-width: var(--border-thick);
+  border-radius: var(--radius-small);
+  background-color: var(--color-bg);
+}
