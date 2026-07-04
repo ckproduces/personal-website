@@ -6,6 +6,9 @@ Secondary color: #E9B72E
 Black: #0E0103
 White: #FFFFFF
 
+Main and Secondary each get a 100-900 scale. 500 is the pure color; each step below 500 mixes in another 20% White (100 is 80% White), each step above 500 mixes in another 20% Black (900 is 80% Black).
+Black and White share one neutral 100-900 scale: each step mixes in another 10% Black on top of White (neutral-100 is 10% Black, neutral-900 is 90% Black).
+
 # Type
 Font family: Schibsted Grotesk from Google Fonts
 Base 1 rem: 16px

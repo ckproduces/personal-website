@@ -5,6 +5,39 @@
   --color-black: #0e0103;
   --color-white: #ffffff;
 
+  /* Color scales — 500 is the pure color; each step below mixes in another
+     20% White, each step above mixes in another 20% Black. */
+  --color-main-100: color-mix(in srgb, var(--color-white) 80%, var(--color-main));
+  --color-main-200: color-mix(in srgb, var(--color-white) 60%, var(--color-main));
+  --color-main-300: color-mix(in srgb, var(--color-white) 40%, var(--color-main));
+  --color-main-400: color-mix(in srgb, var(--color-white) 20%, var(--color-main));
+  --color-main-500: var(--color-main);
+  --color-main-600: color-mix(in srgb, var(--color-black) 20%, var(--color-main));
+  --color-main-700: color-mix(in srgb, var(--color-black) 40%, var(--color-main));
+  --color-main-800: color-mix(in srgb, var(--color-black) 60%, var(--color-main));
+  --color-main-900: color-mix(in srgb, var(--color-black) 80%, var(--color-main));
+
+  --color-secondary-100: color-mix(in srgb, var(--color-white) 80%, var(--color-secondary));
+  --color-secondary-200: color-mix(in srgb, var(--color-white) 60%, var(--color-secondary));
+  --color-secondary-300: color-mix(in srgb, var(--color-white) 40%, var(--color-secondary));
+  --color-secondary-400: color-mix(in srgb, var(--color-white) 20%, var(--color-secondary));
+  --color-secondary-500: var(--color-secondary);
+  --color-secondary-600: color-mix(in srgb, var(--color-black) 20%, var(--color-secondary));
+  --color-secondary-700: color-mix(in srgb, var(--color-black) 40%, var(--color-secondary));
+  --color-secondary-800: color-mix(in srgb, var(--color-black) 60%, var(--color-secondary));
+  --color-secondary-900: color-mix(in srgb, var(--color-black) 80%, var(--color-secondary));
+
+  /* Neutral scale — Black mixed into White in 10% increments per step. */
+  --color-neutral-100: color-mix(in srgb, var(--color-black) 10%, var(--color-white));
+  --color-neutral-200: color-mix(in srgb, var(--color-black) 20%, var(--color-white));
+  --color-neutral-300: color-mix(in srgb, var(--color-black) 30%, var(--color-white));
+  --color-neutral-400: color-mix(in srgb, var(--color-black) 40%, var(--color-white));
+  --color-neutral-500: color-mix(in srgb, var(--color-black) 50%, var(--color-white));
+  --color-neutral-600: color-mix(in srgb, var(--color-black) 60%, var(--color-white));
+  --color-neutral-700: color-mix(in srgb, var(--color-black) 70%, var(--color-white));
+  --color-neutral-800: color-mix(in srgb, var(--color-black) 80%, var(--color-white));
+  --color-neutral-900: color-mix(in srgb, var(--color-black) 90%, var(--color-white));
+
   /* Type — DESIGN.md (base 1rem = 16px, scale steps by 1.2) */
   --font-size-body: 1rem;
   --font-size-h6: 1.2rem;
@@ -13,11 +46,11 @@
   --font-size-h3: 2.0736rem;
   --font-size-h2: 2.48832rem;
   --font-size-h1: 2.985984rem;
-  --letter-spacing: -0.0001em;
-  --line-height-body: 1.5;
+  --letter-spacing: -1%;
+  --line-height-body: 1.7;
   --line-height-heading: 1.2;
   --font-weight-body: 400;
-  --font-weight-heading: 600;
+  --font-weight-heading: 500;
 
   /* Scale — DESIGN.md (1, 2, 4, 8, 16, 32… starting from 1px) */
   --space-1: 0.0625rem;
@@ -30,7 +63,7 @@
   --space-128: 8rem;
 
   /* Page — DESIGN.md */
-  --page-max-width: 41rem;
+  --page-max-width: 39rem;
 
   --rule-border: var(--space-1) solid
     color-mix(in srgb, var(--color-black) 20%, transparent);
@@ -38,6 +71,7 @@
 
 html {
   font-size: 100%;
+  text-transform: lowercase !important;
 }
 
 body {
@@ -90,7 +124,7 @@ body {
 .content h6 {
   font-weight: var(--font-weight-heading);
   line-height: var(--line-height-heading);
-  margin-block: var(--space-32) var(--space-16);
+  margin-block: var(--space-16) var(--space-8);
 }
 
 .content h1 {
@@ -125,8 +159,8 @@ body {
 
 .content ul,
 .content ol {
-  margin-block: 0 var(--space-32);
-  padding-inline-start: var(--space-32);
+  margin-block: 0 var(--space-8);
+  padding-inline-start: var(--space-8);
 }
 
 .content li {

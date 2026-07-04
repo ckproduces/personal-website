@@ -14,6 +14,14 @@ const COLORS = [
   { name: "White", token: "--color-white", hex: "#FFFFFF" },
 ];
 
+const COLOR_SCALES = [
+  { name: "Main", token: "main" },
+  { name: "Secondary", token: "secondary" },
+  { name: "Neutral", token: "neutral" },
+];
+
+const SCALE_STEPS = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+
 const TYPE_STEPS = [
   { tag: "h1", token: "--font-size-h1" },
   { tag: "h2", token: "--font-size-h2" },
@@ -76,6 +84,37 @@ export default function StyleGuidePage() {
           </li>
         ))}
       </ul>
+
+      <h3>Color scales</h3>
+      {COLOR_SCALES.map((scale) => (
+        <div key={scale.token} style={{ marginBlockEnd: "var(--space-16)" }}>
+          <p style={{ margin: "0 0 var(--space-8)" }}>{scale.name}</p>
+          <ul
+            style={{
+              display: "flex",
+              gap: "var(--space-8)",
+              listStyle: "none",
+              paddingInlineStart: 0,
+            }}
+          >
+            {SCALE_STEPS.map((step) => (
+              <li key={step} style={{ textAlign: "center" }}>
+                <div
+                  style={{
+                    width: "3rem",
+                    height: "3rem",
+                    borderRadius: "var(--space-4)",
+                    background: `var(--color-${scale.token}-${step})`,
+                    border:
+                      "var(--space-1) solid color-mix(in srgb, var(--color-black) 20%, transparent)",
+                  }}
+                />
+                <code style={{ fontSize: "0.75rem" }}>{step}</code>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
 
       <hr />
 
