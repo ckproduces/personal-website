@@ -124,25 +124,19 @@ body {
 .content h6 {
   font-weight: var(--font-weight-heading);
   line-height: var(--line-height-heading);
-  margin-block: var(--space-16) var(--space-8);
+  margin-block: var(--space-16) var(--space-16);
 }
 
 .content h1 {
   font-size: var(--font-size-h1);
-  margin-block-start: 0;
 }
 
 .content h2 {
   font-size: var(--font-size-h2);
 }
 
-.content h2.section-heading {
-  margin-block-start: var(--space-64);
-}
-
 .content h3 {
   font-size: var(--font-size-h3);
-  margin-block: var(--space-32) var(--space-8);
 }
 
 .content h4 {
@@ -159,23 +153,23 @@ body {
 
 .content ul,
 .content ol {
-  margin-block: 0 var(--space-8);
-  padding-inline-start: var(--space-8);
+  margin-block: 0 var(--space-32);
+  padding-inline-start: var(--space-32);
 }
 
 .content li {
-  margin-block: var(--space-8);
+  margin-block: var(--space-4);
 }
 
 .content li > ul,
 .content li > ol {
-  margin-block: var(--space-8) 0;
+  margin-block: var(--space-8) var(--space-8);
 }
 
 .content hr {
   border: none;
   border-block-start: var(--rule-border);
-  margin-block: var(--space-64);
+  margin-block: var(--space-32);
 }
 
 .content a {
@@ -257,6 +251,7 @@ body {
   padding: var(--space-8) var(--space-16);
   text-align: start;
   vertical-align: top;
+  font-weight: var(--font-weight-body);
 }
 
 .content tbody tr:nth-child(even) {
