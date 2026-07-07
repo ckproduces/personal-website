@@ -7,7 +7,7 @@ these tokens — there are no ad-hoc values in component CSS.
 
 | seed        | value                                             |
 | ----------- | ------------------------------------------------- |
-| color       | grayscale — a 50–900 gray ramp, black, white      |
+| color       | grayscale dominant + a sparing `#ff0000` red ramp |
 | type scale  | 1.125 modular scale, 16px base                    |
 | space scale | 4px base unit, stepped in multiples of 4          |
 | font        | Inter Tight (Google Fonts)                        |
@@ -17,12 +17,15 @@ site still scales with the user's root font size. 1px hairlines stay real px.
 
 ## color
 
-The palette is fully grayscale — shades of gray, black, and white. Two ramps:
-`--gray-50 … --gray-900` (the accent scale — links, selection, emphasis) and a
-neutral `--ink-50 … --ink-950` (text and lines), plus `--black` / `--white`.
-Raw tokens are mapped to semantic roles — `--color-text`, `--color-text-muted`,
-`--color-accent`, `--color-line`, `--color-surface`, etc. — and components only
-ever reference the roles.
+The palette is grayscale-dominant. Two neutral ramps: `--gray-50 … --gray-900`
+(accents — links, selection, emphasis) and `--ink-50 … --ink-950` (text and
+lines), plus `--black` / `--white`. Raw tokens map to semantic roles
+(`--color-text`, `--color-accent`, `--color-line`, `--color-surface`, …) and
+components only reference the roles.
+
+There is also a `#ff0000` red ramp (`--red-50 … --red-900` → `--color-red`),
+used **sparingly** — reserved for exactly three marks: the star logo at the top,
+the streaming caret at the bottom, and the "visit" button. Nothing else is red.
 
 ## type — 1.125 modular scale
 

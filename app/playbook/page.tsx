@@ -18,7 +18,7 @@ const GRAYS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const INKS = [50, 100, 200, 400, 600, 800, 950];
 const ROLES = [
   "text", "muted", "faint", "accent", "accent-strong",
-  "line", "surface", "surface-hover", "black",
+  "line", "surface", "surface-hover", "black", "red",
 ];
 const SIZES: TextSize[] = ["xs", "sm", "base", "md", "lg", "xl", "2xl", "3xl"];
 const SPACES = [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
@@ -87,6 +87,14 @@ export default function Playbook() {
         <div style={gridStyle}>
           {INKS.map((n) => (
             <Swatch key={n} value={`var(--ink-${n})`} label={`${n}`} />
+          ))}
+        </div>
+      </Section>
+
+      <Section label="color · red (used sparingly)">
+        <div style={gridStyle}>
+          {GRAYS.map((n) => (
+            <Swatch key={n} value={`var(--red-${n})`} label={`${n}`} />
           ))}
         </div>
       </Section>

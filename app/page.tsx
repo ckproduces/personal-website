@@ -23,9 +23,27 @@ export default function HomePage() {
 
   return (
     <Stack as="main" gap={16}>
-      <Stack style={{
-      }} as="header" gap={4}>
-        <Stack gap={1}>
+      <Stack style={{}} as="header" gap={4}>
+        <Stack align="start" gap={1}>
+          <span
+            role="img"
+            aria-label="logo"
+            style={{
+              display: "block",
+              width: 50,
+              height: 50,
+              marginBottom: "8px",
+              backgroundColor: "var(--color-red)",
+              WebkitMaskImage: "url(/logo.svg)",
+              maskImage: "url(/logo.svg)",
+              WebkitMaskRepeat: "no-repeat",
+              maskRepeat: "no-repeat",
+              WebkitMaskPosition: "left center",
+              maskPosition: "left center",
+              WebkitMaskSize: "contain",
+              maskSize: "contain",
+            }}
+          />
           <Text as="h1" size="3xl">
             çağrı okan
           </Text>
@@ -36,29 +54,29 @@ export default function HomePage() {
         <Socials />
       </Stack>
 
-      <Section label="blogs" gap={4}>
+      <Section label="blogs" gap={6}>
         <Blogs posts={posts} />
       </Section>
 
-      <Section label="experience">
+      <Section gap={6} label="experience">
         {experience.map((e) => (
           <EntryRow key={e.title} entry={e} />
         ))}
       </Section>
 
-      <Section label="involvement">
+      <Section gap={6} label="involvement">
         {involvement.map((e) => (
           <EntryRow key={e.title} entry={e} />
         ))}
       </Section>
 
-      <Section label="projects">
+      <Section gap={6} label="projects">
         {projects.map((e) => (
           <EntryRow key={e.title} entry={e} />
         ))}
       </Section>
 
-      <Section label="education">
+      <Section gap={6} label="education">
         {education.map((e) => (
           <EntryRow key={e.title} entry={e} />
         ))}

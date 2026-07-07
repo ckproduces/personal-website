@@ -15,6 +15,7 @@ export const COLORS = {
   surface: "var(--color-surface)",
   surfaceHover: "var(--color-surface-hover)",
   line: "var(--color-line)",
+  red: "var(--color-red)",
 } as const;
 export type ColorToken = keyof typeof COLORS;
 

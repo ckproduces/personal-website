@@ -32,6 +32,18 @@
   --ink-50: #f2f2f2;
   --paper: #fafafa;
 
+  /* --- color: red (#ff0000) ramp — used sparingly, a few accents only --- */
+  --red-50: #fff5f5;
+  --red-100: #ffdfdf;
+  --red-200: #ffb8b8;
+  --red-300: #ff8585;
+  --red-400: #ff4747;
+  --red-500: #ff0000;
+  --red-600: #d40000;
+  --red-700: #a80000;
+  --red-800: #7a0000;
+  --red-900: #4d0000;
+
   /* --- semantic color roles --- */
   --color-bg: var(--white);
   --color-text: var(--ink-950);
@@ -45,16 +57,17 @@
   --color-white: var(--white);
   --color-surface: var(--ink-50);
   --color-surface-hover: var(--ink-100);
+  --color-red: var(--red-500);
 
   /* --- type: 1.125 modular scale, 16px base --- */
-  --text-xs: 12.64px;
-  --text-sm: 14.22px;
+  --text-xs: 14px;
+  --text-sm: 15px;
   --text-base: 16px;
   --text-md: 18px;
-  --text-lg: 20.25px;
-  --text-xl: 22.78px;
-  --text-2xl: 25.63px;
-  --text-3xl: 28.83px;
+  --text-lg: 21px;
+  --text-xl: 23px;
+  --text-2xl: 26px;
+  --text-3xl: 30px;
 
   --leading-tight: 1.2;
   --leading-snug: 1.4;
@@ -118,7 +131,12 @@ body {
   letter-spacing: -0.01%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--weight-medium);
   line-height: var(--leading-tight);
   letter-spacing: -0.02em;
@@ -170,16 +188,31 @@ hr {
 }
 
 @keyframes caretBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes rise {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

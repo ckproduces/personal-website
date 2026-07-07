@@ -12,7 +12,7 @@ import { Link } from "@/components/Link";
  */
 export function EntryRow({ entry }: { entry: Entry }) {
   return (
-    <Stack gap={1}>
+    <Stack gap={0}>
       <Stack direction="row" justify="space-between" align="baseline" gap={4}>
         <Text weight="medium" style={{ minWidth: 0 }}>
           {entry.title}
@@ -28,7 +28,11 @@ export function EntryRow({ entry }: { entry: Entry }) {
           ) : null}
         </Text>
         {entry.date ? (
-          <Text size="sm" color="faint" style={{ whiteSpace: "nowrap", flexShrink: 0 }}>
+          <Text
+            size="sm"
+            color="faint"
+            style={{ whiteSpace: "nowrap", flexShrink: 0 }}
+          >
             {entry.date}
           </Text>
         ) : null}
@@ -42,11 +46,21 @@ export function EntryRow({ entry }: { entry: Entry }) {
 
       {entry.href && !entry.meta ? (
         <Link href={entry.href} plain style={{ alignSelf: "flex-start" }}>
-          <Stack direction="row" gap={1} align="center">
-            <Text size="sm" color="muted">
+          <Stack
+            radius="sm"
+            background="line"
+            style={{
+              padding: "2px 8px",
+              marginTop: "8px",
+            }}
+            direction="row"
+            gap={1}
+            align="center"
+          >
+            <Text size="sm" color="red">
               visit
             </Text>
-            <Icon icon={ArrowUpRight} size={14} color="muted" />
+            <Icon icon={ArrowUpRight} size={14} color="red" />
           </Stack>
         </Link>
       ) : null}

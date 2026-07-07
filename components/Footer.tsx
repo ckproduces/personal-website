@@ -53,11 +53,22 @@ export function Footer() {
     <footer>
       <Stack gap={3}>
         <hr />
-        <Stack direction="row" justify="space-between" align="baseline" gap={4}>
+        <Stack
+          direction="row"
+          justify="space-between"
+          align="baseline"
+          gap={10}
+        >
           <Text size="lg" color="black" style={{ letterSpacing: "-0.02em" }}>
             {text}
-            <span className="caret" aria-hidden>
-              ▍
+            <span
+              style={{
+                color: "var(--color-red)",
+              }}
+              className="caret"
+              aria-hidden
+            >
+              {" ▍"}
             </span>
           </Text>
           <Text size="sm" color="faint" style={{ whiteSpace: "nowrap" }}>
