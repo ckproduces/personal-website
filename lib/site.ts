@@ -72,7 +72,10 @@ export const projects: Entry[] = [
     note: "an accessibility-focused web assistant that can read and navigate pages, scroll, click controls, and fill forms.",
     date: "",
     links: [
-      { href: "https://youtu.be/CvCZOk-YLrw?t=3430", label: "watch hackathon presentation" },
+      {
+        href: "https://youtu.be/CvCZOk-YLrw?t=3430",
+        label: "watch hackathon presentation",
+      },
     ],
   },
   {
@@ -80,7 +83,10 @@ export const projects: Entry[] = [
     note: "a hackathon-winning synthetic dataset creator focused on image and video generation for near–edge cases.",
     date: "",
     links: [
-      { href: "https://youtu.be/LfmWSh3rnm0?t=4544", label: "watch hackathon presentation" },
+      {
+        href: "https://youtu.be/LfmWSh3rnm0?t=4544",
+        label: "watch hackathon presentation",
+      },
     ],
   },
   {
@@ -89,7 +95,10 @@ export const projects: Entry[] = [
     date: "",
     links: [
       { href: "https://instagram.com/ecoistanbulapp", label: "instagram" },
-      { href: "/blog/ecoistanbul", label: "read more" },
+      {
+        href: "/blog/my-journey-to-building-a-green-company",
+        label: "read more",
+      },
     ],
   },
 ];
@@ -109,8 +118,20 @@ export const education: Entry[] = [
 ];
 
 export const connections = [
-  { label: "github", href: "https://github.com/ckproduces", icon: "/logos/github_logo.svg" },
+  {
+    label: "github",
+    href: "https://github.com/ckproduces",
+    icon: "/logos/github_logo.svg",
+  },
   { label: "x", href: "https://x.com/ckproduces", icon: "/logos/x_logo.svg" },
-  { label: "linkedin", href: "https://linkedin.com/in/cagriokan", icon: "/logos/linkedin_logo.svg" },
-  { label: "instagram", href: "https://instagram.com/crokan_", icon: "/logos/instagram_logo.svg" },
+  {
+    label: "linkedin",
+    href: "https://linkedin.com/in/cagriokan",
+    icon: "/logos/linkedin_logo.svg",
+  },
+  {
+    label: "instagram",
+    href: "https://instagram.com/crokan_",
+    icon: "/logos/instagram_logo.svg",
+  },
 ];

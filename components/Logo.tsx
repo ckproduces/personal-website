@@ -1,7 +1,7 @@
 import { MaskIcon } from "@/components/MaskIcon";
 
 /** Site star logo — one of the three intentional red marks. */
-export function Logo({ size = 50 }: { size?: number }) {
+export function Logo({ size = 62 }: { size?: number }) {
   return (
     <MaskIcon
       src="/logo.svg"
