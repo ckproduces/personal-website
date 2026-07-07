@@ -22,7 +22,7 @@ export function Link({ href, children, plain, onClick, className, style }: LinkP
     ? {}
     : {
         color: "var(--color-accent-strong)",
-        borderBottom: "1px solid var(--red-200)",
+        borderBottom: "1px solid var(--gray-200)",
       };
   const cls = `hover-fade${className ? ` ${className}` : ""}`;
   const merged = { ...inlineStyle, ...style };

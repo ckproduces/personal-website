@@ -7,7 +7,7 @@ these tokens — there are no ad-hoc values in component CSS.
 
 | seed        | value                                             |
 | ----------- | ------------------------------------------------- |
-| main color  | `#ff0000` (→ scaled into a 50–900 ramp)           |
+| color       | grayscale — a 50–900 gray ramp, black, white      |
 | type scale  | 1.125 modular scale, 16px base                    |
 | space scale | 4px base unit, stepped in multiples of 4          |
 | font        | Inter Tight (Google Fonts)                        |
@@ -17,19 +17,12 @@ site still scales with the user's root font size. 1px hairlines stay real px.
 
 ## color
 
-`#ff0000` is `--red-500`, the anchor of a perceptual ramp:
-
-```
---red-50  #fff5f5   --red-400 #ff4747   --red-800 #7a0000
---red-100 #ffdfdf   --red-500 #ff0000   --red-900 #4d0000
---red-200 #ffb8b8   --red-600 #d40000
---red-300 #ff8585   --red-700 #a80000
-```
-
-Warm neutrals (`--ink-50 … --ink-950`) are tuned toward the red-tinted paper
-background `#fff9fa`. Raw tokens are mapped to semantic roles — `--color-text`,
-`--color-text-muted`, `--color-accent`, `--color-line`, etc. — and components
-only ever reference the roles.
+The palette is fully grayscale — shades of gray, black, and white. Two ramps:
+`--gray-50 … --gray-900` (the accent scale — links, selection, emphasis) and a
+neutral `--ink-50 … --ink-950` (text and lines), plus `--black` / `--white`.
+Raw tokens are mapped to semantic roles — `--color-text`, `--color-text-muted`,
+`--color-accent`, `--color-line`, `--color-surface`, etc. — and components only
+ever reference the roles.
 
 ## type — 1.125 modular scale
 
@@ -70,14 +63,12 @@ handful of things that *must* be real CSS (see below); `prose.css` styles the
 HTML inside blog bodies. There is no per-element stylesheet.
 
 The only global CSS classes are the **interaction primitives**, because inline
-style can't express `:hover`, the collapse trick, or keyframes:
+style can't express `:hover` or keyframes:
 
-- `.hover-fade` — hover → 75% opacity (the default for links, buttons, logos).
-- `.hover-surface` — hover → soft-gray surface (section rows / expandables).
-- `.collapse` — `grid-template-rows: 0fr → 1fr` height reveal for disclosures.
+- `.hover-fade` — hover → 75% opacity (links, buttons, logos).
 - `caret` / `fadeIn` / `rise` keyframes.
 
-No hover effect uses transform or scale — hovers are opacity or surface only.
+No hover effect uses transform or scale — hovers are opacity only.
 
 `/playbook` renders every token and component on one page; use it as the visual
 source of truth and reuse the primitives rather than writing new CSS.
@@ -98,9 +89,8 @@ source of truth and reuse the primitives rather than writing new CSS.
 ## composed components
 
 - **Section** (`components/Section.tsx`) — a titled soft-surface card.
-- **Entry** (`components/Entry.tsx`) — a portfolio row as a disclosure. The
-  preview shows the position (plain text) and the org (a link); expanding
-  reveals a brief explanation. Rows highlight to a soft-gray surface on hover.
+- **Entry** (`components/Entry.tsx`) — a portfolio row showing everything at
+  once: position (plain text) + org (a link) + date, then a brief explanation.
 - **Socials** (`components/Socials.tsx`) — logo-only social row; icons are drawn
   as CSS masks so every logo shares one ink color, and fade on hover.
 - **Blogs** (`components/Blogs.tsx`) + **Modal** (`components/Modal.tsx`) — the

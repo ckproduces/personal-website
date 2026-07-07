@@ -17,7 +17,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <Stack as="section" gap={4} background="surface" padding={8} radius="sm">
+    <Stack as="section" gap={4} radius="sm">
       <Stack gap={0}>
         <Text size="lg" color="black">
           {label}

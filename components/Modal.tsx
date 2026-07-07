@@ -46,7 +46,7 @@ export function Modal({
         alignItems: "center",
         justifyContent: "center",
         padding: "var(--space-4)",
-        background: "rgba(31, 0, 0, 0.35)",
+        background: "rgba(0, 0, 0, 0.35)",
         backdropFilter: "blur(2px)",
         animation: "fadeIn 0.2s ease",
       }}

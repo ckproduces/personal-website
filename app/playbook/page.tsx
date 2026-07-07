@@ -14,7 +14,7 @@ import type { TextSize } from "@/lib/tokens";
 
 export const metadata: Metadata = { title: "playbook — çağrı okan" };
 
-const REDS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+const GRAYS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const INKS = [50, 100, 200, 400, 600, 800, 950];
 const ROLES = [
   "text", "muted", "faint", "accent", "accent-strong",
@@ -56,7 +56,7 @@ const demoPosts = Array.from({ length: 6 }, (_, i) => ({
 const demoEntry = {
   title: "software engineer intern",
   meta: "ai business school",
-  note: "expand to reveal a brief explanation. positions are plain text; the org is a link.",
+  note: "a brief explanation shown inline. the position is plain text; the org is a link.",
   href: "https://aibusinessschool.com",
   date: "feb 2026 — present",
 };
@@ -75,10 +75,10 @@ export default function Playbook() {
       </Stack>
 
       {/* ---------------------------------------------------- tokens: color */}
-      <Section label="color · red ramp">
+      <Section label="color · gray ramp">
         <div style={gridStyle}>
-          {REDS.map((n) => (
-            <Swatch key={n} value={`var(--red-${n})`} label={`${n}`} />
+          {GRAYS.map((n) => (
+            <Swatch key={n} value={`var(--gray-${n})`} label={`${n}`} />
           ))}
         </div>
       </Section>
@@ -189,7 +189,7 @@ export default function Playbook() {
         <Socials />
       </Section>
 
-      <Section label="entry · expandable">
+      <Section label="entry">
         <EntryRow entry={demoEntry} />
         <EntryRow entry={{ ...demoEntry, title: "another role", href: undefined }} />
       </Section>

@@ -6,16 +6,27 @@ import { Socials } from "@/components/Socials";
 import { Blogs } from "@/components/Blogs";
 import { Footer } from "@/components/Footer";
 import { allPosts } from "@/lib/posts";
-import { intro, experience, involvement, projects, education } from "@/lib/site";
+import {
+  intro,
+  experience,
+  involvement,
+  projects,
+  education,
+} from "@/lib/site";
 
 export default function HomePage() {
-  const posts = allPosts.map(({ slug, title, date }) => ({ slug, title, date }));
+  const posts = allPosts.map(({ slug, title, date }) => ({
+    slug,
+    title,
+    date,
+  }));
 
   return (
-    <Stack as="main" gap={12}>
-      <Stack as="header" gap={4}>
+    <Stack as="main" gap={16}>
+      <Stack style={{
+      }} as="header" gap={4}>
         <Stack gap={1}>
-          <Text as="h1" size="3xl" style={{ letterSpacing: "-0.03em" }}>
+          <Text as="h1" size="3xl">
             çağrı okan
           </Text>
           <Text as="p" color="muted" size="md">

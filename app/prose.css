@@ -28,7 +28,7 @@
 
 .prose a {
   color: var(--color-accent-strong);
-  border-bottom: 1px solid var(--red-200);
+  border-bottom: 1px solid var(--gray-200);
 }
 .prose a:hover {
   color: var(--color-accent);
@@ -58,7 +58,7 @@
 /* --- custom content component: callout --- */
 .callout {
   border-left: 2px solid var(--color-accent);
-  background: var(--red-50);
+  background: var(--gray-50);
   padding: var(--space-4) var(--space-5);
   border-radius: var(--radius-sm);
   font-size: var(--text-base);

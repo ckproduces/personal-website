@@ -8,37 +8,37 @@
    ========================================================================== */
 
 :root {
-  /* --- color: red ramp (main = red-500 = #ff0000) --- */
-  --red-50: #fff5f5;
-  --red-100: #ffdfdf;
-  --red-200: #ffb8b8;
-  --red-300: #ff8585;
-  --red-400: #ff4747;
-  --red-500: #ff0000;
-  --red-600: #d40000;
-  --red-700: #a80000;
-  --red-800: #7a0000;
-  --red-900: #4d0000;
+  /* --- color: gray ramp (accent scale — the site is grayscale) --- */
+  --gray-50: #f7f7f7;
+  --gray-100: #ededed;
+  --gray-200: #dcdcdc;
+  --gray-300: #c2c2c2;
+  --gray-400: #9e9e9e;
+  --gray-500: #737373;
+  --gray-600: #565656;
+  --gray-700: #404040;
+  --gray-800: #292929;
+  --gray-900: #141414;
   --white: #ffffff;
-  --black: #1f0000;
+  --black: #111111;
 
-  /* --- color: warm neutrals, tuned to the red-tinted background --- */
-  --ink-950: #1a1416;
-  --ink-800: #3d3438;
-  --ink-600: #6b6266;
-  --ink-400: #9c9498;
-  --ink-200: #d8d1d4;
-  --ink-100: #ece6e8;
-  --ink-50: #f6f1f3;
-  --paper: #fff9fa;
+  /* --- color: neutral ink ramp (text + lines) --- */
+  --ink-950: #141414;
+  --ink-800: #333333;
+  --ink-600: #666666;
+  --ink-400: #999999;
+  --ink-200: #d4d4d4;
+  --ink-100: #e6e6e6;
+  --ink-50: #f2f2f2;
+  --paper: #fafafa;
 
   /* --- semantic color roles --- */
   --color-bg: var(--white);
   --color-text: var(--ink-950);
   --color-text-muted: var(--ink-600);
   --color-text-faint: var(--ink-400);
-  --color-accent: var(--red-500);
-  --color-accent-strong: var(--red-700);
+  --color-accent: var(--gray-500);
+  --color-accent-strong: var(--gray-800);
   --color-line: var(--ink-100);
   --color-line-strong: var(--ink-200);
   --color-black: var(--black);
@@ -134,8 +134,8 @@ hr {
 }
 
 ::selection {
-  background: var(--red-100);
-  color: var(--red-900);
+  background: var(--gray-200);
+  color: var(--gray-900);
 }
 
 /* ============================================================================
@@ -155,34 +155,12 @@ hr {
    grid trick, and keyframes. everything else is a component with token styles.
    ========================================================================== */
 
-/* hover for "other things": fade to 75% opacity, never transform */
+/* hover for interactive things: fade to 75% opacity, never transform */
 .hover-fade {
   transition: opacity 0.15s ease;
 }
 .hover-fade:hover {
   opacity: 0.75;
-}
-
-/* hover for section items (expandables): soft-gray surface */
-.hover-surface {
-  transition: background-color 0.15s ease;
-}
-.hover-surface:hover {
-  background-color: var(--color-surface-hover);
-}
-
-/* smooth height reveal for disclosures (grid-rows 0fr → 1fr) */
-.collapse {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.collapse[data-open="true"] {
-  grid-template-rows: 1fr;
-}
-.collapse > * {
-  overflow: hidden;
-  min-height: 0;
 }
 
 /* streaming caret for the footer typewriter */

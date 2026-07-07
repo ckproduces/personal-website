@@ -14,8 +14,8 @@ const PHRASES = [
   "an outlier by design",
 ];
 
-const TYPE_MS = 30; // per-letter speed, typing and deleting
-const HOLD_MS = 4000; // dwell once a phrase is fully written
+const TYPE_MS = 20; // per-letter speed, typing and deleting
+const HOLD_MS = 50; // dwell once a phrase is fully written
 
 /**
  * Footer statement that mimics AI response streaming: the phrase is written
@@ -32,7 +32,10 @@ export function Footer() {
     let timer: ReturnType<typeof setTimeout>;
 
     if (!deleting && text === full) {
-      timer = setTimeout(() => setDeleting(true), HOLD_MS);
+      timer = setTimeout(
+        () => setDeleting(true),
+        HOLD_MS * PHRASES[index].length + 500,
+      );
     } else if (deleting && text === "") {
       setDeleting(false);
       setIndex((i) => (i + 1) % PHRASES.length);
