@@ -87,10 +87,9 @@
   font-size: var(--text-sm);
 }
 
-/* --- post header --- */
+/* --- post header (spacing owned by <Stack>) --- */
 .post__back {
-  display: inline-block;
-  margin-bottom: var(--space-12);
+  align-self: flex-start;
   color: var(--color-text-faint);
   font-size: var(--text-sm);
   transition: color 0.15s ease;
@@ -101,10 +100,8 @@
 .post__title {
   font-size: var(--text-3xl);
   letter-spacing: -0.03em;
-  margin-bottom: var(--space-2);
 }
 .post__date {
   color: var(--color-text-faint);
   font-size: var(--text-sm);
-  margin-bottom: var(--space-10);
 }

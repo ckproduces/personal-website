@@ -1,5 +1,6 @@
 import { Link } from "@/components/Link";
 import { Section, EntryRow } from "@/components/Section";
+import { Stack } from "@/components/Stack";
 import { allPosts, formatDate } from "@/lib/posts";
 import {
   intro,
@@ -12,31 +13,27 @@ import {
 
 export default function HomePage() {
   return (
-    <main>
-      <header className="masthead">
-        <h1 className="masthead__name">
-          çağrı okan<span className="dot">.</span>
-        </h1>
+    <Stack as="main" gap={12}>
+      <Stack as="header" gap={4}>
+        <h1 className="masthead__name">çağrı okan</h1>
         <p className="masthead__intro">{intro}</p>
-      </header>
+      </Stack>
 
-      <Section label="writing">
-        <div className="writing">
-          {allPosts.length === 0 ? (
-            <p className="writing__empty">nothing published yet.</p>
-          ) : (
-            allPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="writing__item"
-              >
-                <span className="writing__title">{post.title}</span>
-                <span className="writing__date">{formatDate(post.date)}</span>
-              </Link>
-            ))
-          )}
-        </div>
+      <Section label="writing" gap={4}>
+        {allPosts.length === 0 ? (
+          <p className="writing__empty">nothing published yet.</p>
+        ) : (
+          allPosts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="writing__item"
+            >
+              <span className="writing__title">{post.title}</span>
+              <span className="writing__date">{formatDate(post.date)}</span>
+            </Link>
+          ))
+        )}
       </Section>
 
       <Section label="experience">
@@ -77,6 +74,6 @@ export default function HomePage() {
         <span>© 2026 çağrı okan</span>
         <span>built with 🌪️🧠</span>
       </footer>
-    </main>
+    </Stack>
   );
 }

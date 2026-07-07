@@ -63,6 +63,11 @@ Everything is lowercase by design (`text-transform: lowercase` on `html`).
 
 ## components
 
+- **Stack** (`components/Stack.tsx`) — the layout primitive. Renders a column
+  and owns the space between its children via a single `gap` step on the 4-base
+  scale (`gap={4}` → `--space-4`). Polymorphic via `as` (`as="main"`,
+  `as="header"`, `as="article"`…). Spacing lives on the parent Stack, not as
+  margins on each child — so there are effectively no layout margins in the CSS.
 - **Link** (`components/Link.tsx`) — one link for the site; external opens a new
   tab, internal routes via `next/link`.
 - **Section / EntryRow** (`components/Section.tsx`) — labeled homepage sections

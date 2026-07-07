@@ -19,6 +19,8 @@
   --red-700: #a80000;
   --red-800: #7a0000;
   --red-900: #4d0000;
+  --white: #ffffff;
+  --black: #1f0000;
 
   /* --- color: warm neutrals, tuned to the red-tinted background --- */
   --ink-950: #1a1416;
@@ -31,7 +33,7 @@
   --paper: #fff9fa;
 
   /* --- semantic color roles --- */
-  --color-bg: var(--paper);
+  --color-bg: var(--white);
   --color-text: var(--ink-950);
   --color-text-muted: var(--ink-600);
   --color-text-faint: var(--ink-400);

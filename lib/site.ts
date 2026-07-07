@@ -12,7 +12,7 @@ export type Entry = {
 };
 
 export const intro =
-  "an aspiring ai engineer & researcher, data scientist, full-stack web developer, and tech entrepreneur — focused on language models, agentic systems, and full-stack web.";
+  "co-founder @ apastron, tech entrepreneur, ai researcher, wunderkind";
 
 export const experience: Entry[] = [
   {
