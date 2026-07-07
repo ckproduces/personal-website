@@ -12,7 +12,7 @@ export type Entry = {
 };
 
 export const intro =
-  "co-founder @ apastron, tech entrepreneur, ai researcher, wunderkind";
+  "co-founder @ apastron, tech entrepreneur, ai researcher, jeune prodige";
 
 export const experience: Entry[] = [
   {
@@ -86,8 +86,8 @@ export const education: Entry[] = [
 ];
 
 export const connections = [
-  { label: "github", href: "https://github.com/ckproduces" },
-  { label: "linkedin", href: "https://linkedin.com/in/cagriokan" },
-  { label: "kaggle", href: "https://kaggle.com/cagrokan" },
-  { label: "instagram", href: "https://instagram.com/crokan" },
+  { label: "github", href: "https://github.com/ckproduces", icon: "/logos/github_logo.svg" },
+  { label: "x", href: "https://x.com/ckproduces", icon: "/logos/x_logo.svg" },
+  { label: "linkedin", href: "https://linkedin.com/in/cagriokan", icon: "/logos/linkedin_logo.svg" },
+  { label: "instagram", href: "https://instagram.com/crokan", icon: "/logos/instagram_logo.svg" },
 ];

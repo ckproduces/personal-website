@@ -41,6 +41,8 @@
   --color-accent-strong: var(--red-700);
   --color-line: var(--ink-100);
   --color-line-strong: var(--ink-200);
+  --color-black: var(--black);
+  --color-white: var(--white);
 
   /* --- type: 1.125 modular scale, 16px base --- */
   --text-xs: 12.64px;
@@ -110,11 +112,11 @@ body {
   line-height: var(--leading-normal);
   font-weight: var(--weight-normal);
   -webkit-font-smoothing: antialiased;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.01%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   line-height: var(--leading-tight);
   letter-spacing: -0.02em;
 }
@@ -122,6 +124,11 @@ h1, h2, h3, h4, h5, h6 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+hr {
+  border: 1px solid var(--color-line);
+  margin: var(--space-2) 0;
 }
 
 ::selection {

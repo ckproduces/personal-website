@@ -74,6 +74,17 @@ Everything is lowercase by design (`text-transform: lowercase` on `html`).
   and portfolio rows.
 - **blog content** (`components/blog.tsx`) — `Callout`, `Figure`: custom
   components composed directly inside post bodies.
+- **Socials** (`components/Socials.tsx`) — logo-only social row; icons are drawn
+  as CSS masks so every logo shares one ink color and animates to the accent.
+- **Entry** (`components/Entry.tsx`) — a portfolio row as a disclosure. Closed
+  by default (position + date); expands via a grid-rows transition to reveal the
+  org link and note. Positions are never links; orgs are.
+- **Blogs** (`components/Blogs.tsx`) + **Modal** (`components/Modal.tsx`) — the
+  blog index, capped at five rows, with a "see all" control that opens the full
+  list in a modal.
+- **Footer** (`components/Footer.tsx`) — a huge statement stretched to the full
+  container width via SVG `textLength` (fixed aspect ratio → no layout shift),
+  rotating through phrases every 10s with a fade crossover.
 
 ## content model
 

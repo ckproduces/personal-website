@@ -1,39 +1,28 @@
-import { Link } from "@/components/Link";
-import { Section, EntryRow } from "@/components/Section";
+import { Section } from "@/components/Section";
+import { EntryRow } from "@/components/Entry";
 import { Stack } from "@/components/Stack";
-import { allPosts, formatDate } from "@/lib/posts";
-import {
-  intro,
-  experience,
-  involvement,
-  projects,
-  education,
-  connections,
-} from "@/lib/site";
+import { Socials } from "@/components/Socials";
+import { Blogs } from "@/components/Blogs";
+import { Footer } from "@/components/Footer";
+import { allPosts } from "@/lib/posts";
+import { experience, involvement, projects, education } from "@/lib/site";
+import { intro } from "@/lib/site";
 
 export default function HomePage() {
+  const posts = allPosts.map(({ slug, title, date }) => ({ slug, title, date }));
+
   return (
-    <Stack as="main" gap={12}>
-      <Stack as="header" gap={4}>
-        <h1 className="masthead__name">çağrı okan</h1>
-        <p className="masthead__intro">{intro}</p>
+    <Stack as="main" gap={16}>
+      <Stack as="header" gap={3}>
+        <Stack gap={1}>
+          <h1 className="masthead__name">çağrı okan</h1>
+          <p className="masthead__intro">{intro}</p>
+        </Stack>
+        <Socials />
       </Stack>
 
-      <Section label="writing" gap={4}>
-        {allPosts.length === 0 ? (
-          <p className="writing__empty">nothing published yet.</p>
-        ) : (
-          allPosts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="writing__item"
-            >
-              <span className="writing__title">{post.title}</span>
-              <span className="writing__date">{formatDate(post.date)}</span>
-            </Link>
-          ))
-        )}
+      <Section label="blogs" gap={4}>
+        <Blogs posts={posts} />
       </Section>
 
       <Section label="experience">
@@ -60,20 +49,7 @@ export default function HomePage() {
         ))}
       </Section>
 
-      <Section label="elsewhere">
-        <div className="connections">
-          {connections.map((c) => (
-            <Link key={c.label} href={c.href}>
-              {c.label}
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <footer className="footer">
-        <span>© 2026 çağrı okan</span>
-        <span>built with 🌪️🧠</span>
-      </footer>
+      <Footer />
     </Stack>
   );
 }
