@@ -3,11 +3,19 @@
  * renders it into token-styled sections.
  */
 
+export type EntryLink = {
+  href: string;
+  label?: string;
+};
+
 export type Entry = {
   title: string;
   meta?: string;
+  /** links the @ org name when meta is present */
+  metaHref?: string;
   note?: string;
-  href?: string;
+  /** action chips below the note; laid out horizontally when more than one */
+  links?: EntryLink[];
   date: string;
 };
 
@@ -18,21 +26,21 @@ export const experience: Entry[] = [
   {
     title: "software engineer intern",
     meta: "ai business school",
-    note: "building ml-driven features and internal tooling with the product engineering team.",
-    href: "https://aibusinessschool.com",
+    note: "i contribute to the Adoption and Content platforms: production support, engineering tickets, and resolving live issues.",
+    metaHref: "https://aibusinessschool.com",
     date: "feb 2026 — present",
   },
   {
     title: "monitoring specialist",
     meta: "artı ve artı it consulting",
-    note: "watched production systems end to end — alerting, dashboards, and incident response.",
-    href: "https://artivearti.com",
+    note: "provided 24/7 remote monitoring support: triaging technical tickets, forwarding them to the right teams, and preparing incident reports.",
+    metaHref: "https://artivearti.com",
     date: "jul 2025 — feb 2026",
   },
   {
     title: "project intern",
     meta: "yenibirlider association",
-    note: "supported project operations for a youth-leadership program over the summer.",
+    note: "I was fully given the chance to create a campaign and a project for students from scratch.",
     date: "jul — aug 2022",
   },
 ];
@@ -42,7 +50,7 @@ export const involvement: Entry[] = [
     title: "coordinator, education committee",
     meta: "ytü data science club",
     note: "plan and run the club's workshops and study tracks for members.",
-    href: "https://instagram.com/ytuveribilimi",
+    metaHref: "https://instagram.com/ytuveribilimi",
     date: "jun 2024 — present",
   },
   {
@@ -57,24 +65,32 @@ export const projects: Entry[] = [
   {
     title: "cisimcik ai labs",
     note: "a small research and engineering team building turkish-first ai: practical language models and assistants.",
-    href: "https://cisimcik.com",
     date: "",
   },
   {
     title: "bulut — accessibility web assistant",
     note: "an accessibility-focused web assistant that can read and navigate pages, scroll, click controls, and fill forms.",
     date: "",
+    links: [
+      { href: "https://youtu.be/CvCZOk-YLrw?t=3430", label: "watch hackathon presentation" },
+    ],
   },
   {
     title: "manifold — synthetic dataset creator",
     note: "a hackathon-winning synthetic dataset creator focused on image and video generation for near–edge cases.",
     date: "",
+    links: [
+      { href: "https://youtu.be/LfmWSh3rnm0?t=4544", label: "watch hackathon presentation" },
+    ],
   },
   {
     title: "ecoistanbul — sustainable tourism app",
     note: "an ai-powered sustainable tourism application built with kotlin and android studio. 6th globally in the world affairs challenge.",
-    href: "https://instagram.com/ecoistanbulapp",
     date: "",
+    links: [
+      { href: "https://instagram.com/ecoistanbulapp", label: "instagram" },
+      { href: "/blog/ecoistanbul", label: "read more" },
+    ],
   },
 ];
 
@@ -87,7 +103,7 @@ export const education: Entry[] = [
   },
   {
     title: "tev inanç türkeş private high school",
-    note: "a full-scholarship science high school.",
+    note: "is an independent co-educational boarding high school located in Gebze, Kocaeli",
     date: "aug 2020 — jun 2024",
   },
 ];

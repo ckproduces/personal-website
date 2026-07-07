@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import NextLink from "next/link";
-import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { notFound } from "next/navigation";
 import { allPosts, getPost, formatDate } from "@/lib/posts";
 import { Stack } from "@/components/Stack";
 import { Text } from "@/components/Text";
 import { Icon } from "@/components/Icon";
+import { Link } from "@/components/Link";
 
 export function generateStaticParams() {
   return allPosts.map((p) => ({ slug: p.slug }));
@@ -18,7 +18,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
-  return { title: post ? `${post.title} — çağrı okan` : "not found" };
+  if (!post) return { title: "not found" };
+
+  return {
+    title: post.title,
+    openGraph: {
+      type: "article",
+      title: post.title,
+      publishedTime: post.date,
+    },
+  };
 }
 
 export default async function PostPage({
@@ -34,24 +43,18 @@ export default async function PostPage({
 
   return (
     <Stack as="main" gap={12}>
-      <NextLink
-        href="/"
-        className="hover-fade"
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "var(--space-1)",
-          alignSelf: "flex-start",
-          color: "var(--color-text-faint)",
-          fontSize: "var(--text-sm)",
-        }}
-      >
-        <Icon icon={ArrowLeft} size={15} /> çağrı okan
-      </NextLink>
+      <Link href="/" plain style={{ alignSelf: "flex-start" }}>
+        <Stack direction="row" gap={1} align="center">
+          <Icon icon={ArrowLeft} size={15} color="faint" />
+          <Text size="sm" color="faint">
+            çağrı okan
+          </Text>
+        </Stack>
+      </Link>
 
       <Stack as="article" gap={10}>
         <Stack gap={2}>
-          <Text as="h1" size="3xl" style={{ letterSpacing: "-0.03em" }}>
+          <Text as="h1" size="3xl">
             {post.title}
           </Text>
           <Text as="p" size="sm" color="faint">
@@ -61,6 +64,9 @@ export default async function PostPage({
         <div className="prose">
           <Body />
         </div>
+      </Stack>
+      <Stack padding={20}>
+        <img height={100} src="/logo.svg" alt="senato website design" />
       </Stack>
     </Stack>
   );

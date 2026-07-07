@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import { COLORS, space } from "@/lib/tokens";
 
 type ButtonProps = {
   onClick?: () => void;
@@ -35,7 +36,7 @@ export function Button({
       style={{
         display: "inline-flex",
         alignItems: "center",
-        gap: "var(--space-1)",
+        gap: space(1),
         background: "none",
         font: "inherit",
         color: "inherit",

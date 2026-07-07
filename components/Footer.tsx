@@ -61,15 +61,14 @@ export function Footer() {
         >
           <Text size="lg" color="black" style={{ letterSpacing: "-0.02em" }}>
             {text}
-            <span
-              style={{
-                color: "var(--color-red)",
-              }}
-              className="caret"
+            <Text
+              as="span"
+              color="red"
+              className="select-accent caret"
               aria-hidden
             >
               {" ▍"}
-            </span>
+            </Text>
           </Text>
           <Text size="sm" color="faint" style={{ whiteSpace: "nowrap" }}>
             © 2026 çağrı okan

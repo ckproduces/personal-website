@@ -1,5 +1,6 @@
 import NextLink from "next/link";
 import type { CSSProperties, ReactNode } from "react";
+import { COLORS } from "@/lib/tokens";
 
 type LinkProps = {
   href: string;
@@ -21,8 +22,8 @@ export function Link({ href, children, plain, onClick, className, style }: LinkP
   const inlineStyle: CSSProperties = plain
     ? {}
     : {
-        color: "var(--color-accent-strong)",
-        borderBottom: "1px solid var(--gray-200)",
+        color: COLORS.accentStrong,
+        borderBottom: `1px solid ${COLORS.line}`,
       };
   const cls = `hover-fade${className ? ` ${className}` : ""}`;
   const merged = { ...inlineStyle, ...style };

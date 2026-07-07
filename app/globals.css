@@ -58,6 +58,12 @@
   --color-surface: var(--ink-50);
   --color-surface-hover: var(--ink-100);
   --color-red: var(--red-500);
+  --color-red-hover: var(--red-400);
+  --color-red-pressed: var(--red-600);
+  --color-red-soft: var(--red-100);
+  --color-red-soft-hover: var(--red-200);
+  --color-red-soft-pressed: var(--red-300);
+  --color-overlay: rgba(0, 0, 0, 0.35);
 
   /* --- type: 1.125 modular scale, 16px base --- */
   --text-xs: 14px;
@@ -100,6 +106,31 @@
   --content-width: 700px;
 }
 
+html {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: var(--gray-900);
+  --color-text: var(--gray-50);
+  --color-text-muted: var(--gray-400);
+  --color-text-faint: var(--gray-500);
+  --color-accent: var(--gray-400);
+  --color-accent-strong: var(--gray-200);
+  --color-line: var(--gray-800);
+  --color-line-strong: var(--gray-700);
+  --color-black: var(--gray-50);
+  --color-white: var(--gray-900);
+  --color-surface: var(--gray-800);
+  --color-surface-hover: var(--gray-700);
+  --color-red-soft: var(--red-900);
+  --color-red-soft-hover: var(--red-800);
+  --color-red-soft-pressed: var(--red-700);
+  --color-overlay: rgba(0, 0, 0, 0.65);
+}
+
 /* ============================================================================
    reset + base
    ========================================================================== */
@@ -111,6 +142,10 @@
   border: 0;
   margin: 0;
   padding: 0;
+}
+
+* {
+  letter-spacing: 0 !important;
 }
 
 html {
@@ -129,6 +164,7 @@ body {
   font-weight: var(--weight-normal);
   -webkit-font-smoothing: antialiased;
   letter-spacing: -0.01%;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1,
@@ -153,8 +189,14 @@ hr {
 }
 
 ::selection {
-  background: var(--gray-200);
-  color: var(--gray-900);
+  background: var(--color-red-soft);
+  color: var(--color-text);
+}
+
+/* red-accent elements keep their identity when selected */
+.select-accent::selection {
+  background: var(--color-red);
+  color: var(--color-white);
 }
 
 /* ============================================================================
@@ -180,6 +222,29 @@ hr {
 }
 .hover-fade:hover {
   opacity: 0.75;
+}
+.hover-fade:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.hover-fade:focus-visible {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+/* soft red pill — visit chips on project rows */
+.chip {
+  background-color: var(--color-red-soft);
+  transition: background-color 0.15s ease;
+}
+a:hover .chip,
+.chip:hover {
+  background-color: var(--color-red-soft-hover);
+}
+a:active .chip,
+.chip:active {
+  background-color: var(--color-red-soft-pressed);
 }
 
 /* streaming caret for the footer typewriter */

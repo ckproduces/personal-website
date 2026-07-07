@@ -1,24 +1,29 @@
 import type { Metadata } from "next";
-import { Sparkles, Star, Zap, Heart, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles, Star, Zap, Heart } from "lucide-react";
 import { Stack } from "@/components/Stack";
 import { Text } from "@/components/Text";
 import { Section } from "@/components/Section";
 import { Link } from "@/components/Link";
 import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
+import { Logo } from "@/components/Logo";
+import { Chip } from "@/components/Chip";
+import { Swatch } from "@/components/Swatch";
 import { Socials } from "@/components/Socials";
 import { EntryRow } from "@/components/Entry";
 import { Blogs } from "@/components/Blogs";
 import { Footer } from "@/components/Footer";
-import type { TextSize } from "@/lib/tokens";
+import { COLORS, RADII, space, type TextSize } from "@/lib/tokens";
 
-export const metadata: Metadata = { title: "playbook — çağrı okan" };
+export const metadata: Metadata = { title: "playbook" };
 
 const GRAYS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const INKS = [50, 100, 200, 400, 600, 800, 950];
+const REDS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const ROLES = [
   "text", "muted", "faint", "accent", "accent-strong",
-  "line", "surface", "surface-hover", "black", "red",
+  "line", "line-strong", "surface", "surface-hover",
+  "black", "white", "red", "red-hover", "red-pressed", "red-soft",
 ];
 const SIZES: TextSize[] = ["xs", "sm", "base", "md", "lg", "xl", "2xl", "3xl"];
 const SPACES = [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
@@ -26,26 +31,8 @@ const SPACES = [1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24];
 const gridStyle = {
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(64px, 1fr))",
-  gap: "var(--space-3)",
+  gap: space(3),
 };
-
-function Swatch({ value, label }: { value: string; label: string }) {
-  return (
-    <Stack gap={1} align="stretch">
-      <div
-        style={{
-          height: 44,
-          background: value,
-          borderRadius: "var(--radius-sm)",
-          border: "1px solid var(--color-line)",
-        }}
-      />
-      <Text size="xs" color="muted">
-        {label}
-      </Text>
-    </Stack>
-  );
-}
 
 const demoPosts = Array.from({ length: 6 }, (_, i) => ({
   slug: `demo-${i + 1}`,
@@ -57,7 +44,7 @@ const demoEntry = {
   title: "software engineer intern",
   meta: "ai business school",
   note: "a brief explanation shown inline. the position is plain text; the org is a link.",
-  href: "https://aibusinessschool.com",
+  metaHref: "https://aibusinessschool.com",
   date: "feb 2026 — present",
 };
 
@@ -93,7 +80,7 @@ export default function Playbook() {
 
       <Section label="color · red (used sparingly)">
         <div style={gridStyle}>
-          {GRAYS.map((n) => (
+          {REDS.map((n) => (
             <Swatch key={n} value={`var(--red-${n})`} label={`${n}`} />
           ))}
         </div>
@@ -128,9 +115,9 @@ export default function Playbook() {
             </Text>
             <div
               style={{
-                width: `var(--space-${n})`,
+                width: space(n),
                 height: 12,
-                background: "var(--color-accent)",
+                background: COLORS.accent,
                 borderRadius: 2,
               }}
             />
@@ -140,15 +127,15 @@ export default function Playbook() {
 
       <Section label="radius">
         <Stack direction="row" gap={5} align="center">
-          {(["sm", "md"] as const).map((r) => (
+          {(["sm", "md", "lg"] as const).map((r) => (
             <Stack key={r} gap={1} align="center">
               <div
                 style={{
                   width: 56,
                   height: 56,
-                  background: "var(--color-surface)",
-                  border: "1px solid var(--color-line)",
-                  borderRadius: `var(--radius-${r})`,
+                  background: COLORS.surface,
+                  border: `1px solid ${COLORS.line}`,
+                  borderRadius: RADII[r],
                 }}
               />
               <Text size="xs" color="muted">
@@ -159,13 +146,46 @@ export default function Playbook() {
         </Stack>
       </Section>
 
+      {/* --------------------------------------------------- states: selection */}
+      <Section label="selection">
+        <Text>
+          default selection uses a red-tinted highlight — select this sentence
+          to preview.
+        </Text>
+        <Text color="red" className="select-accent">
+          red accent text keeps red when selected — select this line.
+        </Text>
+        <Logo size={40} />
+      </Section>
+
+      <Section label="theme">
+        <Text color="muted" size="sm">
+          use the toggle in the top-right corner to switch light / dark mode.
+          tokens remap through semantic roles — components stay the same.
+        </Text>
+      </Section>
+
       {/* -------------------------------------------------------- components */}
+      <Section label="logo · chip · red accents">
+        <Stack direction="row" gap={6} align="center" wrap>
+          <Logo size={40} />
+          <Chip>
+            <Text size="sm" color="black">visit</Text>
+            <Icon icon={ArrowRight} size={14} color="black" />
+          </Chip>
+          <Text color="red" className="select-accent caret">
+            streaming caret ▍
+          </Text>
+        </Stack>
+      </Section>
+
       <Section label="text">
         <Text size="xl" weight="semibold">semibold xl</Text>
         <Text weight="medium">medium base</Text>
         <Text color="muted">muted base</Text>
         <Text color="faint" size="sm">faint sm</Text>
         <Text color="accent" weight="medium">accent medium</Text>
+        <Text color="red" className="select-accent">red accent</Text>
       </Section>
 
       <Section label="link">
@@ -184,9 +204,12 @@ export default function Playbook() {
             <Text size="sm" color="muted">see all 6</Text>
             <Icon icon={ArrowRight} size={15} color="muted" />
           </Button>
+          <Button disabled>
+            <Text size="sm" color="muted">disabled</Text>
+          </Button>
           <Stack direction="row" gap={4} align="center">
             <Icon icon={Sparkles} color="accent" />
-            <Icon icon={Star} color="accent" />
+            <Icon icon={Star} color="red" />
             <Icon icon={Zap} color="muted" />
             <Icon icon={Heart} color="muted" />
           </Stack>
@@ -199,7 +222,17 @@ export default function Playbook() {
 
       <Section label="entry">
         <EntryRow entry={demoEntry} />
-        <EntryRow entry={{ ...demoEntry, title: "another role", href: undefined }} />
+        <EntryRow
+          entry={{
+            title: "bulut — accessibility web assistant",
+            note: "projects with external links get chips; multiple links sit in a row.",
+            date: "",
+            links: [
+              { href: "https://example.com", label: "watch presentation" },
+              { href: "/blog/ecoistanbul", label: "read more" },
+            ],
+          }}
+        />
       </Section>
 
       <Section label="blogs · capped + modal" gap={4}>
@@ -212,7 +245,7 @@ export default function Playbook() {
 
       <Link href="/" plain>
         <Stack direction="row" gap={1} align="center">
-          <Icon icon={ArrowRight} size={15} style={{ transform: "rotate(180deg)" }} />
+          <Icon icon={ArrowLeft} size={15} color="faint" />
           <Text size="sm" color="faint">back home</Text>
         </Stack>
       </Link>

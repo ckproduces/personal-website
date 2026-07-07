@@ -1,5 +1,6 @@
 import { connections } from "@/lib/site";
 import { Stack } from "@/components/Stack";
+import { MaskIcon } from "@/components/MaskIcon";
 
 /**
  * Logo-only social row. Each logo is drawn as a CSS mask so every icon shares
@@ -17,21 +18,9 @@ export function Socials() {
           rel="noreferrer"
           aria-label={c.label}
           className="hover-fade"
-          style={{
-            width: 20,
-            height: 20,
-            display: "block",
-            backgroundColor: "var(--color-text-muted)",
-            WebkitMaskImage: `url(${c.icon})`,
-            maskImage: `url(${c.icon})`,
-            WebkitMaskRepeat: "no-repeat",
-            maskRepeat: "no-repeat",
-            WebkitMaskPosition: "center",
-            maskPosition: "center",
-            WebkitMaskSize: "contain",
-            maskSize: "contain",
-          }}
-        />
+        >
+          <MaskIcon src={c.icon} color="muted" />
+        </a>
       ))}
     </Stack>
   );

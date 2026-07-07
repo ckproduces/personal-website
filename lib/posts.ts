@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import buildingTurkishFirstAi from "@/content/posts/building-turkish-first-ai";
-import notesOnAgenticSystems from "@/content/posts/notes-on-agentic-systems";
+import buildingOvertime from "@/content/posts/my-first-agentic-ai-product";
+import ecoistanbul from "@/content/posts/ecoistanbul";
+import senato from "@/content/posts/overcomplicating-my-philosophy-journal-senato";
+import aboutMe from "@/content/posts/about-me";
 
 export type PostMeta = {
   slug: string;
@@ -18,7 +20,11 @@ export type Post = PostMeta & {
  * default-exports a Post, then import and list it here. Posts are plain TSX,
  * so they can use any custom component.
  */
-const posts: Post[] = [buildingTurkishFirstAi, notesOnAgenticSystems];
+const posts: Post[] = [
+  ecoistanbul,
+  senato,
+  aboutMe,
+];
 
 /** Newest first. */
 export const allPosts = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));

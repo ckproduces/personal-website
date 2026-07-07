@@ -7,6 +7,7 @@ import { Stack } from "@/components/Stack";
 import { Text } from "@/components/Text";
 import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
+import { space, COLORS } from "@/lib/tokens";
 
 /**
  * Minimal modal: a backdrop that fades in and a panel that rises. Closes on
@@ -45,8 +46,8 @@ export function Modal({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "var(--space-4)",
-        background: "rgba(0, 0, 0, 0.35)",
+        padding: space(4),
+        background: COLORS.overlay,
         backdropFilter: "blur(4px)",
         animation: "fadeIn 0.2s ease",
       }}
