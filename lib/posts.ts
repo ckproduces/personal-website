@@ -21,9 +21,7 @@ export type Post = PostMeta & {
 const posts: Post[] = [buildingTurkishFirstAi, notesOnAgenticSystems];
 
 /** Newest first. */
-export const allPosts = [...posts].sort((a, b) =>
-  a.date < b.date ? 1 : -1
-);
+export const allPosts = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
@@ -33,8 +31,18 @@ export function getPost(slug: string): Post | undefined {
 export function formatDate(iso: string): string {
   const [year, month] = iso.split("-");
   const months = [
-    "jan", "feb", "mar", "apr", "may", "jun",
-    "jul", "aug", "sep", "oct", "nov", "dec",
+    "jan",
+    "feb",
+    "mar",
+    "apr",
+    "may",
+    "jun",
+    "jul",
+    "aug",
+    "sep",
+    "oct",
+    "nov",
+    "dec",
   ];
   return `${months[Number(month) - 1]} ${year}`;
 }

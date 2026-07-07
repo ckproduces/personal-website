@@ -12,7 +12,7 @@ export type Entry = {
 };
 
 export const intro =
-  "co-founder @ apastron, tech entrepreneur, ai researcher, jeune prodige";
+  "co-founder @ dropoutt, tech entrepreneur, ai researcher, jeune prodige";
 
 export const experience: Entry[] = [
   {

@@ -47,7 +47,7 @@ export function Modal({
         justifyContent: "center",
         padding: "var(--space-4)",
         background: "rgba(0, 0, 0, 0.35)",
-        backdropFilter: "blur(2px)",
+        backdropFilter: "blur(4px)",
         animation: "fadeIn 0.2s ease",
       }}
     >
@@ -55,7 +55,7 @@ export function Modal({
         gap={5}
         padding={6}
         background="white"
-        radius="md"
+        radius="lg"
         role="dialog"
         aria-modal="true"
         aria-label={title}
@@ -65,7 +65,6 @@ export function Modal({
           maxWidth: 520,
           maxHeight: "80vh",
           overflowY: "auto",
-          border: "1px solid var(--color-line)",
           animation: "rise 0.25s cubic-bezier(0.2, 0.8, 0.2, 1)",
         }}
       >
@@ -77,7 +76,10 @@ export function Modal({
             <Icon icon={X} size={20} color="muted" />
           </Button>
         </Stack>
-        {children}
+        <Stack style={{
+          maxHeight: "400px",
+          overflowY: "auto"
+        }}>{children}</Stack>
       </Stack>
     </div>
   );

@@ -21,6 +21,7 @@ export type ColorToken = keyof typeof COLORS;
 export const RADII = {
   sm: "var(--radius-sm)",
   md: "var(--radius-md)",
+  lg: "var(--radius-lg)",
 } as const;
 export type RadiusToken = keyof typeof RADII;
 

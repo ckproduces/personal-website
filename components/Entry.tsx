@@ -6,22 +6,27 @@ import { Icon } from "@/components/Icon";
 import { Link } from "@/components/Link";
 
 /**
- * A portfolio row. Everything is shown at once: the position (plain text) and
- * the org (a link) on the top line with the date, then a brief explanation
- * beneath. Projects with a link get a "visit" affordance. Composition only.
+ * A portfolio row. Everything is shown at once: a "position @ company" line
+ * (the company is a link when there's an href) with the date, then a brief
+ * explanation beneath. Projects with a link get a "visit" affordance.
  */
 export function EntryRow({ entry }: { entry: Entry }) {
   return (
     <Stack gap={1}>
       <Stack direction="row" justify="space-between" align="baseline" gap={4}>
-        <Stack gap={0} style={{ minWidth: 0 }}>
-          <Text weight="medium">{entry.title}</Text>
+        <Text weight="medium" style={{ minWidth: 0 }}>
+          {entry.title}
           {entry.meta ? (
-            <Text size="sm" color="muted">
-              {entry.href ? <Link href={entry.href}>{entry.meta}</Link> : entry.meta}
-            </Text>
+            <>
+              {" @ "}
+              {entry.href ? (
+                <Link href={entry.href}>{entry.meta}</Link>
+              ) : (
+                entry.meta
+              )}
+            </>
           ) : null}
-        </Stack>
+        </Text>
         {entry.date ? (
           <Text size="sm" color="faint" style={{ whiteSpace: "nowrap", flexShrink: 0 }}>
             {entry.date}
