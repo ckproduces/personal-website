@@ -18,18 +18,21 @@ export const experience: Entry[] = [
   {
     title: "software engineer intern",
     meta: "ai business school",
+    note: "building ml-driven features and internal tooling with the product engineering team.",
     href: "https://aibusinessschool.com",
     date: "feb 2026 — present",
   },
   {
     title: "monitoring specialist",
     meta: "artı ve artı it consulting",
+    note: "watched production systems end to end — alerting, dashboards, and incident response.",
     href: "https://artivearti.com",
     date: "jul 2025 — feb 2026",
   },
   {
     title: "project intern",
     meta: "yenibirlider association",
+    note: "supported project operations for a youth-leadership program over the summer.",
     date: "jul — aug 2022",
   },
 ];
@@ -38,12 +41,14 @@ export const involvement: Entry[] = [
   {
     title: "coordinator, education committee",
     meta: "ytü data science club",
+    note: "plan and run the club's workshops and study tracks for members.",
     href: "https://instagram.com/ytuveribilimi",
     date: "jun 2024 — present",
   },
   {
     title: "education mentor",
-    meta: "kodluyoruz — teaching javascript",
+    meta: "kodluyoruz",
+    note: "taught javascript fundamentals to early-career learners.",
     date: "jun 2022 — jun 2023",
   },
 ];
@@ -77,10 +82,12 @@ export const education: Entry[] = [
   {
     title: "bsc statistics",
     meta: "yıldız technical university",
+    note: "probability, statistical inference, and the mathematics behind modern ml.",
     date: "expected jun 2029",
   },
   {
     title: "tev inanç türkeş private high school",
+    note: "a full-scholarship science high school.",
     date: "aug 2020 — jun 2024",
   },
 ];

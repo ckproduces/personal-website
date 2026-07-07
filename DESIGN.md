@@ -61,30 +61,55 @@ viewport is narrower than the content, it falls back to `95%` — a single rule:
 
 Everything is lowercase by design (`text-transform: lowercase` on `html`).
 
-## components
+## how styling works
 
-- **Stack** (`components/Stack.tsx`) — the layout primitive. Renders a column
-  and owns the space between its children via a single `gap` step on the 4-base
-  scale (`gap={4}` → `--space-4`). Polymorphic via `as` (`as="main"`,
-  `as="header"`, `as="article"`…). Spacing lives on the parent Stack, not as
-  margins on each child — so there are effectively no layout margins in the CSS.
-- **Link** (`components/Link.tsx`) — one link for the site; external opens a new
-  tab, internal routes via `next/link`.
-- **Section / EntryRow** (`components/Section.tsx`) — labeled homepage sections
-  and portfolio rows.
-- **blog content** (`components/blog.tsx`) — `Callout`, `Figure`: custom
-  components composed directly inside post bodies.
+The system is **component-driven, not class-driven**. Tokens are read through
+`lib/tokens.ts` and applied as inline style by a small set of primitives — so
+there is almost no bespoke CSS. `globals.css` holds the tokens, reset, and the
+handful of things that *must* be real CSS (see below); `prose.css` styles the
+HTML inside blog bodies. There is no per-element stylesheet.
+
+The only global CSS classes are the **interaction primitives**, because inline
+style can't express `:hover`, the collapse trick, or keyframes:
+
+- `.hover-fade` — hover → 75% opacity (the default for links, buttons, logos).
+- `.hover-surface` — hover → soft-gray surface (section rows / expandables).
+- `.collapse` — `grid-template-rows: 0fr → 1fr` height reveal for disclosures.
+- `caret` / `fadeIn` / `rise` keyframes.
+
+No hover effect uses transform or scale — hovers are opacity or surface only.
+
+`/playbook` renders every token and component on one page; use it as the visual
+source of truth and reuse the primitives rather than writing new CSS.
+
+## primitives
+
+- **Stack** (`components/Stack.tsx`) — the layout workhorse. A flex container
+  whose `gap`, `direction`, `align`, `justify`, `padding`, `background`, and
+  `radius` are all token props. Polymorphic via `as`.
+- **Text** (`components/Text.tsx`) — all typography; `size` / `color` / `weight`
+  as tokens, `as` for the element.
+- **Icon** (`components/Icon.tsx`) — wraps a `lucide-react` icon so its color is
+  a token. Icons across the app come from lucide.
+- **Button** (`components/Button.tsx`) — chrome-stripped button; fades on hover.
+- **Link** (`components/Link.tsx`) — external opens a new tab, internal routes
+  via `next/link`; inline accent by default, `plain` to inherit.
+
+## composed components
+
+- **Section** (`components/Section.tsx`) — a titled soft-surface card.
+- **Entry** (`components/Entry.tsx`) — a portfolio row as a disclosure. The
+  preview shows the position (plain text) and the org (a link); expanding
+  reveals a brief explanation. Rows highlight to a soft-gray surface on hover.
 - **Socials** (`components/Socials.tsx`) — logo-only social row; icons are drawn
-  as CSS masks so every logo shares one ink color and animates to the accent.
-- **Entry** (`components/Entry.tsx`) — a portfolio row as a disclosure. Closed
-  by default (position + date); expands via a grid-rows transition to reveal the
-  org link and note. Positions are never links; orgs are.
+  as CSS masks so every logo shares one ink color, and fade on hover.
 - **Blogs** (`components/Blogs.tsx`) + **Modal** (`components/Modal.tsx`) — the
   blog index, capped at five rows, with a "see all" control that opens the full
   list in a modal.
-- **Footer** (`components/Footer.tsx`) — a huge statement stretched to the full
-  container width via SVG `textLength` (fixed aspect ratio → no layout shift),
-  rotating through phrases every 10s with a fade crossover.
+- **Footer** (`components/Footer.tsx`) — a statement that streams in like an AI
+  response: typed letter by letter (30ms), held 4s, erased, then the next phrase.
+- **blog content** (`components/blog.tsx`) — `Callout`, `Figure`: custom
+  components composed directly inside post bodies.
 
 ## content model
 

@@ -86,22 +86,3 @@
   color: var(--color-text-faint);
   font-size: var(--text-sm);
 }
-
-/* --- post header (spacing owned by <Stack>) --- */
-.post__back {
-  align-self: flex-start;
-  color: var(--color-text-faint);
-  font-size: var(--text-sm);
-  transition: color 0.15s ease;
-}
-.post__back:hover {
-  color: var(--color-accent);
-}
-.post__title {
-  font-size: var(--text-3xl);
-  letter-spacing: -0.03em;
-}
-.post__date {
-  color: var(--color-text-faint);
-  font-size: var(--text-sm);
-}

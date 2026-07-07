@@ -1,9 +1,14 @@
 import type { ReactNode } from "react";
 import { Stack } from "@/components/Stack";
+import { Text } from "@/components/Text";
 
+/**
+ * A titled section, rendered as a soft-surface card. Composition only — the
+ * card, label and rule are all Stack/Text with token props.
+ */
 export function Section({
   label,
-  gap = 5,
+  gap = 4,
   children,
 }: {
   label: string;
@@ -12,9 +17,11 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <Stack as="section" gap={4}>
+    <Stack as="section" gap={4} background="surface" padding={8} radius="sm">
       <Stack gap={0}>
-        <p className="section__label">{label}</p>
+        <Text size="lg" color="black">
+          {label}
+        </Text>
         <hr />
       </Stack>
       <Stack gap={gap}>{children}</Stack>

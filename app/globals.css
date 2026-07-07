@@ -43,6 +43,8 @@
   --color-line-strong: var(--ink-200);
   --color-black: var(--black);
   --color-white: var(--white);
+  --color-surface: var(--ink-50);
+  --color-surface-hover: var(--ink-100);
 
   /* --- type: 1.125 modular scale, 16px base --- */
   --text-xs: 12.64px;
@@ -145,4 +147,68 @@ hr {
   max-width: 95%;
   margin: 0 auto;
   padding: var(--space-20) 0 var(--space-16);
+}
+
+/* ============================================================================
+   interaction primitives
+   the only things that must be real CSS — pseudo-class hovers, the collapse
+   grid trick, and keyframes. everything else is a component with token styles.
+   ========================================================================== */
+
+/* hover for "other things": fade to 75% opacity, never transform */
+.hover-fade {
+  transition: opacity 0.15s ease;
+}
+.hover-fade:hover {
+  opacity: 0.75;
+}
+
+/* hover for section items (expandables): soft-gray surface */
+.hover-surface {
+  transition: background-color 0.15s ease;
+}
+.hover-surface:hover {
+  background-color: var(--color-surface-hover);
+}
+
+/* smooth height reveal for disclosures (grid-rows 0fr → 1fr) */
+.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.collapse[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.collapse > * {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* streaming caret for the footer typewriter */
+.caret {
+  animation: caretBlink 1s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

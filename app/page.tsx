@@ -1,22 +1,26 @@
 import { Section } from "@/components/Section";
 import { EntryRow } from "@/components/Entry";
 import { Stack } from "@/components/Stack";
+import { Text } from "@/components/Text";
 import { Socials } from "@/components/Socials";
 import { Blogs } from "@/components/Blogs";
 import { Footer } from "@/components/Footer";
 import { allPosts } from "@/lib/posts";
-import { experience, involvement, projects, education } from "@/lib/site";
-import { intro } from "@/lib/site";
+import { intro, experience, involvement, projects, education } from "@/lib/site";
 
 export default function HomePage() {
   const posts = allPosts.map(({ slug, title, date }) => ({ slug, title, date }));
 
   return (
-    <Stack as="main" gap={16}>
-      <Stack as="header" gap={3}>
+    <Stack as="main" gap={12}>
+      <Stack as="header" gap={4}>
         <Stack gap={1}>
-          <h1 className="masthead__name">çağrı okan</h1>
-          <p className="masthead__intro">{intro}</p>
+          <Text as="h1" size="3xl" style={{ letterSpacing: "-0.03em" }}>
+            çağrı okan
+          </Text>
+          <Text as="p" color="muted" size="md">
+            {intro}
+          </Text>
         </Stack>
         <Socials />
       </Stack>

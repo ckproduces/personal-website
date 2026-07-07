@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Stack } from "@/components/Stack";
+import { Text } from "@/components/Text";
 
 const PHRASES = [
   "overfit to excellence",
@@ -12,47 +14,54 @@ const PHRASES = [
   "an outlier by design",
 ];
 
+const TYPE_MS = 30; // per-letter speed, typing and deleting
+const HOLD_MS = 4000; // dwell once a phrase is fully written
+
 /**
- * The footer statement. A huge phrase is stretched to fill the full container
- * width via SVG textLength (fixed viewBox → fixed aspect ratio, so swapping the
- * phrase never changes layout). Phrases rotate every 10s with a fade crossover.
+ * Footer statement that mimics AI response streaming: the phrase is written
+ * letter by letter, holds for 4s, then erased letter by letter before the next
+ * one streams in. A blinking caret trails the text.
  */
 export function Footer() {
+  const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((i) => (i + 1) % PHRASES.length);
-        setVisible(true);
-      }, 700);
-    }, 10000);
-    return () => clearInterval(id);
-  }, []);
+    const full = PHRASES[index];
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (!deleting && text === full) {
+      timer = setTimeout(() => setDeleting(true), HOLD_MS);
+    } else if (deleting && text === "") {
+      setDeleting(false);
+      setIndex((i) => (i + 1) % PHRASES.length);
+    } else {
+      const next = deleting
+        ? full.slice(0, text.length - 1)
+        : full.slice(0, text.length + 1);
+      timer = setTimeout(() => setText(next), TYPE_MS);
+    }
+
+    return () => clearTimeout(timer);
+  }, [text, deleting, index]);
 
   return (
-    <footer className="footer">
-      <svg
-        className="footer__hero"
-        viewBox="0 0 1000 150"
-        width="100%"
-        role="img"
-        aria-label={PHRASES[index]}
-      >
-        <text
-          className={`footer__hero-text${visible ? "" : " footer__hero-text--out"}`}
-          x="500"
-          y="120"
-          textAnchor="middle"
-          textLength="1000"
-          lengthAdjust="spacingAndGlyphs"
-        >
-          {PHRASES[index]}
-        </text>
-      </svg>
-      <span className="footer__copy">© 2026 çağrı okan</span>
+    <footer>
+      <Stack gap={3}>
+        <hr />
+        <Stack direction="row" justify="space-between" align="baseline" gap={4}>
+          <Text size="lg" color="black" style={{ letterSpacing: "-0.02em" }}>
+            {text}
+            <span className="caret" aria-hidden>
+              ▍
+            </span>
+          </Text>
+          <Text size="sm" color="faint" style={{ whiteSpace: "nowrap" }}>
+            © 2026 çağrı okan
+          </Text>
+        </Stack>
+      </Stack>
     </footer>
   );
 }

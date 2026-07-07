@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import NextLink from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { allPosts, getPost, formatDate } from "@/lib/posts";
 import { Stack } from "@/components/Stack";
+import { Text } from "@/components/Text";
+import { Icon } from "@/components/Icon";
 
 export function generateStaticParams() {
   return allPosts.map((p) => ({ slug: p.slug }));
@@ -31,13 +34,29 @@ export default async function PostPage({
 
   return (
     <Stack as="main" gap={12}>
-      <Link href="/" className="post__back">
-        ← çağrı okan
-      </Link>
+      <NextLink
+        href="/"
+        className="hover-fade"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "var(--space-1)",
+          alignSelf: "flex-start",
+          color: "var(--color-text-faint)",
+          fontSize: "var(--text-sm)",
+        }}
+      >
+        <Icon icon={ArrowLeft} size={15} /> çağrı okan
+      </NextLink>
+
       <Stack as="article" gap={10}>
         <Stack gap={2}>
-          <h1 className="post__title">{post.title}</h1>
-          <p className="post__date">{formatDate(post.date)}</p>
+          <Text as="h1" size="3xl" style={{ letterSpacing: "-0.03em" }}>
+            {post.title}
+          </Text>
+          <Text as="p" size="sm" color="faint">
+            {formatDate(post.date)}
+          </Text>
         </Stack>
         <div className="prose">
           <Body />
