@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import buildingOvertime from "@/content/posts/my-first-agentic-ai-product";
 import ecoistanbul from "@/content/posts/ecoistanbul";
 import senato from "@/content/posts/overcomplicating-my-philosophy-journal-senato";
 import aboutMe from "@/content/posts/about-me";

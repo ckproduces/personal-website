@@ -112,5 +112,5 @@ export const connections = [
   { label: "github", href: "https://github.com/ckproduces", icon: "/logos/github_logo.svg" },
   { label: "x", href: "https://x.com/ckproduces", icon: "/logos/x_logo.svg" },
   { label: "linkedin", href: "https://linkedin.com/in/cagriokan", icon: "/logos/linkedin_logo.svg" },
-  { label: "instagram", href: "https://instagram.com/crokan", icon: "/logos/instagram_logo.svg" },
+  { label: "instagram", href: "https://instagram.com/crokan_", icon: "/logos/instagram_logo.svg" },
 ];
