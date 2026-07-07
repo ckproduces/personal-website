@@ -1,8 +1,5 @@
 # What this is
-This is the personal website of Çağrı Okan. It shows his achievements, projects, bio, blogs, etc. Stack is Next JS. Pages are plain React components under `app/`, no markdown rendering.
-
-# Design
-For UI changes, read DESIGN.md to learn about the design system, and reuse the tokens it defines (in [app/globals.css](app/globals.css)) across components. [app/style-guide/page.tsx](app/style-guide/page.tsx) renders every shared token and component — check it after any design change.
+This is the personal website of Çağrı Okan. It shows his achievements, projects, bio, blogs, etc. Stack is Next JS.
 
 # Development Rules
 1. After every change, create a local git commit to checkpoint states.

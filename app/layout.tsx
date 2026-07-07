@@ -1,17 +1,18 @@
-import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
-import { Onest } from "next/font/google";
+import { Inter_Tight } from "next/font/google";
 import "./globals.css";
+import "./site.css";
+import "./prose.css";
 
-const onest = Onest({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-onest",
+  variable: "--font-inter-tight",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Çağrı Okan",
-  description: "Personal website — bio, projects, and writing.",
+  title: "çağrı okan",
+  description: "personal website. bio, projects, and writing.",
 };
 
 export default function RootLayout({
@@ -20,15 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={onest.variable}>
+    <html lang="en" className={interTight.variable}>
       <head>
         <link rel="icon" href="/favicon.png" />
       </head>
-      <body className={onest.className}>
-        <div className="page-shell">
-          {children}
-          <Footer />
-        </div>
+      <body className={interTight.className}>
+        <div className="page-shell">{children}</div>
       </body>
     </html>
   );

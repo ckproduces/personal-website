@@ -1,0 +1,110 @@
+/* ============================================================================
+   prose — typographic styles for blog post bodies and the custom
+   content components authored inside them.
+   ========================================================================== */
+
+.prose {
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+.prose > * + * {
+  margin-top: var(--space-5);
+}
+
+.prose h2 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-10);
+}
+.prose h3 {
+  font-size: var(--text-lg);
+  margin-top: var(--space-8);
+}
+
+.prose p {
+  color: var(--color-text);
+}
+
+.prose a {
+  color: var(--color-accent-strong);
+  border-bottom: 1px solid var(--red-200);
+}
+.prose a:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: var(--space-6);
+}
+.prose li + li {
+  margin-top: var(--space-2);
+}
+
+.prose strong {
+  font-weight: var(--weight-semibold);
+}
+
+.prose code {
+  font-family: ui-monospace, "SF Mono", monospace;
+  font-size: 0.9em;
+  background: var(--ink-50);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+/* --- custom content component: callout --- */
+.callout {
+  border-left: 2px solid var(--color-accent);
+  background: var(--red-50);
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+.callout strong {
+  color: var(--color-accent-strong);
+}
+
+/* --- custom content component: figure --- */
+.figure {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-line);
+}
+.figure figcaption {
+  margin-top: var(--space-3);
+  text-align: center;
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+}
+
+/* --- post header --- */
+.post__back {
+  display: inline-block;
+  margin-bottom: var(--space-12);
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+  transition: color 0.15s ease;
+}
+.post__back:hover {
+  color: var(--color-accent);
+}
+.post__title {
+  font-size: var(--text-3xl);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-2);
+}
+.post__date {
+  color: var(--color-text-faint);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-10);
+}
