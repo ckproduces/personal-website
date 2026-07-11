@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { allPosts, getPost, formatDate } from "@/lib/posts";
 import { Stack } from "@/components/Stack";
 import { Text } from "@/components/Text";
-import { Icon } from "@/components/Icon";
-import { Link } from "@/components/Link";
 
 export function generateStaticParams() {
   return allPosts.map((p) => ({ slug: p.slug }));
@@ -43,15 +40,6 @@ export default async function PostPage({
 
   return (
     <Stack as="main" gap={12}>
-      <Link href="/" plain style={{ alignSelf: "flex-start" }}>
-        <Stack direction="row" gap={1} align="center">
-          <Icon icon={ArrowLeft} size={15} color="faint" />
-          <Text size="sm" color="faint">
-            çağrı okan
-          </Text>
-        </Stack>
-      </Link>
-
       <Stack as="article" gap={10}>
         <Stack gap={2}>
           <Text as="h1" size="3xl">

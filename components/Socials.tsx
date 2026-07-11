@@ -20,6 +20,7 @@ export function Socials() {
           className="hover-fade"
         >
           <MaskIcon src={c.icon} color="muted" />
+          <span className="sr-only">{c.label}</span>
         </a>
       ))}
     </Stack>

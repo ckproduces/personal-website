@@ -1,11 +1,10 @@
 import { Section } from "@/components/Section";
+import dynamic from "next/dynamic";
 import { EntryRow } from "@/components/Entry";
-import { Logo } from "@/components/Logo";
 import { Stack } from "@/components/Stack";
 import { Text } from "@/components/Text";
 import { Socials } from "@/components/Socials";
 import { Blogs } from "@/components/Blogs";
-import { Footer } from "@/components/Footer";
 import { allPosts } from "@/lib/posts";
 import {
   intro,
@@ -14,6 +13,8 @@ import {
   projects,
   education,
 } from "@/lib/site";
+
+const Footer = dynamic(() => import("@/components/Footer").then((m) => m.Footer));
 
 export default function HomePage() {
   const posts = allPosts.map(({ slug, title, date }) => ({
@@ -26,7 +27,6 @@ export default function HomePage() {
     <Stack as="main" gap={16}>
       <Stack as="header" gap={4}>
         <Stack align="start" gap={1}>
-          <Logo />
           <Text as="h1" size="3xl">
             çağrı okan
           </Text>

@@ -97,7 +97,7 @@ export const projects: Entry[] = [
       { href: "https://instagram.com/ecoistanbulapp", label: "instagram" },
       {
         href: "/blog/my-journey-to-building-a-green-company",
-        label: "read more",
+        label: "ecoistanbul story",
       },
     ],
   },
@@ -123,7 +123,7 @@ export const connections = [
     href: "https://github.com/ckproduces",
     icon: "/logos/github_logo.svg",
   },
-  { label: "x", href: "https://x.com/ckproduces", icon: "/logos/x_logo.svg" },
+  { label: "x", href: "https://x.com/madebyroark", icon: "/logos/x_logo.svg" },
   {
     label: "linkedin",
     href: "https://linkedin.com/in/cagriokan",
@@ -131,7 +131,7 @@ export const connections = [
   },
   {
     label: "instagram",
-    href: "https://instagram.com/crokan_",
+    href: "https://instagram.com/madebyroark",
     icon: "/logos/instagram_logo.svg",
   },
 ];

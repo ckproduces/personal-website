@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter_Tight } from "next/font/google";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { Stack } from "@/components/Stack";
+import { Analytics } from "@vercel/analytics/next";
+import { Navbar } from "@/components/Navbar";
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -16,6 +16,8 @@ const interTight = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-inter-tight",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -91,12 +93,9 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className={interTight.className}>
-        <div className="page-shell">
-          <Stack direction="row" justify="flex-end" style={{ marginBottom: "var(--space-4)" }}>
-            <ThemeToggle />
-          </Stack>
-          {children}
-        </div>
+        <Navbar />
+        <div className="page-shell">{children}</div>
+        <Analytics />
       </body>
     </html>
   );

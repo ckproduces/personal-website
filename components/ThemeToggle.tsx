@@ -24,7 +24,7 @@ export function ThemeToggle() {
     <Button
       ariaLabel={theme === "dark" ? "switch to light mode" : "switch to dark mode"}
       onClick={toggle}
-      style={{ alignSelf: "flex-end" }}
+      style={{ flexShrink: 0 }}
     >
       <Icon icon={theme === "dark" ? Sun : Moon} size={18} color="muted" />
     </Button>
