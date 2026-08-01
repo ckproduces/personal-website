@@ -45,19 +45,19 @@ const demoEntry = {
   meta: "ai business school",
   note: "a brief explanation shown inline. the position is plain text; the org is a link.",
   metaHref: "https://aibusinessschool.com",
-  date: "feb 2026 — present",
+  date: "feb 2026 to present",
 };
 
 export default function Playbook() {
   return (
-    <Stack as="main" gap={12}>
+    <Stack as="main" id="main-content" gap={12}>
       <Stack as="header" gap={1}>
         <Text as="h1" size="3xl" style={{ letterSpacing: "-0.03em" }}>
           playbook
         </Text>
         <Text as="p" color="muted" size="md">
           the design tokens and components. everything on the site is built from
-          these — reuse them instead of writing new css.
+          these. reuse them instead of writing new css.
         </Text>
       </Stack>
 
@@ -101,7 +101,7 @@ export default function Playbook() {
             <Text size="xs" color="faint" style={{ width: 40, flexShrink: 0 }}>
               {s}
             </Text>
-            <Text size={s}>inter tight — overfit to excellence</Text>
+            <Text size={s}>nunito · overfit to excellence</Text>
           </Stack>
         ))}
       </Section>
@@ -149,11 +149,11 @@ export default function Playbook() {
       {/* --------------------------------------------------- states: selection */}
       <Section label="selection">
         <Text>
-          default selection uses a red-tinted highlight — select this sentence
+          default selection uses a red-tinted highlight. select this sentence
           to preview.
         </Text>
         <Text color="red" className="select-accent">
-          red accent text keeps red when selected — select this line.
+          red accent text keeps red when selected. select this line.
         </Text>
         <Logo size={40} />
       </Section>
@@ -161,7 +161,7 @@ export default function Playbook() {
       <Section label="theme">
         <Text color="muted" size="sm">
           use the toggle in the top-right corner to switch light / dark mode.
-          tokens remap through semantic roles — components stay the same.
+          tokens remap through semantic roles. components stay the same.
         </Text>
       </Section>
 
@@ -190,8 +190,7 @@ export default function Playbook() {
 
       <Section label="link">
         <Text>
-          an <Link href="https://example.com">inline link</Link> reads in accent
-          with an underline.
+          an <Link href="https://example.com">inline link</Link> fades on hover.
         </Text>
         <Link href="/" plain>
           a plain link inherits its surroundings →
@@ -224,7 +223,7 @@ export default function Playbook() {
         <EntryRow entry={demoEntry} />
         <EntryRow
           entry={{
-            title: "bulut — accessibility web assistant",
+            title: "bulut · accessibility web assistant",
             note: "projects with external links get chips; multiple links sit in a row.",
             date: "",
             links: [

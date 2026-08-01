@@ -1,18 +1,20 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
 import { X } from "lucide-react";
 import { Stack } from "@/components/Stack";
 import { Text } from "@/components/Text";
 import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
-import { space, COLORS } from "@/lib/tokens";
+import { space, COLORS, RADII } from "@/lib/tokens";
+
+const FOCUSABLE =
+  'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
 /**
  * Minimal modal: a backdrop that fades in and a panel that rises. Closes on
- * backdrop click or Escape, and locks body scroll while open. Keyframes live in
- * globals.css; everything else is token-styled primitives.
+ * backdrop click or Escape, traps focus, and locks body scroll while open.
  */
 export function Modal({
   title,
@@ -23,15 +25,43 @@ export function Modal({
   onClose: () => void;
   children: ReactNode;
 }) {
+  const titleId = useId();
+  const panelRef = useRef<HTMLDivElement>(null);
+  const previousFocus = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
+    previousFocus.current = document.activeElement as HTMLElement | null;
+    const panel = panelRef.current;
+    const closeBtn = panel?.querySelector<HTMLElement>("button");
+    closeBtn?.focus();
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !panel) return;
+
+      const nodes = Array.from(panel.querySelectorAll<HTMLElement>(FOCUSABLE));
+      if (nodes.length === 0) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
+
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      previousFocus.current?.focus();
     };
   }, [onClose]);
 
@@ -52,16 +82,19 @@ export function Modal({
         animation: "fadeIn 0.2s ease",
       }}
     >
-      <Stack
-        gap={5}
-        padding={6}
-        background="white"
-        radius="lg"
+      <div
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
-        aria-label={title}
-        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+        aria-labelledby={titleId}
+        onClick={(e) => e.stopPropagation()}
         style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: space(5),
+          padding: space(6),
+          background: COLORS.white,
+          borderRadius: RADII.lg,
           width: "100%",
           maxWidth: 520,
           maxHeight: "80vh",
@@ -70,18 +103,22 @@ export function Modal({
         }}
       >
         <Stack direction="row" justify="space-between" align="center">
-          <Text size="lg" color="black">
+          <Text as="h2" id={titleId} size="lg" color="black" weight="semibold">
             {title}
           </Text>
-          <Button ariaLabel="close" onClick={onClose}>
+          <Button ariaLabel="close dialog" onClick={onClose}>
             <Icon icon={X} size={20} color="muted" />
           </Button>
         </Stack>
-        <Stack style={{
-          maxHeight: "400px",
-          overflowY: "auto"
-        }}>{children}</Stack>
-      </Stack>
+        <Stack
+          style={{
+            maxHeight: "400px",
+            overflowY: "auto",
+          }}
+        >
+          {children}
+        </Stack>
+      </div>
     </div>
   );
 }

@@ -14,8 +14,6 @@ const ThemeToggle = dynamic(() =>
   import("@/components/ThemeToggle").then((m) => m.ThemeToggle),
 );
 
-const SCROLL_THRESHOLD = 10;
-
 /** Fixed top bar with logo + theme toggle; hides on scroll down, shows on scroll up. */
 export function Navbar() {
   const pathname = usePathname();
@@ -29,11 +27,11 @@ export function Navbar() {
     const onScroll = () => {
       const y = window.scrollY;
 
-      if (y <= SCROLL_THRESHOLD) {
+      if (y <= 0) {
         setVisible(true);
-      } else if (y > lastY.current + SCROLL_THRESHOLD) {
+      } else if (y > lastY.current) {
         setVisible(false);
-      } else if (y < lastY.current - SCROLL_THRESHOLD) {
+      } else if (y < lastY.current) {
         setVisible(true);
       }
 
@@ -45,7 +43,7 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className={`site-navbar${visible ? "" : " is-hidden"}`}>
+    <header className={`site-navbar${visible ? "" : " is-hidden"}`} role="banner">
       <div className="site-navbar__inner content-width">
         <Stack direction="row" justify="space-between" align="center" gap={4}>
           {isBlogPost ? (
@@ -64,7 +62,6 @@ export function Navbar() {
           )}
           <ThemeToggle />
         </Stack>
-        <hr className="site-navbar__rule" />
       </div>
     </header>
   );

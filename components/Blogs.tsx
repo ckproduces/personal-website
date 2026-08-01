@@ -22,7 +22,7 @@ export function Blogs({ posts }: { posts: PostMeta[] }) {
   const visible = posts.slice(0, MAX_VISIBLE);
 
   return (
-    <Stack gap={4}>
+    <Stack gap={6}>
       {visible.map((post) => (
         <BlogRow key={post.slug} post={post} />
       ))}

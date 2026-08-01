@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import ecoistanbul from "@/content/posts/ecoistanbul";
 import senato from "@/content/posts/overcomplicating-my-philosophy-journal-senato";
-import aboutMe from "@/content/posts/about-me";
 
 export type PostMeta = {
   slug: string;
@@ -22,7 +21,6 @@ export type Post = PostMeta & {
 const posts: Post[] = [
   ecoistanbul,
   senato,
-  aboutMe,
 ];
 
 /** Newest first. */

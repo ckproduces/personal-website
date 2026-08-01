@@ -29,44 +29,46 @@ export function EntryRow({ entry }: { entry: Entry }) {
   const links = entry.links ?? [];
 
   return (
-    <Stack gap={0}>
-      <Stack direction="row" justify="space-between" align="baseline" gap={4}>
-        <Text weight="medium" style={{ minWidth: 0 }}>
-          {entry.title}
-          {entry.meta ? (
-            <>
-              {" @ "}
-              {entry.metaHref ? (
-                <Link href={entry.metaHref}>{entry.meta}</Link>
-              ) : (
-                entry.meta
-              )}
-            </>
+    <Stack gap={0} className="entry-block">
+      <Stack gap={0}>
+        <Stack direction="row" justify="space-between" align="baseline" gap={4}>
+          <Text weight="semibold" style={{ minWidth: 0 }}>
+            {entry.title}
+            {entry.meta ? (
+              <>
+                {" @ "}
+                {entry.metaHref ? (
+                  <Link href={entry.metaHref}>{entry.meta}</Link>
+                ) : (
+                  entry.meta
+                )}
+              </>
+            ) : null}
+          </Text>
+          {entry.date ? (
+            <Text
+              size="sm"
+              color="faint"
+              style={{ whiteSpace: "nowrap", flexShrink: 0 }}
+            >
+              {entry.date}
+            </Text>
           ) : null}
-        </Text>
-        {entry.date ? (
-          <Text
-            size="sm"
-            color="faint"
-            style={{ whiteSpace: "nowrap", flexShrink: 0 }}
-          >
-            {entry.date}
+        </Stack>
+
+        {entry.note ? (
+          <Text size="sm" color="faint">
+            {entry.note}
           </Text>
         ) : null}
       </Stack>
-
-      {entry.note ? (
-        <Text size="sm" color="faint">
-          {entry.note}
-        </Text>
-      ) : null}
 
       {links.length > 0 ? (
         <Stack
           direction="row"
           gap={2}
           wrap
-          style={{ marginTop: space(2) }}
+          style={{ marginTop: space(3) }}
         >
           {links.map((link) => (
             <EntryChip key={link.href} link={link} />

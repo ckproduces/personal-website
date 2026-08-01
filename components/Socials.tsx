@@ -17,7 +17,7 @@ export function Socials() {
           target="_blank"
           rel="noreferrer"
           aria-label={c.label}
-          className="hover-fade"
+          className="hover-fade pressable"
         >
           <MaskIcon src={c.icon} color="muted" />
           <span className="sr-only">{c.label}</span>

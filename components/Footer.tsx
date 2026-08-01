@@ -11,6 +11,9 @@ const PHRASES = [
   "perfect",
   "will figure out",
   "an outlier by design",
+  "do great things",
+  "who is john galt?",
+  
 ];
 
 function shufflePhrases(items: string[]) {
@@ -61,7 +64,6 @@ export function Footer() {
   return (
     <footer>
       <Stack gap={3}>
-        <hr />
         <Stack
           direction="row"
           justify="space-between"

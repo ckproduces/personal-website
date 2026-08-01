@@ -32,7 +32,7 @@ export function Button({
       disabled={disabled}
       aria-label={ariaLabel}
       aria-expanded={ariaExpanded}
-      className={`hover-fade${className ? ` ${className}` : ""}`}
+      className={`hover-fade pressable${className ? ` ${className}` : ""}`}
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -42,6 +42,7 @@ export function Button({
         color: "inherit",
         cursor: disabled ? "default" : "pointer",
         textAlign: "left",
+        userSelect: "none",
         ...style,
       }}
     >

@@ -28,20 +28,20 @@ export const experience: Entry[] = [
     meta: "ai business school",
     note: "i contribute to the Adoption and Content platforms: production support, engineering tickets, and resolving live issues.",
     metaHref: "https://aibusinessschool.com",
-    date: "feb 2026 — present",
+    date: "feb 2026 to present",
   },
   {
     title: "monitoring specialist",
     meta: "artı ve artı it consulting",
     note: "provided 24/7 remote monitoring support: triaging technical tickets, forwarding them to the right teams, and preparing incident reports.",
     metaHref: "https://artivearti.com",
-    date: "jul 2025 — feb 2026",
+    date: "jul 2025 to feb 2026",
   },
   {
     title: "project intern",
     meta: "yenibirlider association",
     note: "I was fully given the chance to create a campaign and a project for students from scratch.",
-    date: "jul — aug 2022",
+    date: "jul to aug 2022",
   },
 ];
 
@@ -51,13 +51,13 @@ export const involvement: Entry[] = [
     meta: "ytü data science club",
     note: "plan and run the club's workshops and study tracks for members.",
     metaHref: "https://instagram.com/ytuveribilimi",
-    date: "jun 2024 — present",
+    date: "jun 2024 to present",
   },
   {
     title: "education mentor",
     meta: "kodluyoruz",
     note: "taught javascript fundamentals to early-career learners.",
-    date: "jun 2022 — jun 2023",
+    date: "jun 2022 to jun 2023",
   },
 ];
 
@@ -68,7 +68,7 @@ export const projects: Entry[] = [
     date: "",
   },
   {
-    title: "bulut — accessibility web assistant",
+    title: "bulut · accessibility web assistant",
     note: "an accessibility-focused web assistant that can read and navigate pages, scroll, click controls, and fill forms.",
     date: "",
     links: [
@@ -79,7 +79,7 @@ export const projects: Entry[] = [
     ],
   },
   {
-    title: "manifold — synthetic dataset creator",
+    title: "manifold · synthetic dataset creator",
     note: "a hackathon-winning synthetic dataset creator focused on image and video generation for near–edge cases.",
     date: "",
     links: [
@@ -90,7 +90,7 @@ export const projects: Entry[] = [
     ],
   },
   {
-    title: "ecoistanbul — sustainable tourism app",
+    title: "ecoistanbul · sustainable tourism app",
     note: "an ai-powered sustainable tourism application built with kotlin and android studio. 6th globally in the world affairs challenge.",
     date: "",
     links: [
@@ -113,7 +113,7 @@ export const education: Entry[] = [
   {
     title: "tev inanç türkeş private high school",
     note: "is an independent co-educational boarding high school located in Gebze, Kocaeli",
-    date: "aug 2020 — jun 2024",
+    date: "aug 2020 to jun 2024",
   },
 ];
 

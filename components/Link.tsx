@@ -1,6 +1,5 @@
 import NextLink from "next/link";
 import type { CSSProperties, ReactNode } from "react";
-import { COLORS } from "@/lib/tokens";
 
 type LinkProps = {
   href: string;
@@ -14,26 +13,21 @@ type LinkProps = {
 
 /**
  * One link for the whole site. External hrefs open in a new tab; internal ones
- * route through next/link. Inline by default (accent + underline); pass `plain`
+ * route through next/link. Inline by default (fade on hover); pass `plain`
  * for links that wrap their own layout. Always fades on hover.
  */
 export function Link({ href, children, plain, onClick, className, style }: LinkProps) {
   const external = /^https?:\/\//.test(href);
-  const inlineStyle: CSSProperties = plain
-    ? {}
-    : {
-        color: COLORS.accentStrong,
-        borderBottom: `1px solid ${COLORS.line}`,
-      };
-  const cls = `hover-fade${className ? ` ${className}` : ""}`;
-  const merged = { ...inlineStyle, ...style };
+  const cls = [plain ? "hover-fade pressable" : "inline-link pressable", className]
+    .filter(Boolean)
+    .join(" ");
 
   if (external) {
     return (
       <a
         href={href}
         className={cls}
-        style={merged}
+        style={style}
         onClick={onClick}
         target="_blank"
         rel="noreferrer"
@@ -44,7 +38,7 @@ export function Link({ href, children, plain, onClick, className, style }: LinkP
   }
 
   return (
-    <NextLink href={href} className={cls} style={merged} onClick={onClick}>
+    <NextLink href={href} className={cls} style={style} onClick={onClick}>
       {children}
     </NextLink>
   );

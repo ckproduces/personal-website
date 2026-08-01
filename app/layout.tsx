@@ -1,20 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Inter_Tight } from "next/font/google";
+import { Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/Navbar";
 import {
   SITE_DESCRIPTION,
   SITE_NAME,
+  SITE_LOCALE,
   SITE_TWITTER,
   SITE_URL,
 } from "@/lib/site-meta";
+import { personJsonLd, webSiteJsonLd } from "@/lib/structured-data";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 import "./prose.css";
 
-const interTight = Inter_Tight({
+const nunito = Nunito({
   subsets: ["latin"],
-  variable: "--font-inter-tight",
+  variable: "--font-nunito",
   display: "swap",
   preload: true,
   adjustFontFallback: true,
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: SITE_NAME,
-    template: `%s — ${SITE_NAME}`,
+    template: `%s · ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   applicationName: SITE_NAME,
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: SITE_LOCALE,
     url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_NAME,
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
         url: "/logo.svg",
         width: 512,
         height: 512,
-        alt: SITE_NAME,
+        alt: `${SITE_NAME} logo`,
       },
     ],
   },
@@ -87,12 +89,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = [personJsonLd(), webSiteJsonLd()];
+
   return (
-    <html lang="en" className={interTight.variable} suppressHydrationWarning>
+    <html lang="en" className={nunito.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
-      <body className={interTight.className}>
+      <body className={nunito.className}>
+        <a href="#main-content" className="skip-link">
+          skip to content
+        </a>
         <Navbar />
         <div className="page-shell">{children}</div>
         <Analytics />

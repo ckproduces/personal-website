@@ -16,10 +16,12 @@ export function Section({
   gap?: number;
   children: ReactNode;
 }) {
+  const titleId = `section-${label.replace(/\s+/g, "-").replace(/[^a-z0-9-]/gi, "")}`;
+
   return (
-    <Stack as="section" gap={4} radius="sm">
+    <Stack as="section" gap={2} radius="sm" aria-labelledby={titleId}>
       <Stack gap={0}>
-        <Text size="lg" color="black">
+        <Text as="h2" id={titleId} size="lg" color="black" weight="semibold">
           {label}
         </Text>
         <hr />

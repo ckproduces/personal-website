@@ -38,7 +38,7 @@ export function Text({
       style={{
         fontSize: text(size),
         color: COLORS[color],
-        fontWeight: w ? weight(w) : undefined,
+        fontWeight: weight(w ?? "normal"),
         ...style,
       }}
       {...rest}
