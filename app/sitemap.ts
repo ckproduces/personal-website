@@ -1,16 +1,18 @@
 import type { MetadataRoute } from "next";
-import { allPosts } from "@/lib/posts";
+import { getAllPosts } from "@/lib/load-posts";
 import { SITE_URL } from "@/lib/site-meta";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getAllPosts();
+
   return [
     {
       url: SITE_URL,
-      lastModified: new Date(),
+      lastModified: posts[0]?.date ?? new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
-    ...allPosts.map((post) => ({
+    ...posts.map((post) => ({
       url: `${SITE_URL}/blog/${post.slug}`,
       lastModified: post.date,
       changeFrequency: "yearly" as const,

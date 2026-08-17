@@ -5,6 +5,7 @@ export const meta = {
   slug: "my-first-agentic-ai-product",
   title: "my first agentic ai product",
   date: "2025-12-05",
+  draft: true,
 };
 
 function Body() {

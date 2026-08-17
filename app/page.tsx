@@ -6,7 +6,7 @@ import { Text } from "@/components/Text";
 import { Socials } from "@/components/Socials";
 import { Blogs } from "@/components/Blogs";
 import { Footer } from "@/components/Footer";
-import { allPosts } from "@/lib/posts";
+import { getAllPosts } from "@/lib/load-posts";
 import {
   intro,
   experience,
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-static";
 
-export default function HomePage() {
-  const posts = allPosts.map(({ slug, title, date }) => ({
+export default async function HomePage() {
+  const posts = (await getAllPosts()).map(({ slug, title, date }) => ({
     slug,
     title,
     date,
