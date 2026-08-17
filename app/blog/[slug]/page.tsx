@@ -16,7 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
-  if (!post) return { title: "not found" };
+  if (!post) return { title: "not found", robots: { index: false } };
   return blogPostMetadata(post);
 }
 
@@ -54,7 +54,8 @@ export default async function PostPage({
           </div>
         </Stack>
         <Stack padding={20}>
-          <img height={100} src="/logo.svg" alt="senato website design" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img height={100} src="/logo.svg" alt="çağrı okan" />
         </Stack>
       </Stack>
     </>

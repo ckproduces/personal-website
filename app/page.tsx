@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/Section";
-import dynamic from "next/dynamic";
 import { EntryRow } from "@/components/Entry";
 import { Stack } from "@/components/Stack";
 import { Text } from "@/components/Text";
 import { Socials } from "@/components/Socials";
 import { Blogs } from "@/components/Blogs";
+import { Footer } from "@/components/Footer";
 import { allPosts } from "@/lib/posts";
 import {
   intro,
@@ -16,19 +16,16 @@ import {
 } from "@/lib/site";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/site-meta";
 
-const Footer = dynamic(() => import("@/components/Footer").then((m) => m.Footer));
-
 export const metadata: Metadata = {
   title: SITE_NAME,
   description: SITE_DESCRIPTION,
-  alternates: { canonical: SITE_URL },
-  openGraph: {
-    title: SITE_NAME,
-    description: SITE_DESCRIPTION,
-    url: SITE_URL,
-    type: "profile",
+  alternates: {
+    canonical: SITE_URL,
+    languages: { en: SITE_URL },
   },
 };
+
+export const dynamic = "force-static";
 
 export default function HomePage() {
   const posts = allPosts.map(({ slug, title, date }) => ({

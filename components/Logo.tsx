@@ -14,7 +14,7 @@ export function Logo({
       src="/logo.svg"
       size={size}
       color="red"
-      label="logo"
+      label="çağrı okan"
       selectAccent
       style={{
         marginBottom: "var(--space-2)",

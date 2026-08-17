@@ -4,8 +4,9 @@ import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/Navbar";
 import {
   SITE_DESCRIPTION,
-  SITE_NAME,
+  SITE_LANG,
   SITE_LOCALE,
+  SITE_NAME,
   SITE_TWITTER,
   SITE_URL,
 } from "@/lib/site-meta";
@@ -15,7 +16,7 @@ import "./globals.css";
 import "./prose.css";
 
 const nunito = Nunito({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-nunito",
   display: "swap",
   preload: true,
@@ -41,8 +42,11 @@ export const metadata: Metadata = {
     "dropoutt",
     "portfolio",
   ],
-  alternates: {
-    canonical: SITE_URL,
+  verification: {
+    google: "jGgRF7XCgSB404Y4ZHcePs7Rl_ra584JQajzEYLCjb0",
+    other: {
+      "msvalidate.01": "F6143E346FC77676C2CCF0CEB858F64E",
+    },
   },
   openGraph: {
     type: "website",
@@ -51,21 +55,12 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: [
-      {
-        url: "/logo.svg",
-        width: 512,
-        height: 512,
-        alt: `${SITE_NAME} logo`,
-      },
-    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     creator: SITE_TWITTER,
-    images: ["/logo.svg"],
   },
   robots: {
     index: true,
@@ -92,7 +87,7 @@ export default function RootLayout({
   const jsonLd = [personJsonLd(), webSiteJsonLd()];
 
   return (
-    <html lang="en" className={nunito.variable} suppressHydrationWarning>
+    <html lang={SITE_LANG} className={nunito.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script

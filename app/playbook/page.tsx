@@ -14,8 +14,14 @@ import { EntryRow } from "@/components/Entry";
 import { Blogs } from "@/components/Blogs";
 import { Footer } from "@/components/Footer";
 import { COLORS, RADII, space, type TextSize } from "@/lib/tokens";
+import { SITE_URL } from "@/lib/site-meta";
 
-export const metadata: Metadata = { title: "playbook" };
+export const metadata: Metadata = {
+  title: "playbook",
+  description: "design tokens and components used on this site.",
+  alternates: { canonical: `${SITE_URL}/playbook` },
+  robots: { index: false, follow: false },
+};
 
 const GRAYS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const INKS = [50, 100, 200, 400, 600, 800, 950];

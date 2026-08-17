@@ -1,0 +1,26 @@
+# çağrı okan
+
+> Personal site of Çağrı Okan — co-founder of dropoutt, tech entrepreneur, and AI researcher in Istanbul.
+
+Site: https://cagriokan.com
+Language: English
+
+## Pages
+
+- [home](https://cagriokan.com): bio, projects, experience, writing
+- [my journey to building a green company](https://cagriokan.com/blog/my-journey-to-building-a-green-company): ecoistanbul, world affairs challenge
+- [overcomplicating my philosophy journal: senato](https://cagriokan.com/blog/overcomplicating-my-philosophy-journal-senato): high-school philosophy journal
+
+## Projects
+
+- cisimcik ai labs — turkish-first language models and assistants
+- bulut — accessibility web assistant (read, navigate, fill forms)
+- manifold — synthetic image/video dataset creator
+- ecoistanbul — sustainable tourism app (6th globally, world affairs challenge)
+
+## Elsewhere
+
+- GitHub: https://github.com/ckproduces
+- X: https://x.com/madebyroark
+- LinkedIn: https://linkedin.com/in/cagriokan
+- Instagram: https://instagram.com/madebyroark

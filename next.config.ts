@@ -4,6 +4,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Avoid picking a parent directory when multiple lockfiles exist on the machine.
   outputFileTracingRoot: path.join(process.cwd()),
+  productionBrowserSourceMaps: false,
+  poweredByHeader: false,
+  compiler: {
+    removeConsole: { exclude: ["error"] },
+  },
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },

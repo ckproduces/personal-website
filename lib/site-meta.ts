@@ -5,3 +5,5 @@ export const SITE_DESCRIPTION =
   "co-founder @ dropoutt, tech entrepreneur, ai researcher. bio, projects, and writing.";
 export const SITE_TWITTER = "@madebyroark";
 export const SITE_LOCALE = "en_US";
+export const SITE_LANG = "en";
+export const SITE_OG_IMAGE = "/opengraph-image";
